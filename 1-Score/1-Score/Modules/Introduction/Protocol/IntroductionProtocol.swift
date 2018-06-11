@@ -6,35 +6,44 @@
 //  Copyright © 2018 TIMA. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 //View
-protocol IntroductionViewProtocol {
+protocol IntroductionViewProtocol : class {
     func setPage(changePage:Int);
+    func disableButton();
+    func enableButton();
     func finishView();
-    func onDestroy();
 }
 //Presenter
-protocol IntroductionPresenterProtocol {
+protocol IntroductionPresenterProtocol : class {
+    var view: IntroductionViewProtocol? { get set }
+    var interactor: IntroductionInteractorInputProtocol? { get set }
+    var wireframe: IntroductionWireframeProtocol? { get set }
+    
     func nextPagePresenter(currentPage:Int, countPage:Int);
     func backPagePresenter(currentPage:Int);
-    func checkFirstLaunch();
-    func onDestroy();
 }
 //Interactor
-protocol IntroductionInteractorInputProtocol {
+protocol IntroductionInteractorInputProtocol : class {
+    var presenter:IntroductionInteractorOutputProtocol? { get set }
+    var dataStore:IntroductionDataStoreProtocol? { get set }
+    
     func nextPage(currentPage:Int, countPage:Int);
     func backPage(currentPage:Int);
-    func checkFirstLaunch();
-    func unRegister();
 }
 
-protocol IntroductionInteractorOutputProtocol {
-    func nextPageOutput(page:Int);
-    func backPageOutput(page:Int);
+protocol IntroductionInteractorOutputProtocol : class {
+    func setPage(changePage:Int);
+    func changeStateButton(changePage:Int);
     func launchMainScreen();
 }
 //Wireframe
-protocol IntroductionWireframeProtocol {
-    func goToMainView();
+protocol IntroductionWireframeProtocol : class {
+    static func getModule() -> UIPageViewController;
+    func goToMainView(view:IntroductionViewProtocol);
+}
+//DataStore
+protocol IntroductionDataStoreProtocol : class {
+    func updateConfig(introductionEntity:IntroductionEntity);
 }

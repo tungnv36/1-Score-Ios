@@ -9,65 +9,16 @@
 import UIKit
 
 extension UIView {
-    func applyGradient(colours: [UIColor]) -> Void {
-        self.applyGradient(colours: colours, locations: nil)
-    }
     
-    func applyGradientBottomToTop(colours: [UIColor], locations: [NSNumber]?) -> Void {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame.size.width = self.layer.bounds.width
-        gradient.frame.size.height = self.layer.bounds.height
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
-        gradient.colors = colours.map { $0.cgColor }
-        gradient.locations = locations
-        self.layer.insertSublayer(gradient, at: 0)
-    }
-    
-    func applyGradient(colours: [UIColor], locations: [NSNumber]?, startPoint: CGPoint, endPoint: CGPoint) -> Void {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame.size.width = 2 * UIScreen.main.bounds.width / 5
-        gradient.frame.size.height = self.layer.bounds.height
-        gradient.cornerRadius = self.bounds.height / 2
-        gradient.startPoint = startPoint
-        gradient.endPoint = endPoint
-        gradient.colors = colours.map { $0.cgColor }
-        gradient.locations = locations
-        self.layer.insertSublayer(gradient, at: 0)
-    }
-    
-    func applyGradientBottomToTopWithSize(colours: [UIColor], locations: [NSNumber]?, w: CGFloat, h: CGFloat) -> Void {
+    func applyGradient(colours: [UIColor], startPoint: CGPoint, endPoint: CGPoint, w: CGFloat, h: CGFloat, cornerRadius: CGFloat) -> Void {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame.size.width = w
         gradient.frame.size.height = h
-        gradient.cornerRadius = self.bounds.height / 2
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
+        gradient.cornerRadius = cornerRadius
+        gradient.startPoint = startPoint
+        gradient.endPoint = endPoint
         gradient.colors = colours.map { $0.cgColor }
-        gradient.locations = locations
-        self.layer.insertSublayer(gradient, at: 0)
-    }
-    
-    func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> Void {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame.size.width = 2 * UIScreen.main.bounds.width / 5
-        gradient.frame.size.height = self.layer.bounds.height
-        gradient.cornerRadius = self.bounds.height / 2
-        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
-        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradient.colors = colours.map { $0.cgColor }
-        gradient.locations = locations
-        self.layer.insertSublayer(gradient, at: 0)
-    }
-    
-    func applyGradientNoBorderRadius(colours: [UIColor], locations: [NSNumber]?) -> Void {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame.size.width = UIScreen.main.bounds.width
-        gradient.frame.size.height = self.layer.bounds.height
-        gradient.startPoint = CGPoint(x: 0.2, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.8, y: 1.0)
-        gradient.colors = colours.map { $0.cgColor }
-        gradient.locations = locations
+        gradient.locations = [0.0, 1.0]
         self.layer.insertSublayer(gradient, at: 0)
     }
     
@@ -97,15 +48,15 @@ extension UIView {
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
     
-    func dropShadow() {
+    func dropShadow(_ corner: CGFloat) {
         layer.masksToBounds = true
-        layer.cornerRadius = 10
+        layer.cornerRadius = corner
         backgroundColor = UIColor.white
         
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.2
-        layer.shadowOffset = CGSize.zero
+        layer.shadowOffset = CGSize(width: -1.5, height: 1.5)
         layer.shadowRadius = 5
     }
     

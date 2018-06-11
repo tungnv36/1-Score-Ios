@@ -28,31 +28,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }
+            
+            let introMainVC = IntroductionWireframe.getModule()
+            
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = introMainVC
+            self.window?.makeKeyAndVisible()
         } else {
             let cfg: Config = config.first as! Config
-//            print("SHOW_INTRO: \(cfg.showIntro)")
-            if cfg.showIntro {
-                let introMainModule = IntroductionWireframe()
-                let introMainVC = introMainModule.getModule()
+            print("SHOW_INTRO: \(cfg.showIntro)")
+            if !cfg.showIntro {
+                let introMainVC = IntroductionWireframe.getModule()
 
                 self.window = UIWindow(frame: UIScreen.main.bounds)
                 self.window?.rootViewController = introMainVC
                 self.window?.makeKeyAndVisible()
             } else {
-                //                let loginView = LoginView()
-                //                let navigationController = UINavigationController(rootViewController: loginView)
-                //                navigationController.isNavigationBarHidden = true
-                //                self.window = UIWindow(frame: UIScreen.main.bounds)
-                //                self.window?.rootViewController = navigationController
-                //                self.window?.makeKeyAndVisible()
-
-                //                self.window = UIWindow(frame: UIScreen.main.bounds)
-                //                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                //                let exampleViewController: VCLogin = mainStoryboard.instantiateViewController(withIdentifier: "loginController") as! VCLogin
-                //
-                //                self.window?.rootViewController = exampleViewController
-                //
-                //                self.window?.makeKeyAndVisible()
+                let mainVC = MainWireframe.getModule()
+                
+                self.window = UIWindow(frame: UIScreen.main.bounds)
+                self.window?.rootViewController = mainVC
+                self.window?.makeKeyAndVisible()
             }
         }
         return true

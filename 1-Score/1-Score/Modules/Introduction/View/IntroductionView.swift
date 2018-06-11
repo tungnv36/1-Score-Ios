@@ -15,6 +15,8 @@ class IntroductionView: UIPageViewController, UIPageViewControllerDataSource, UI
     let leftButton = UIButton()
     let rightButton = UIButton()
     
+    var introPresenter : IntroductionPresenterProtocol?
+    
     lazy var subViewControllers:[UIViewController] = {
         return [
             Intro1View(),
@@ -66,61 +68,33 @@ class IntroductionView: UIPageViewController, UIPageViewControllerDataSource, UI
         self.rightButton.addTarget(self, action: #selector(actionNext), for: .touchUpInside)
     }
     
-    @objc func actionBack(sender: UIButton!) {
-        if self.pageControl.currentPage > 0 {
-            setViewControllers([subViewControllers[self.pageControl.currentPage - 1]], direction: .reverse, animated: true, completion: nil)
-            self.pageControl.currentPage = self.pageControl.currentPage - 1
-        }
-        if self.pageControl.currentPage == 0 {
-            self.leftButton.setImage(UIImage(named: "arrow_left_disable.png"), for: .normal)
-            self.leftButton.isEnabled = false
-        }
-    }
-    
     @objc func actionNext(sender: UIButton!) {
-        if self.pageControl.currentPage < subViewControllers.count - 1 {
-            setViewControllers([subViewControllers[self.pageControl.currentPage + 1]], direction: .forward, animated: true, completion: nil)
-            self.pageControl.currentPage = self.pageControl.currentPage + 1
-            
-            self.leftButton.setImage(UIImage(named: "arrow_left.png"), for: .normal)
-            self.leftButton.isEnabled = true
-        } else {
-            let nextViewController = MainView()
-            self.present(nextViewController, animated:true, completion:nil)
-            //update data
-//            self.updateConfig()
-        }
+        introPresenter?.nextPagePresenter(currentPage: self.pageControl.currentPage, countPage: subViewControllers.count)
+//        if self.pageControl.currentPage < subViewControllers.count - 1 {
+//            setViewControllers([subViewControllers[self.pageControl.currentPage + 1]], direction: .forward, animated: true, completion: nil)
+//            self.pageControl.currentPage = self.pageControl.currentPage + 1
+//            
+//            self.leftButton.setImage(UIImage(named: "arrow_left.png"), for: .normal)
+//            self.leftButton.isEnabled = true
+//        } else {
+//            let nextViewController = MainView()
+//            self.present(nextViewController, animated:true, completion:nil)
+//            //update data
+////            self.updateConfig()
+//        }
     }
     
-    func updateConfig() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Config")
-        fetchRequest.returnsObjectsAsFaults = false
-        
-        do
-        {
-            let results = try managedContext.fetch(fetchRequest)
-            for managedObject in results
-            {
-                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
-                managedContext.delete(managedObjectData)
-            }
-            
-            let configEntity = NSEntityDescription.entity(forEntityName: "Config", in: managedContext)!
-            let config = NSManagedObject(entity: configEntity, insertInto: managedContext)
-            config.setValue(true, forKeyPath: "showIntro")
-            
-            try managedContext.save()
-        } catch {
-            print("Delete all data")
-        }
+    @objc func actionBack(sender: UIButton!) {
+        introPresenter?.backPagePresenter(currentPage: self.pageControl.currentPage)
+        //        if self.pageControl.currentPage > 0 {
+        //            setViewControllers([subViewControllers[self.pageControl.currentPage - 1]], direction: .reverse, animated: true, completion: nil)
+        //            self.pageControl.currentPage = self.pageControl.currentPage - 1
+        //        }
+        //        if self.pageControl.currentPage == 0 {
+//                    self.leftButton.setImage(UIImage(named: "arrow_left_disable.png"), for: .normal)
+//                    self.leftButton.isEnabled = false
+        //        }
     }
-    
-//    required init?(coder: NSCoder) {
-//        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-//    }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return subViewControllers.count
@@ -156,6 +130,29 @@ class IntroductionView: UIPageViewController, UIPageViewControllerDataSource, UI
                 self.pageControl.currentPage = viewControllerIndex
             }
         }
+    }
+    
+}
+
+extension IntroductionView : IntroductionViewProtocol {
+    
+    func setPage(changePage: Int) {
+        setViewControllers([subViewControllers[changePage]], direction: .forward, animated: true, completion: nil)
+        self.pageControl.currentPage = changePage
+    }
+    
+    func disableButton() {
+        self.leftButton.setImage(UIImage(named: "arrow_left_disable.png"), for: .normal)
+        self.leftButton.isEnabled = false
+    }
+    
+    func enableButton() {
+        self.leftButton.setImage(UIImage(named: "arrow_left.png"), for: .normal)
+        self.leftButton.isEnabled = true
+    }
+    
+    func finishView() {
+        
     }
     
 }

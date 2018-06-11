@@ -9,30 +9,30 @@
 import UIKit
 
 class IntroductionWireframe : IntroductionWireframeProtocol {
-
-    var interactor:IntroductionInteractor!
-    var presenter:IntroductionPresenter!
     
-    func getModule() -> UIPageViewController {
-        
+    class func getModule() -> UIPageViewController {
         let introView = IntroductionView(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        let presenter = IntroductionPresenter()
-        let interactor = IntroductionInteractor()
+        let presenter:IntroductionPresenterProtocol&IntroductionInteractorOutputProtocol = IntroductionPresenter()
+        let interactor:IntroductionInteractorInputProtocol = IntroductionInteractor()
+        let dataStore:IntroductionDataStoreProtocol = IntroductionDataStore()
+        let wireFrame:IntroductionWireframeProtocol = IntroductionWireframe()
         
-//        mainView.numberPresenter = presenter
-//        presenter.numberView = view
-//        interactor.numberPresenter = presenter
-//        presenter.numberInteractor = interactor
-//        presenter.numberWireframe = self
-//
-//        self.interactor = interactor
-//        self.presenter = presenter
+        introView.introPresenter = presenter
+        presenter.view = introView
+        presenter.interactor = interactor
+        presenter.wireframe = wireFrame
+        
+        interactor.presenter = presenter
+        interactor.dataStore = dataStore
         
         return introView
     }
     
-    func goToMainView() {
-        
+    func goToMainView(view:IntroductionViewProtocol) {
+        let nextViewController = MainWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
     }
     
 }
