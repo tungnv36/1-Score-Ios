@@ -36,10 +36,10 @@ class MainWireframe : MainWireframeProtocol {
     }
     
     func goToRegisterView(view: MainViewProtocol) {
-//        let nextViewController = LoginWireframe.getModule()
-//        if let sourceView = view as? UIViewController {
-//            sourceView.present(nextViewController, animated:true, completion:nil)
-//        }
+        let nextViewController = RegisterWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
     }
     
 }

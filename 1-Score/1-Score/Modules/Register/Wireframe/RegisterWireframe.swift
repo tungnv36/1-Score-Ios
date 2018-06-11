@@ -8,6 +8,24 @@
 
 import UIKit
 
-class RegisterWireframe {
+class RegisterWireframe : RegisterWireframeProtocol {
+    
+    static func getModule() -> UIViewController {
+        let registerView = RegisterView()
+        let presenter:RegisterPresenterProtocol&RegisterInteractorOutputProtocol = RegisterPresenter()
+        let interactor:RegisterInteractorInputProtocol = RegisterInteractor()
+        let dataStore:RegisterDataStoreProtocol = RegisterDataStore()
+        let wireFrame:RegisterWireframeProtocol = RegisterWireframe()
+        
+        registerView.registerPresenter = presenter
+        presenter.view = registerView
+        presenter.interactor = interactor
+        presenter.wireframe = wireFrame
+        
+        interactor.presenter = presenter
+        interactor.dataStore = dataStore
+        
+        return registerView
+    }
     
 }

@@ -28,4 +28,11 @@ class LoginWireframe : LoginWireframeProtocol {
         return loginView
     }
     
+    func goToHomePage(view: LoginViewProtocol) {
+        let nextViewController = HomePageWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
 }

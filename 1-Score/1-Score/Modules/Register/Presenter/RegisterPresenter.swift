@@ -8,6 +8,14 @@
 
 import UIKit
 
-class RegisterPresenter {
+class RegisterPresenter : RegisterPresenterProtocol{
+    
+    var view: RegisterViewProtocol?
+    var interactor: RegisterInteractorInputProtocol?
+    var wireframe: RegisterWireframeProtocol?
+    
+}
+
+extension RegisterPresenter : RegisterInteractorOutputProtocol {
     
 }

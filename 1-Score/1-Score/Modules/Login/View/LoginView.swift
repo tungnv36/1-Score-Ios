@@ -35,6 +35,24 @@ class LoginView: UIViewController {
         addBanner()
         addViewLogin()
         addLoginButton()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
+    }
+    
+    @objc func keyboardWillAppear(_ notification: NSNotification) {
+        if let userInfo = notification.userInfo,
+            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let inset = keyboardFrame.height
+            
+            let heightBanner:CGFloat = 8.7 * UIScreen.main.bounds.height / 20
+            viewLogin.topAnchor.constraint(equalTo: mainStackView.topAnchor, constant: heightBanner - inset + 50).isActive = true
+        }
+    }
+    
+    @objc func keyboardWillDisappear(_ notification: NSNotification) {
+        let heightBanner:CGFloat = 8.7 * UIScreen.main.bounds.height / 20
+        viewLogin.topAnchor.constraint(equalTo: mainStackView.topAnchor, constant: heightBanner - 30).isActive = true
     }
     
     func addMainStackView() {
@@ -206,7 +224,7 @@ class LoginView: UIViewController {
     }
     
     @objc func actionLogin(sender: UIButton!) {
-        
+        loginPresenter?.login(username: txtUser.text!, password: txtPass.text!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -216,5 +234,24 @@ class LoginView: UIViewController {
 }
 
 extension LoginView : LoginViewProtocol {
+    
+    func userEmpty(msg: String) {
+        let alert = UIAlertController(title: "Thông báo!", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func passEmpty(msg: String) {
+        let alert = UIAlertController(title: "Thông báo!", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func loginFailed(err:String) {
+        let alert = UIAlertController(title: "Thông báo!", message: err, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }

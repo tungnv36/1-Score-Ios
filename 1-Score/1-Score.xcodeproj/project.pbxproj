@@ -50,6 +50,13 @@
 		225AD01D20CE8CD900F9CA34 /* RegisterWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225AD01C20CE8CD900F9CA34 /* RegisterWireframe.swift */; };
 		225AD01F20CE8CF400F9CA34 /* RegisterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225AD01E20CE8CF400F9CA34 /* RegisterEntity.swift */; };
 		225AD02120CE8D0100F9CA34 /* RegisterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225AD02020CE8D0100F9CA34 /* RegisterDataStore.swift */; };
+		22692B0220CED6DD005C3036 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0120CED6DD005C3036 /* HomePageView.swift */; };
+		22692B0420CED6FA005C3036 /* HomePagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0320CED6FA005C3036 /* HomePagePresenter.swift */; };
+		22692B0620CED719005C3036 /* HomePageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0520CED719005C3036 /* HomePageInteractor.swift */; };
+		22692B0820CED769005C3036 /* HomePageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0720CED769005C3036 /* HomePageProtocol.swift */; };
+		22692B0A20CED773005C3036 /* HomePageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0920CED773005C3036 /* HomePageEntity.swift */; };
+		22692B0C20CED780005C3036 /* HomePageWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0B20CED780005C3036 /* HomePageWireframe.swift */; };
+		22692B0E20CED78C005C3036 /* HomePageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0D20CED78C005C3036 /* HomePageDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +126,13 @@
 		225AD01C20CE8CD900F9CA34 /* RegisterWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWireframe.swift; sourceTree = "<group>"; };
 		225AD01E20CE8CF400F9CA34 /* RegisterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEntity.swift; sourceTree = "<group>"; };
 		225AD02020CE8D0100F9CA34 /* RegisterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDataStore.swift; sourceTree = "<group>"; };
+		22692B0120CED6DD005C3036 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		22692B0320CED6FA005C3036 /* HomePagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePagePresenter.swift; sourceTree = "<group>"; };
+		22692B0520CED719005C3036 /* HomePageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageInteractor.swift; sourceTree = "<group>"; };
+		22692B0720CED769005C3036 /* HomePageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageProtocol.swift; sourceTree = "<group>"; };
+		22692B0920CED773005C3036 /* HomePageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageEntity.swift; sourceTree = "<group>"; };
+		22692B0B20CED780005C3036 /* HomePageWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageWireframe.swift; sourceTree = "<group>"; };
+		22692B0D20CED78C005C3036 /* HomePageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +225,7 @@
 		2202185F20CD75B10016EA9E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				22692AF920CED692005C3036 /* HomePage */,
 				225AD00C20CE8C2200F9CA34 /* Register */,
 				225ACFF520CE6F7400F9CA34 /* Login */,
 				2202188420CD838B0016EA9E /* Main */,
@@ -561,6 +576,76 @@
 			path = DataStore;
 			sourceTree = "<group>";
 		};
+		22692AF920CED692005C3036 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				22692B0020CED6C3005C3036 /* DataStore */,
+				22692AFF20CED6BB005C3036 /* Wireframe */,
+				22692AFE20CED6B6005C3036 /* Entity */,
+				22692AFD20CED6B0005C3036 /* Protocol */,
+				22692AFC20CED6AA005C3036 /* Interactor */,
+				22692AFB20CED6A5005C3036 /* Presenter */,
+				22692AFA20CED6A0005C3036 /* View */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		22692AFA20CED6A0005C3036 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				22692B0120CED6DD005C3036 /* HomePageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		22692AFB20CED6A5005C3036 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				22692B0320CED6FA005C3036 /* HomePagePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		22692AFC20CED6AA005C3036 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				22692B0520CED719005C3036 /* HomePageInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		22692AFD20CED6B0005C3036 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				22692B0720CED769005C3036 /* HomePageProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		22692AFE20CED6B6005C3036 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				22692B0920CED773005C3036 /* HomePageEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		22692AFF20CED6BB005C3036 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				22692B0B20CED780005C3036 /* HomePageWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		22692B0020CED6C3005C3036 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				22692B0D20CED78C005C3036 /* HomePageDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -693,18 +778,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				2202187F20CD829E0016EA9E /* IntroductionPresenter.swift in Sources */,
+				22692B0220CED6DD005C3036 /* HomePageView.swift in Sources */,
 				225ACFE220CE242D00F9CA34 /* IntroductionEntity.swift in Sources */,
 				2202183620CD751C0016EA9E /* __Score.xcdatamodeld in Sources */,
+				22692B0E20CED78C005C3036 /* HomePageDataStore.swift in Sources */,
 				225AD00620CE6FDA00F9CA34 /* LoginEntity.swift in Sources */,
 				2202186F20CD75F40016EA9E /* ExtensionUIButton.swift in Sources */,
 				225AD01920CE8CAB00F9CA34 /* RegisterInteractor.swift in Sources */,
 				2202188B20CD87E50016EA9E /* Intro1View.swift in Sources */,
+				22692B0420CED6FA005C3036 /* HomePagePresenter.swift in Sources */,
 				225ACFE520CE252900F9CA34 /* MainWireframe.swift in Sources */,
 				225AD00A20CE6FF000F9CA34 /* LoginDataStore.swift in Sources */,
 				225AD01F20CE8CF400F9CA34 /* RegisterEntity.swift in Sources */,
 				2202186D20CD75F40016EA9E /* ExtensionUIStackView.swift in Sources */,
 				225AD00820CE6FE500F9CA34 /* LoginWireframe.swift in Sources */,
 				225ACFE020CE171700F9CA34 /* IntroductionDataStore.swift in Sources */,
+				22692B0620CED719005C3036 /* HomePageInteractor.swift in Sources */,
 				225AD01B20CE8CBE00F9CA34 /* RegisterProtocol.swift in Sources */,
 				225AD00020CE6FBB00F9CA34 /* LoginPresenter.swift in Sources */,
 				2202186E20CD75F40016EA9E /* ExtensionColor.swift in Sources */,
@@ -714,6 +803,7 @@
 				2202186320CD75DB0016EA9E /* Enums.swift in Sources */,
 				2202187D20CD80140016EA9E /* IntroductionWireframe.swift in Sources */,
 				225ACFFE20CE6FAD00F9CA34 /* LoginView.swift in Sources */,
+				22692B0820CED769005C3036 /* HomePageProtocol.swift in Sources */,
 				2202187B20CD7ABE0016EA9E /* IntroductionView.swift in Sources */,
 				2202188D20CD87EF0016EA9E /* Intro2View.swift in Sources */,
 				225AD00420CE6FD100F9CA34 /* LoginProtocol.swift in Sources */,
@@ -726,9 +816,11 @@
 				2202188320CD82D20016EA9E /* IntroductionProtocol.swift in Sources */,
 				225ACFED20CE26DC00F9CA34 /* MainInteractor.swift in Sources */,
 				225ACFEF20CE270800F9CA34 /* MainPresenter.swift in Sources */,
+				22692B0A20CED773005C3036 /* HomePageEntity.swift in Sources */,
 				225ACFEB20CE256600F9CA34 /* MainProtocol.swift in Sources */,
 				2202188120CD82AE0016EA9E /* IntroductionInteractor.swift in Sources */,
 				2202188720CD83AB0016EA9E /* MainView.swift in Sources */,
+				22692B0C20CED780005C3036 /* HomePageWireframe.swift in Sources */,
 				2202186C20CD75F40016EA9E /* ExtensionCGFloat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,9 @@
 
 import UIKit
 
-class RegisterInteractor {
+class RegisterInteractor : RegisterInteractorInputProtocol {
+    
+    var presenter: RegisterInteractorOutputProtocol?
+    var dataStore: RegisterDataStoreProtocol?
     
 }

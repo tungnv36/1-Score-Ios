@@ -14,8 +14,28 @@ class LoginPresenter : LoginPresenterProtocol {
     var interactor: LoginInteractorInputProtocol?
     var wireframe: LoginWireframeProtocol?
     
+    func login(username: String, password: String) {
+        interactor?.login(username: username, password: password)
+    }
+    
 }
 
 extension LoginPresenter : LoginInteractorOutputProtocol {
+    
+    func userEmpty(msg: String) {
+        view?.userEmpty(msg: msg)
+    }
+    
+    func passEmpty(msg: String) {
+        view?.passEmpty(msg: msg)
+    }
+    
+    func loginFailed(err:String) {
+        view?.loginFailed(err: err)
+    }
+    
+    func loginSuccess(username: String, password: String) {
+        wireframe?.goToHomePage(view: view!)
+    }
     
 }

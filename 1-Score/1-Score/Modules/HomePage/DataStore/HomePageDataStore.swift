@@ -1,5 +1,5 @@
 //
-//  RegisterDataStore.swift
+//  HomePageDataStore.swift
 //  1-Score
 //
 //  Created by TIMA on 6/11/18.
@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import CoreData
 
-class RegisterDataStore : RegisterDataStoreProtocol {
+class HomePageDataStore : HomePageDataStoreProtocol {
     
 }

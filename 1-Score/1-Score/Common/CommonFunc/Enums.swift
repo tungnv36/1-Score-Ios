@@ -23,6 +23,12 @@ enum StringEnum:String {
     case LBL_REGISTER = "Đăng ký"
     case LBL_USER = "Nhập số điện thoại"
     case LBL_PASS = "Mật khẩu"
+    case LBL_REPASS = "Nhập lại mật khẩu"
+    case LBL_EMAIL = "E-mail"
     case BTN_LOST_PASS = "Quên mật khẩu?"
+    
+    case MSG_USER_EMPTY = "Bạn chưa nhập tài khoản"
+    case MSG_PASS_EMPTY = "Bạn chưa nhập mật khẩu"
+    
     case MAIN_FONT = "Segoe"
 }
