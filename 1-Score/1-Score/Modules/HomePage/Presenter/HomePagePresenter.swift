@@ -14,8 +14,24 @@ class HomePagePresenter : HomePagePresenterProtocol {
     var interactor: HomePageInteractorInputProtocol?
     var wireframe: HomePageWireframeProtocol?
     
+    func goToProfile() {
+        interactor?.goToProfile()
+    }
+    
+    func goToLoanRequest() {
+        interactor?.goToLoanRequest()
+    }
+    
 }
 
 extension HomePagePresenter : HomePageInteractorOutputProtocol {
+    
+    func goToProfileOutput() {
+        wireframe?.goToProfile(view: view!)
+    }
+    
+    func goToLoanRequestOutput() {
+        wireframe?.goToLoanRequest(view: view!)
+    }
     
 }

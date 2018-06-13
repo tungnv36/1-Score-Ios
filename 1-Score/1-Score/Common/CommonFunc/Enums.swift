@@ -16,6 +16,9 @@ enum ColorEnum:Int {
     case TEXT_LIGHT = 0xD4D4D4
     case BUTTON_BLUE_DARK = 0x3A3E82
     case BUTTON_BLUE_LIGHT = 0x419DF9
+    
+    case PROGRESS_COLOR = 0xFDCB48
+    case BG_PROGRESS_COLOR = 0x444444
 }
 
 enum StringEnum:String {
@@ -29,6 +32,10 @@ enum StringEnum:String {
     
     case MSG_USER_EMPTY = "Bạn chưa nhập tài khoản"
     case MSG_PASS_EMPTY = "Bạn chưa nhập mật khẩu"
+    
+    case TITLE_HOME_PAGE = "Trang chủ"
+    case TITLE_PER_INFO_PAGE = "Thông tin cá nhân"
+    case TITLE_LOAN_REQUEST = "Yêu cầu vay"
     
     case MAIN_FONT = "Segoe"
 }

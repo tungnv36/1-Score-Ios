@@ -19,7 +19,23 @@ extension UIView {
         gradient.endPoint = endPoint
         gradient.colors = colours.map { $0.cgColor }
         gradient.locations = [0.0, 1.0]
-        self.layer.insertSublayer(gradient, at: 0)
+        self.layer.addSublayer(gradient)
+//        self.layer.insertSublayer(gradient, at: 0)
+    }
+    
+    func applyGradientProgress(colours: [UIColor], startPoint: CGPoint, endPoint: CGPoint, w: CGFloat, h: CGFloat, cornerRadius: CGFloat) -> Void {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame.size.width = 0
+        gradient.frame.size.height = h
+        gradient.cornerRadius = cornerRadius
+        gradient.startPoint = startPoint
+        gradient.endPoint = endPoint
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.locations = [0.0, 1.0]
+        self.layer.addSublayer(gradient)
+        UIView.animate(withDuration: 1.5, animations: {
+            gradient.frame.size.width = w
+        })
     }
     
     // OUTPUT 1
@@ -56,8 +72,8 @@ extension UIView {
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.2
-        layer.shadowOffset = CGSize(width: -1.5, height: 1.5)
-        layer.shadowRadius = 5
+        layer.shadowOffset = CGSize(width: -1.0, height: 1.0)
+        layer.shadowRadius = 3
     }
     
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
@@ -83,6 +99,13 @@ extension UIView {
         
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
         self.addSubview(blurEffectView)
+    }
+    
+    func round(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
     }
     
 }

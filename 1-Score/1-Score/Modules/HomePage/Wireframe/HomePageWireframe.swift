@@ -28,4 +28,18 @@ class HomePageWireframe : HomePageWireframeProtocol {
         return homePageView
     }
     
+    func goToProfile(view: HomePageViewProtocol) {
+        let nextViewController = ProfileWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
+    func goToLoanRequest(view: HomePageViewProtocol) {
+        let nextViewController = LoanWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
 }

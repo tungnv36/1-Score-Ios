@@ -13,4 +13,12 @@ class HomePageInteractor : HomePageInteractorInputProtocol {
     var presenter: HomePageInteractorOutputProtocol?
     var dataStore: HomePageDataStoreProtocol?
     
+    func goToProfile() {
+        presenter?.goToProfileOutput()
+    }
+    
+    func goToLoanRequest() {
+        presenter?.goToLoanRequestOutput()
+    }
+    
 }

@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import UIKit
+
+struct MenuEntity {
+    var icon:UIImage?
+    var title:String?
+    var subTitle:String?
+}

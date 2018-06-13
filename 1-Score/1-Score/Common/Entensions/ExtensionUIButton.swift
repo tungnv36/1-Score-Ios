@@ -22,4 +22,20 @@ extension UIButton {
 //            endPoint: CGPoint(x: 1.0, y: 0.0)
 //        )
 //    }
+    
+    /// 0 => .ScaleToFill
+    /// 1 => .ScaleAspectFit
+    /// 2 => .ScaleAspectFill
+    @IBInspectable
+    var imageContentMode: Int {
+        get {
+            return self.imageView?.contentMode.rawValue ?? 0
+        }
+        set {
+            if let mode = UIViewContentMode(rawValue: newValue),
+                self.imageView != nil {
+                self.imageView?.contentMode = mode
+            }
+        }
+    }
 }
