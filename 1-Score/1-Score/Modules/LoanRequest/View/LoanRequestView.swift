@@ -10,6 +10,8 @@ import UIKit
 
 class LoanRequestView: UIViewController {
 
+    var progress:CGFloat = 50
+    
     var loanPresenter:LoanPresenterProtocol?
     
     var mainStackView:UIStackView = UIStackView()
@@ -28,12 +30,15 @@ class LoanRequestView: UIViewController {
     
     var tableView:UITableView?
     
+    let cellID = "LoanCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         
         addMainView()
         addBanner()
+        addTableView()
     }
     
     func addMainView() {
@@ -53,6 +58,9 @@ class LoanRequestView: UIViewController {
     func addBanner() {
         let heightBanner:CGFloat = 160
         let sizeAvatar:CGFloat = 80
+        let spacing:CGFloat = 20
+        let sizeProgress:CGFloat = UIScreen.main.bounds.width - sizeAvatar - spacing * 3
+        
         mainStackView.addSubview(viewBanner)
         viewBanner.translatesAutoresizingMaskIntoConstraints = false
         viewBanner.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor).isActive = true
@@ -96,7 +104,7 @@ class LoanRequestView: UIViewController {
         
         viewBanner.addSubview(ivAvatar)
         ivAvatar.translatesAutoresizingMaskIntoConstraints = false
-        ivAvatar.leadingAnchor.constraint(equalTo: viewBanner.leadingAnchor, constant: 20).isActive = true
+        ivAvatar.leadingAnchor.constraint(equalTo: viewBanner.leadingAnchor, constant: spacing).isActive = true
         ivAvatar.topAnchor.constraint(equalTo: ibBack.bottomAnchor, constant: 10).isActive = true
         ivAvatar.widthAnchor.constraint(equalToConstant: sizeAvatar).isActive = true
         ivAvatar.heightAnchor.constraint(equalToConstant: sizeAvatar).isActive = true
@@ -106,8 +114,8 @@ class LoanRequestView: UIViewController {
         
         viewBanner.addSubview(bgProgress)
         bgProgress.translatesAutoresizingMaskIntoConstraints = false
-        bgProgress.leadingAnchor.constraint(equalTo: ivAvatar.trailingAnchor, constant: 20).isActive = true
-        bgProgress.trailingAnchor.constraint(equalTo: viewBanner.trailingAnchor, constant: -20).isActive = true
+        bgProgress.leadingAnchor.constraint(equalTo: ivAvatar.trailingAnchor, constant: spacing).isActive = true
+        bgProgress.trailingAnchor.constraint(equalTo: viewBanner.trailingAnchor, constant: -spacing).isActive = true
         bgProgress.bottomAnchor.constraint(equalTo: ivAvatar.bottomAnchor, constant: -10).isActive = true
         bgProgress.heightAnchor.constraint(equalToConstant: 3).isActive = true
         bgProgress.bounds.size.height = 3
@@ -116,18 +124,84 @@ class LoanRequestView: UIViewController {
         bgProgress.backgroundColor = UIColor.white
         bgProgress.layer.cornerRadius = bgProgress.bounds.height / 2
         
-//        viewBanner.addSubview(progressBar)
-//        progressBar.translatesAutoresizingMaskIntoConstraints = false
-//        progressBar.leadingAnchor.constraint(equalTo: bgProgress.leadingAnchor).isActive = true
-//        progressBar.centerYAnchor.constraint(equalTo: bgProgress.centerYAnchor).isActive = true
+        viewBanner.addSubview(progressBar)
+        progressBar.translatesAutoresizingMaskIntoConstraints = false
+        progressBar.leadingAnchor.constraint(equalTo: bgProgress.leadingAnchor).isActive = true
+//        progressBar.trailingAnchor.constraint(equalTo: bgProgress.trailingAnchor).isActive = true
+        progressBar.centerYAnchor.constraint(equalTo: bgProgress.centerYAnchor).isActive = true
+        progressBar.heightAnchor.constraint(equalToConstant: 9).isActive = true
         
-//        viewBanner.addSubview(lblName)
-//        lblName.translatesAutoresizingMaskIntoConstraints = false
-//        lblName.leadingAnchor.constraint(equalTo: ivAvatar.trailingAnchor, constant: 20).isActive = true
-//        lblName.bottomAnchor.constraint(equalTo: ivAvatar.centerYAnchor, constant: 30).isActive = true
-//        lblName.text = "Nguyễn Vũ Tùng"
-//        lblName.textColor = UIColor.white
-//        lblName.font = UIFont.systemFont(ofSize: 16)
+        progressBar.applyGradient(
+            colours: [
+                UIColor.rgb(fromHex: ColorEnum.ORANGE_DARK.rawValue),
+                UIColor.rgb(fromHex: ColorEnum.ORANGE_LIGHT.rawValue)
+            ],
+            startPoint: CGPoint(x: 0.0, y: 0.0),
+            endPoint: CGPoint(x: 1.0, y: 0.0),
+            w: sizeProgress * progress/100,
+            h: 9,
+            cornerRadius: 4.5
+        )
+        
+        viewBanner.addSubview(lblTitleLevel)
+        lblTitleLevel.translatesAutoresizingMaskIntoConstraints = false
+        lblTitleLevel.leadingAnchor.constraint(equalTo: bgProgress.leadingAnchor).isActive = true
+        lblTitleLevel.bottomAnchor.constraint(equalTo: bgProgress.topAnchor, constant: -10).isActive = true
+        
+        lblTitleLevel.text = "Level "
+        lblTitleLevel.textColor = UIColor.white
+        lblTitleLevel.font = UIFont.systemFont(ofSize: 12)
+        
+        viewBanner.addSubview(lblLevel)
+        lblLevel.translatesAutoresizingMaskIntoConstraints = false
+        lblLevel.leadingAnchor.constraint(equalTo: lblTitleLevel.trailingAnchor).isActive = true
+        lblLevel.bottomAnchor.constraint(equalTo: bgProgress.topAnchor, constant: -10).isActive = true
+        
+        lblLevel.text = "10"
+        lblLevel.textColor = UIColor.white
+        lblLevel.font = UIFont.systemFont(ofSize: 14, weight: .black)
+        
+        viewBanner.addSubview(lblTitleScore)
+        lblTitleScore.translatesAutoresizingMaskIntoConstraints = false
+        lblTitleScore.leadingAnchor.constraint(equalTo: lblLevel.leadingAnchor, constant: 50).isActive = true
+        lblTitleScore.bottomAnchor.constraint(equalTo: bgProgress.topAnchor, constant: -10).isActive = true
+        
+        lblTitleScore.text = "Điểm "
+        lblTitleScore.textColor = UIColor.white
+        lblTitleScore.font = UIFont.systemFont(ofSize: 12)
+        
+        viewBanner.addSubview(lblScore)
+        lblScore.translatesAutoresizingMaskIntoConstraints = false
+        lblScore.leadingAnchor.constraint(equalTo: lblTitleScore.trailingAnchor).isActive = true
+        lblScore.bottomAnchor.constraint(equalTo: bgProgress.topAnchor, constant: -10).isActive = true
+        
+        lblScore.text = "10.000"
+        lblScore.textColor = UIColor.white
+        lblScore.font = UIFont.systemFont(ofSize: 14, weight: .black)
+        
+        viewBanner.addSubview(lblName)
+        lblName.translatesAutoresizingMaskIntoConstraints = false
+        lblName.leadingAnchor.constraint(equalTo: bgProgress.leadingAnchor).isActive = true
+        lblName.bottomAnchor.constraint(equalTo: lblScore.topAnchor, constant: -10).isActive = true
+        lblName.text = "Nguyễn Vũ Tùng"
+        lblName.textColor = UIColor.white
+        lblName.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+    }
+    
+    func addTableView() {
+        tableView = UITableView(frame: CGRect.zero)
+        mainStackView.addSubview(tableView!)
+        tableView?.translatesAutoresizingMaskIntoConstraints = false
+        tableView?.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor).isActive = true
+        tableView?.topAnchor.constraint(equalTo: viewBanner.bottomAnchor).isActive = true
+        tableView?.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor).isActive = true
+        tableView?.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor).isActive = true
+        
+        tableView?.backgroundColor = UIColor.white
+        
+        tableView?.register(LoanRequestViewCell.self, forCellReuseIdentifier: cellID)
+        tableView?.delegate = self
+        tableView?.dataSource = self
     }
     
     @objc func actionBack(sender: UIButton!) {
@@ -142,4 +216,22 @@ class LoanRequestView: UIViewController {
 
 extension LoanRequestView : LoanViewProtocol {
     
+}
+
+extension LoanRequestView : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! LoanRequestViewCell
+//        cell.
+//        cell.selectionStyle = .none
+//        cell.menuProfileEntity = menus[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }
