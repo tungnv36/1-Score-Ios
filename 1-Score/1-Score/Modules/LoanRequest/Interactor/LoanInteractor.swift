@@ -13,4 +13,8 @@ class LoanInteractor : LoanInteractorInputProtocol {
     var presenter: LoanInteractorOutputProtocol?
     var dataStore: LoanDataStoreProtocol?
     
+    func goToLoanRegistration() {
+        presenter?.goToLoanRegistrationOutput()
+    }
+    
 }

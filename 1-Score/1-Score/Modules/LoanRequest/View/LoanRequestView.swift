@@ -32,6 +32,8 @@ class LoanRequestView: UIViewController {
     
     let cellID = "LoanCell"
     
+    var loans:[LoanRequestEntity] = loanRequestData
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -190,22 +192,36 @@ class LoanRequestView: UIViewController {
     
     func addTableView() {
         tableView = UITableView(frame: CGRect.zero)
+        tableView?.separatorColor = UIColor.clear
         mainStackView.addSubview(tableView!)
         tableView?.translatesAutoresizingMaskIntoConstraints = false
         tableView?.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor).isActive = true
-        tableView?.topAnchor.constraint(equalTo: viewBanner.bottomAnchor).isActive = true
+        tableView?.topAnchor.constraint(equalTo: viewBanner.bottomAnchor, constant: 5).isActive = true
         tableView?.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor).isActive = true
         tableView?.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor).isActive = true
         
         tableView?.backgroundColor = UIColor.white
         
-        tableView?.register(LoanRequestViewCell.self, forCellReuseIdentifier: cellID)
+//        tableView?.register(LoanRequestViewCell.self, forCellReuseIdentifier: cellID)
+        tableView?.register(UINib(nibName: "LoanRequestViewCellNib", bundle: nil), forCellReuseIdentifier: cellID)
         tableView?.delegate = self
         tableView?.dataSource = self
+        
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        tableView?.estimatedRowHeight = 190
     }
     
     @objc func actionBack(sender: UIButton!) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func actionOpenOrClose(sender:UIButton!) {
+        loans[sender.tag].isShow = !loans[sender.tag].isShow!
+        tableView?.reloadData()
+    }
+    
+    @objc func actionLoan(sender:UIButton!) {
+        loanPresenter?.goToLoanRegistration()
     }
 
     override func didReceiveMemoryWarning() {
@@ -220,18 +236,22 @@ extension LoanRequestView : LoanViewProtocol {
 
 extension LoanRequestView : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return loans.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! LoanRequestViewCell
-//        cell.
-//        cell.selectionStyle = .none
-//        cell.menuProfileEntity = menus[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! LoanRequestViewCellNib
+        cell.selectionStyle = .none
+        cell.loanRequestEntity = loans[indexPath.row]
+        cell.btOpenOrClose.addTarget(self, action: #selector(actionOpenOrClose), for: .touchUpInside)
+        cell.btOpenOrClose.tag = indexPath.row
+        cell.btLoan.addTarget(self, action: #selector(actionLoan), for: .touchUpInside)
+        cell.btLoan.tag = indexPath.row
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
 }

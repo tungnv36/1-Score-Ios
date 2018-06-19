@@ -9,18 +9,23 @@
 import UIKit
 
 enum ColorEnum:Int {
-    case BLUE_DARK = 0x3A3985
-    case BLUE_MEDIUM = 0x397ED7
-    case BLUE_LIGHT = 0x3499FF
+    case BLUE_DARK = 0x3194DB//3A3985
+    case BLUE_MEDIUM = 0x83C3E0//397ED7
+    case BLUE_LIGHT = 0x81D5CC//3499FF
     case ORANGE_LIGHT = 0xFFCF1B
     case ORANGE_DARK = 0xFF881B
     case TEXT_DARK = 0x2A3C58
     case TEXT_LIGHT = 0xD4D4D4
+    case TEXT_MEDIUM = 0x707273
     case BUTTON_BLUE_DARK = 0x3A3E82
     case BUTTON_BLUE_LIGHT = 0x419DF9
+    case PROGRESS_LIGHT = 0x6EE2F5
+    case PROGRESS_DARK = 0x6454F0
+    case TEXT_ORANGE = 0xEC5656
     
     case PROGRESS_COLOR = 0xFDCB48
     case BG_PROGRESS_COLOR = 0x444444
+    case BUTTON_GREEN = 0x54D98E
 }
 
 enum StringEnum:String {
@@ -31,6 +36,7 @@ enum StringEnum:String {
     case LBL_REPASS = "Nhập lại mật khẩu"
     case LBL_EMAIL = "E-mail"
     case BTN_LOST_PASS = "Quên mật khẩu?"
+    case BTN_LOAN = "Vay"
     
     case MSG_USER_EMPTY = "Bạn chưa nhập tài khoản"
     case MSG_PASS_EMPTY = "Bạn chưa nhập mật khẩu"
@@ -38,6 +44,15 @@ enum StringEnum:String {
     case TITLE_HOME_PAGE = "Trang chủ"
     case TITLE_PER_INFO_PAGE = "Thông tin cá nhân"
     case TITLE_LOAN_REQUEST = "Yêu cầu vay"
+    case TITLE_LOAN_REGISTRATION = "Đăng ký vay"
+    case TITLE_FORM_OF_LOAN = "Hình thức vay"
+    case TITLE_PAYMENT_METHOD = "Phương thức thanh toán"
+    case TITLE_LOAN_PURPOSE = "Mục đích vay"
+    case TITLE_LOAN_MONEY = "Số tiền vay"
+    case TITLE_LOAN_TURM = "Thời hạn vay"
+    
+    case SELECT_FORM_OF_LOAN = "Chọn hình thức vay"
+    case SELECT_PAYMENT_METHOD = "Chọn phương thức thanh toán"
     
     case MAIN_FONT = "Segoe"
 }

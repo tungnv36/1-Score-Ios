@@ -108,4 +108,29 @@ extension UIView {
         self.layer.mask = mask
     }
     
+    func addProgress(progress:CGFloat) {
+        backgroundColor = UIColor.rgb(fromHex: ColorEnum.TEXT_LIGHT.rawValue)
+        applyGradient(
+            colours: [
+                UIColor.rgb(fromHex: ColorEnum.PROGRESS_DARK.rawValue),
+                UIColor.rgb(fromHex: ColorEnum.PROGRESS_LIGHT.rawValue)
+            ],
+            startPoint: CGPoint(x: 0.0, y: 0.0),
+            endPoint: CGPoint(x: 1.0, y: 0.0),
+            w: self.bounds.width * progress,
+            h: self.bounds.height,
+            cornerRadius: self.bounds.height/2
+        )
+    }
+    
+    func setBottomBorderView() {
+        self.layer.backgroundColor = UIColor.white.cgColor
+        
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.rgb(fromHex: ColorEnum.TEXT_LIGHT.rawValue).cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 0.6)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 0.0
+    }
+    
 }

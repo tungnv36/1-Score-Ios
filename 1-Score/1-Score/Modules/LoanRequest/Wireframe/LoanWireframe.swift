@@ -27,5 +27,12 @@ class LoanWireframe : LoanWireframeProtocol {
         
         return loanView
     }
+    
+    func goToLoanRegistration(view: LoanViewProtocol) {
+        let nextViewController = LoanRegistrationWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
 
 }

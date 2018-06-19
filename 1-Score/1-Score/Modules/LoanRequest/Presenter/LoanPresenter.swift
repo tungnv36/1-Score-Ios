@@ -14,8 +14,16 @@ class LoanPresenter : LoanPresenterProtocol {
     var interactor: LoanInteractorInputProtocol?
     var wireframe: LoanWireframeProtocol?
     
+    func goToLoanRegistration() {
+        interactor?.goToLoanRegistration()
+    }
+    
 }
 
 extension LoanPresenter : LoanInteractorOutputProtocol {
+    
+    func goToLoanRegistrationOutput() {
+        wireframe?.goToLoanRegistration(view: view!)
+    }
     
 }

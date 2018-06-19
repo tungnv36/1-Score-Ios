@@ -17,22 +17,24 @@ protocol LoanPresenterProtocol : class {
     var interactor: LoanInteractorInputProtocol? { get set }
     var wireframe: LoanWireframeProtocol? { get set }
     
-    
+    func goToLoanRegistration()
 }
 //Interactor
 protocol LoanInteractorInputProtocol : class {
     var presenter:LoanInteractorOutputProtocol? { get set }
     var dataStore:LoanDataStoreProtocol? { get set }
     
+    func goToLoanRegistration()
 }
 
 protocol LoanInteractorOutputProtocol : class {
-    
+    func goToLoanRegistrationOutput()
 }
 //Wireframe
 protocol LoanWireframeProtocol : class {
     static func getModule() -> UIViewController;
     
+    func goToLoanRegistration(view:LoanViewProtocol)
 }
 //DataStore
 protocol LoanDataStoreProtocol : class {
