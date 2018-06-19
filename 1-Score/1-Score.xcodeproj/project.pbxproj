@@ -70,6 +70,14 @@
 		22692B0A20CED773005C3036 /* MenuEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0920CED773005C3036 /* MenuEntity.swift */; };
 		22692B0C20CED780005C3036 /* HomePageWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0B20CED780005C3036 /* HomePageWireframe.swift */; };
 		22692B0E20CED78C005C3036 /* HomePageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0D20CED78C005C3036 /* HomePageDataStore.swift */; };
+		2277310120D8DDD9006BA0F0 /* UnderlineTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277310020D8DDD9006BA0F0 /* UnderlineTextButton.swift */; };
+		2277310B20D8FF00006BA0F0 /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277310A20D8FF00006BA0F0 /* UpdateProfileView.swift */; };
+		2277310D20D8FF0D006BA0F0 /* UpdateProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277310C20D8FF0D006BA0F0 /* UpdateProfilePresenter.swift */; };
+		2277310F20D8FF18006BA0F0 /* UpdateProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277310E20D8FF18006BA0F0 /* UpdateProfileInteractor.swift */; };
+		2277311120D8FF26006BA0F0 /* UpdateProfileWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277311020D8FF26006BA0F0 /* UpdateProfileWireframe.swift */; };
+		2277311320D8FF2E006BA0F0 /* UpdateProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277311220D8FF2E006BA0F0 /* UpdateProfileEntity.swift */; };
+		2277311520D8FF37006BA0F0 /* UpdateProfileDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277311420D8FF37006BA0F0 /* UpdateProfileDataStore.swift */; };
+		2277311720D8FF41006BA0F0 /* UpdateProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277311620D8FF41006BA0F0 /* UpdateProfileProtocol.swift */; };
 		22B262B320D7ABA500969422 /* ExtensionSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B262B220D7ABA500969422 /* ExtensionSlider.swift */; };
 		22B262B520D7AD6300969422 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B262B420D7AD6300969422 /* CustomSlider.swift */; };
 		22BFD88320D0B1B700CFD201 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BFD88220D0B1B700CFD201 /* MessageUI.framework */; };
@@ -182,6 +190,14 @@
 		22692B0920CED773005C3036 /* MenuEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuEntity.swift; sourceTree = "<group>"; };
 		22692B0B20CED780005C3036 /* HomePageWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageWireframe.swift; sourceTree = "<group>"; };
 		22692B0D20CED78C005C3036 /* HomePageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageDataStore.swift; sourceTree = "<group>"; };
+		2277310020D8DDD9006BA0F0 /* UnderlineTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTextButton.swift; sourceTree = "<group>"; };
+		2277310A20D8FF00006BA0F0 /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
+		2277310C20D8FF0D006BA0F0 /* UpdateProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfilePresenter.swift; sourceTree = "<group>"; };
+		2277310E20D8FF18006BA0F0 /* UpdateProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileInteractor.swift; sourceTree = "<group>"; };
+		2277311020D8FF26006BA0F0 /* UpdateProfileWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileWireframe.swift; sourceTree = "<group>"; };
+		2277311220D8FF2E006BA0F0 /* UpdateProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileEntity.swift; sourceTree = "<group>"; };
+		2277311420D8FF37006BA0F0 /* UpdateProfileDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileDataStore.swift; sourceTree = "<group>"; };
+		2277311620D8FF41006BA0F0 /* UpdateProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileProtocol.swift; sourceTree = "<group>"; };
 		22B262B220D7ABA500969422 /* ExtensionSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSlider.swift; sourceTree = "<group>"; };
 		22B262B420D7AD6300969422 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		22BD72D520D7A59000860A78 /* JMMarkSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JMMarkSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -314,6 +330,7 @@
 		2202185F20CD75B10016EA9E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2277310220D8FEBB006BA0F0 /* UpdateProfile */,
 				2204D03420D7671F00B82D31 /* LoanRegistration */,
 				22BFD8A620D124D200CFD201 /* LoanRequest */,
 				22BFD88420D0B47F00CFD201 /* Profile */,
@@ -549,6 +566,7 @@
 			children = (
 				221472A320CF5B630070AA3C /* MKMagneticProgress.swift */,
 				22B262B420D7AD6300969422 /* CustomSlider.swift */,
+				2277310020D8DDD9006BA0F0 /* UnderlineTextButton.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -818,6 +836,76 @@
 				221472A720CFD1110070AA3C /* MenuData.swift */,
 			);
 			path = DataStore;
+			sourceTree = "<group>";
+		};
+		2277310220D8FEBB006BA0F0 /* UpdateProfile */ = {
+			isa = PBXGroup;
+			children = (
+				2277310920D8FEEA006BA0F0 /* Protocol */,
+				2277310820D8FEE4006BA0F0 /* DataStore */,
+				2277310720D8FEDF006BA0F0 /* Entity */,
+				2277310620D8FED5006BA0F0 /* Wireframe */,
+				2277310520D8FECE006BA0F0 /* Interactor */,
+				2277310420D8FEC8006BA0F0 /* Presenter */,
+				2277310320D8FEC4006BA0F0 /* View */,
+			);
+			path = UpdateProfile;
+			sourceTree = "<group>";
+		};
+		2277310320D8FEC4006BA0F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2277310A20D8FF00006BA0F0 /* UpdateProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2277310420D8FEC8006BA0F0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2277310C20D8FF0D006BA0F0 /* UpdateProfilePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2277310520D8FECE006BA0F0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2277310E20D8FF18006BA0F0 /* UpdateProfileInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2277310620D8FED5006BA0F0 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				2277311020D8FF26006BA0F0 /* UpdateProfileWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		2277310720D8FEDF006BA0F0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2277311220D8FF2E006BA0F0 /* UpdateProfileEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2277310820D8FEE4006BA0F0 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				2277311420D8FF37006BA0F0 /* UpdateProfileDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		2277310920D8FEEA006BA0F0 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2277311620D8FF41006BA0F0 /* UpdateProfileProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		22BFD88120D0B1B600CFD201 /* Frameworks */ = {
@@ -1222,11 +1310,13 @@
 				225AD00A20CE6FF000F9CA34 /* LoginDataStore.swift in Sources */,
 				2204D04120D7689C00B82D31 /* LoanRegistrationInteractor.swift in Sources */,
 				225AD01F20CE8CF400F9CA34 /* RegisterEntity.swift in Sources */,
+				2277311320D8FF2E006BA0F0 /* UpdateProfileEntity.swift in Sources */,
 				2202186D20CD75F40016EA9E /* ExtensionUIStackView.swift in Sources */,
 				221472A620CFC1080070AA3C /* HomePageViewCell.swift in Sources */,
 				225AD00820CE6FE500F9CA34 /* LoginWireframe.swift in Sources */,
 				22BFD8B320D1255100CFD201 /* LoanInteractor.swift in Sources */,
 				2204D03F20D7688700B82D31 /* LoanRegistrationPresenter.swift in Sources */,
+				2277310120D8DDD9006BA0F0 /* UnderlineTextButton.swift in Sources */,
 				225ACFE020CE171700F9CA34 /* IntroductionDataStore.swift in Sources */,
 				22BFD88F20D0B51200CFD201 /* ProfilePresenter.swift in Sources */,
 				22BFD89120D0B52300CFD201 /* ProfileInteractor.swift in Sources */,
@@ -1240,15 +1330,18 @@
 				2202186A20CD75F40016EA9E /* ExtensionView.swift in Sources */,
 				225ACFF220CE276500F9CA34 /* MainDataStore.swift in Sources */,
 				2204D03D20D7687000B82D31 /* LoanRegistrationView.swift in Sources */,
+				2277311520D8FF37006BA0F0 /* UpdateProfileDataStore.swift in Sources */,
 				2202186320CD75DB0016EA9E /* Enums.swift in Sources */,
 				22BFD89F20D0F6FB00CFD201 /* MenuProfileEntity.swift in Sources */,
 				22BFD88D20D0B50600CFD201 /* ProfileView.swift in Sources */,
 				2202187D20CD80140016EA9E /* IntroductionWireframe.swift in Sources */,
 				2204D04320D768A900B82D31 /* LoanRegistrationWireframe.swift in Sources */,
 				225ACFFE20CE6FAD00F9CA34 /* LoginView.swift in Sources */,
+				2277310B20D8FF00006BA0F0 /* UpdateProfileView.swift in Sources */,
 				22692B0820CED769005C3036 /* HomePageProtocol.swift in Sources */,
 				2202187B20CD7ABE0016EA9E /* IntroductionView.swift in Sources */,
 				2202188D20CD87EF0016EA9E /* Intro2View.swift in Sources */,
+				2277310F20D8FF18006BA0F0 /* UpdateProfileInteractor.swift in Sources */,
 				2204D03220D75B1700B82D31 /* LoanRequestViewCellNib.swift in Sources */,
 				22B262B520D7AD6300969422 /* CustomSlider.swift in Sources */,
 				225AD00420CE6FD100F9CA34 /* LoginProtocol.swift in Sources */,
@@ -1262,8 +1355,10 @@
 				22BFD8A320D10C0500CFD201 /* ExtensionNSLayoutConstraint.swift in Sources */,
 				225AD01720CE8C8B00F9CA34 /* RegisterPresenter.swift in Sources */,
 				2202188320CD82D20016EA9E /* IntroductionProtocol.swift in Sources */,
+				2277311120D8FF26006BA0F0 /* UpdateProfileWireframe.swift in Sources */,
 				225ACFED20CE26DC00F9CA34 /* MainInteractor.swift in Sources */,
 				221472A820CFD1110070AA3C /* MenuData.swift in Sources */,
+				2277311720D8FF41006BA0F0 /* UpdateProfileProtocol.swift in Sources */,
 				22BFD89520D0B73F00CFD201 /* ProfileDataStore.swift in Sources */,
 				22B262B320D7ABA500969422 /* ExtensionSlider.swift in Sources */,
 				225ACFEF20CE270800F9CA34 /* MainPresenter.swift in Sources */,
@@ -1271,6 +1366,7 @@
 				22692B0A20CED773005C3036 /* MenuEntity.swift in Sources */,
 				2204D04720D768BC00B82D31 /* LoanRegistrationDataStore.swift in Sources */,
 				22BFD8B720D1258300CFD201 /* LoanProtocol.swift in Sources */,
+				2277310D20D8FF0D006BA0F0 /* UpdateProfilePresenter.swift in Sources */,
 				22BFD89C20D0D55700CFD201 /* ProfileViewCell.swift in Sources */,
 				225ACFEB20CE256600F9CA34 /* MainProtocol.swift in Sources */,
 				2202188120CD82AE0016EA9E /* IntroductionInteractor.swift in Sources */,

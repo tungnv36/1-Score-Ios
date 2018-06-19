@@ -28,4 +28,11 @@ class ProfileWireframe : ProfileWireframeProtocol {
         return profileView
     }
     
+    func goToUpdateProfile(view:ProfileViewProtocol) {
+        let nextViewController = UpdateProfileWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
 }

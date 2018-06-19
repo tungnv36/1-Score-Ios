@@ -14,8 +14,7 @@ class LoanRegistrationView: UIViewController {
     var loanRegistrationPresenter:LoanRegistrationPresenterProtocol?
     
     var scrollView:UIScrollView?
-    var mainStackView:UIStackView = UIStackView()
-    var viewScroll:UIView = UIView()
+    var mainView:UIView = UIView()
     
     var navBar:UIView = UIView()
     var ibBack:UIButton = UIButton()
@@ -52,6 +51,20 @@ class LoanRegistrationView: UIViewController {
     var viewGray:UIView = UIView()
     var viewInfo:UIView = UIView()
     var backgroundImage:UIImageView = UIImageView()
+    var lblTitleLoanMoneyInfo:UILabel = UILabel()
+    var lblLoanMoneyInfo:UILabel = UILabel()
+    var lblTitleCostInfo:UILabel = UILabel()
+    var lblCostInfo:UILabel = UILabel()
+    var lblTitleInterestInfo:UILabel = UILabel()
+    var lblInterestInfo:UILabel = UILabel()
+    var lblTitleTotalMoneyInfo:UILabel = UILabel()
+    var lblTotalMoneyInfo:UILabel = UILabel()
+    var cbCheckBoxContract:UIButton = UIButton()
+    var lblContractInfo:UILabel = UILabel()
+    var btContract:UnderlineTextButton = UnderlineTextButton()
+    
+    var btCancel:UIButton = UIButton()
+    var btRegister:UIButton = UIButton()
     
     var arrFormOfLoan = ["Vay theo lương", "Vay theo sim"]
     var arrPaymentMethod = ["Tiền mặt", "Chuyển khoản"]
@@ -63,6 +76,8 @@ class LoanRegistrationView: UIViewController {
     let dropDownFormOfLoans = DropDown()
     let dropDownPaymentMethod = DropDown()
     let dropDownLoanPurpose = DropDown()
+    
+    var isCheckContract = true;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,17 +155,6 @@ class LoanRegistrationView: UIViewController {
     }
     
     func addMainStackView() {
-//        view.addSubview(mainStackView)
-//        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-//        mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        mainStackView.topAnchor.constraint(equalTo: navBar.bottomAnchor).isActive = true
-//        mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-//
-//        mainStackView.axis = .vertical
-//        mainStackView.alignment = .fill
-//        mainStackView.distribution = .fill
-        
         scrollView = UIScrollView(frame: view.bounds)
         view.addSubview(scrollView!)
         scrollView?.translatesAutoresizingMaskIntoConstraints = false
@@ -159,19 +163,18 @@ class LoanRegistrationView: UIViewController {
         scrollView?.topAnchor.constraint(equalTo: navBar.bottomAnchor).isActive = true
         scrollView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        scrollView?.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1.5 * UIScreen.main.bounds.height)
         scrollView?.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.RawValue(UInt8(UIViewAutoresizing.flexibleWidth.rawValue) | UInt8(UIViewAutoresizing.flexibleHeight.rawValue)))
         
-        viewScroll.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height - 64)
-        scrollView?.addSubview(viewScroll)
+        mainView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height - 64)
+        scrollView?.addSubview(mainView)
     }
     
     func addTopRegistration() {
-        viewScroll.addSubview(viewTop)
+        mainView.addSubview(viewTop)
         viewTop.translatesAutoresizingMaskIntoConstraints = false
-        viewTop.leadingAnchor.constraint(equalTo: viewScroll.leadingAnchor, constant: 10).isActive = true
-        viewTop.trailingAnchor.constraint(equalTo: viewScroll.trailingAnchor, constant: -10).isActive = true
-        viewTop.topAnchor.constraint(equalTo: viewScroll.topAnchor, constant: 10).isActive = true
+        viewTop.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 10).isActive = true
+        viewTop.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -10).isActive = true
+        viewTop.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 10).isActive = true
         viewTop.dropShadow(10)
         
         //Add form of loan dropdown
@@ -294,6 +297,7 @@ class LoanRegistrationView: UIViewController {
         lblLoanMoney.translatesAutoresizingMaskIntoConstraints = false
         lblLoanMoney.trailingAnchor.constraint(equalTo: viewTop.trailingAnchor, constant: -15).isActive = true
         lblLoanMoney.topAnchor.constraint(equalTo: viewDropDownLoanPurpose.bottomAnchor, constant: 20).isActive = true
+        lblLoanMoney.text = "1 triệu"
         
         sliderLoanMoney = CustomSlider(frame: CGRect(x: 0, y: 0, width: viewTop.bounds.width - 30, height: 6), values: arrLoanMoney, callback: paramUISliderLoanMoney)
         viewTop.addSubview(sliderLoanMoney!)
@@ -333,8 +337,9 @@ class LoanRegistrationView: UIViewController {
         lblLoanTurm.translatesAutoresizingMaskIntoConstraints = false
         lblLoanTurm.trailingAnchor.constraint(equalTo: viewTop.trailingAnchor, constant: -15).isActive = true
         lblLoanTurm.topAnchor.constraint(equalTo: lblMaxLoanMoney.bottomAnchor, constant: 20).isActive = true
+        lblLoanTurm.text = "10 ngày"
         
-        sliderLoanTurm = CustomSlider(frame: CGRect(x: 0, y: 0, width: viewTop.bounds.width - 30, height: 6), values: arrLoanTurm, callback: paramUISliderLoanMoney)
+        sliderLoanTurm = CustomSlider(frame: CGRect(x: 0, y: 0, width: viewTop.bounds.width - 30, height: 6), values: arrLoanTurm, callback: paramUISliderLoanTurm)
         viewTop.addSubview(sliderLoanTurm!)
         sliderLoanTurm?.translatesAutoresizingMaskIntoConstraints = false
         sliderLoanTurm?.leadingAnchor.constraint(equalTo: viewTop.leadingAnchor, constant: 15).isActive = true
@@ -350,14 +355,14 @@ class LoanRegistrationView: UIViewController {
         lblMinLoanTurm.translatesAutoresizingMaskIntoConstraints = false
         lblMinLoanTurm.leadingAnchor.constraint(equalTo: viewTop.leadingAnchor, constant: 15).isActive = true
         lblMinLoanTurm.topAnchor.constraint(equalTo: (sliderLoanTurm?.bottomAnchor)!, constant: 5).isActive = true
-        lblMinLoanTurm.text = String(arrLoanTurm[0]) + " ngày"
+        lblMinLoanTurm.text = String(arrLoanTurm[0]*10) + " ngày"
         lblMinLoanTurm.font = UIFont.systemFont(ofSize: 14)
         
         viewTop.addSubview(lblMaxLoanTurm)
         lblMaxLoanTurm.translatesAutoresizingMaskIntoConstraints = false
         lblMaxLoanTurm.trailingAnchor.constraint(equalTo: viewTop.trailingAnchor, constant: -15).isActive = true
         lblMaxLoanTurm.topAnchor.constraint(equalTo: (sliderLoanTurm?.bottomAnchor)!, constant: 5).isActive = true
-        lblMaxLoanTurm.text = String(arrLoanTurm[arrLoanTurm.count - 1]) + " ngày"
+        lblMaxLoanTurm.text = String(arrLoanTurm[arrLoanTurm.count - 1]*10) + " ngày"
         lblMaxLoanTurm.font = UIFont.systemFont(ofSize: 14)
         
         //Add view gray
@@ -374,23 +379,163 @@ class LoanRegistrationView: UIViewController {
         
         viewGray.bottomAnchor.constraint(equalTo: viewTop.bottomAnchor, constant: -50).isActive = true
 
-        viewTop.addSubview(viewInfo)
-        viewInfo.leadingAnchor.constraint(equalTo: viewTop.leadingAnchor, constant: 30).isActive = true
-        viewInfo.trailingAnchor.constraint(equalTo: viewTop.trailingAnchor, constant: -30).isActive = true
-        viewInfo.topAnchor.constraint(equalTo: viewGray.centerYAnchor).isActive = true
-        viewInfo.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        viewInfo.bounds.size.height = 150
-        viewInfo.backgroundColor = UIColor.red
+        mainView.addSubview(viewInfo)
+        viewInfo.translatesAutoresizingMaskIntoConstraints = false
+        viewInfo.leadingAnchor.constraint(equalTo: viewTop.leadingAnchor, constant: 15).isActive = true
+        viewInfo.trailingAnchor.constraint(equalTo: viewTop.trailingAnchor, constant: -15).isActive = true
+        viewInfo.topAnchor.constraint(equalTo: viewTop.bottomAnchor, constant: -60).isActive = true
         
+        viewInfo.addSubview(backgroundImage)
+        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImage.leadingAnchor.constraint(equalTo: viewInfo.leadingAnchor).isActive = true
+        backgroundImage.trailingAnchor.constraint(equalTo: viewInfo.trailingAnchor).isActive = true
+        backgroundImage.topAnchor.constraint(equalTo: viewInfo.topAnchor).isActive = true
+        backgroundImage.bottomAnchor.constraint(equalTo: viewInfo.bottomAnchor).isActive = true
+        backgroundImage.image = #imageLiteral(resourceName: "bg_loan_registration")
+        backgroundImage.contentMode = UIViewContentMode.scaleToFill
         
-//        viewInfo.addSubview(backgroundImage)
-//        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
-//        backgroundImage.leadingAnchor.constraint(equalTo: viewInfo.leadingAnchor).isActive = true
-//        backgroundImage.trailingAnchor.constraint(equalTo: viewInfo.trailingAnchor).isActive = true
-//        backgroundImage.topAnchor.constraint(equalTo: viewInfo.topAnchor).isActive = true
-//        backgroundImage.bottomAnchor.constraint(equalTo: viewInfo.bottomAnchor).isActive = true
-//        backgroundImage.image = #imageLiteral(resourceName: "bg_loan_registration")
-//        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+        viewInfo.addSubview(lblTitleLoanMoneyInfo)
+        lblTitleLoanMoneyInfo.translatesAutoresizingMaskIntoConstraints = false
+        lblTitleLoanMoneyInfo.leadingAnchor.constraint(equalTo: viewInfo.leadingAnchor, constant: 25).isActive = true
+        lblTitleLoanMoneyInfo.topAnchor.constraint(equalTo: viewInfo.topAnchor, constant: 20).isActive = true
+        lblTitleLoanMoneyInfo.text = StringEnum.TITLE_LOAN_MONEY_DOT.rawValue
+        lblTitleLoanMoneyInfo.font = UIFont.systemFont(ofSize: 16)
+        
+        viewInfo.addSubview(lblLoanMoneyInfo)
+        lblLoanMoneyInfo.translatesAutoresizingMaskIntoConstraints = false
+        lblLoanMoneyInfo.trailingAnchor.constraint(equalTo: viewInfo.trailingAnchor, constant: -25).isActive = true
+        lblLoanMoneyInfo.topAnchor.constraint(equalTo: viewInfo.topAnchor, constant: 20).isActive = true
+        lblLoanMoneyInfo.text = "2.000.000 VNĐ"
+        lblLoanMoneyInfo.textColor = UIColor.rgb(fromHex: ColorEnum.BUTTON_GREEN.rawValue)
+        lblLoanMoneyInfo.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        viewInfo.addSubview(lblTitleCostInfo)
+        lblTitleCostInfo.translatesAutoresizingMaskIntoConstraints = false
+        lblTitleCostInfo.leadingAnchor.constraint(equalTo: viewInfo.leadingAnchor, constant: 25).isActive = true
+        lblTitleCostInfo.topAnchor.constraint(equalTo: lblTitleLoanMoneyInfo.bottomAnchor, constant: 15).isActive = true
+        lblTitleCostInfo.text = StringEnum.TITLE_COST_DOT.rawValue
+        lblTitleCostInfo.font = UIFont.systemFont(ofSize: 16)
+        
+        viewInfo.addSubview(lblCostInfo)
+        lblCostInfo.translatesAutoresizingMaskIntoConstraints = false
+        lblCostInfo.trailingAnchor.constraint(equalTo: viewInfo.trailingAnchor, constant: -25).isActive = true
+        lblCostInfo.topAnchor.constraint(equalTo: lblTitleLoanMoneyInfo.bottomAnchor, constant: 15).isActive = true
+        lblCostInfo.text = "300.000 VNĐ"
+        lblCostInfo.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        viewInfo.addSubview(lblTitleInterestInfo)
+        lblTitleInterestInfo.translatesAutoresizingMaskIntoConstraints = false
+        lblTitleInterestInfo.leadingAnchor.constraint(equalTo: viewInfo.leadingAnchor, constant: 25).isActive = true
+        lblTitleInterestInfo.topAnchor.constraint(equalTo: lblTitleCostInfo.bottomAnchor, constant: 15).isActive = true
+        lblTitleInterestInfo.text = StringEnum.TITLE_INTEREST_DOT.rawValue
+        lblTitleInterestInfo.font = UIFont.systemFont(ofSize: 16)
+        
+        viewInfo.addSubview(lblInterestInfo)
+        lblInterestInfo.translatesAutoresizingMaskIntoConstraints = false
+        lblInterestInfo.trailingAnchor.constraint(equalTo: viewInfo.trailingAnchor, constant: -25).isActive = true
+        lblInterestInfo.topAnchor.constraint(equalTo: lblTitleCostInfo.bottomAnchor, constant: 15).isActive = true
+        lblInterestInfo.text = "80.000 VNĐ"
+        lblInterestInfo.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        viewInfo.addSubview(lblTitleTotalMoneyInfo)
+        lblTitleTotalMoneyInfo.translatesAutoresizingMaskIntoConstraints = false
+        lblTitleTotalMoneyInfo.leadingAnchor.constraint(equalTo: viewInfo.leadingAnchor, constant: 25).isActive = true
+        lblTitleTotalMoneyInfo.topAnchor.constraint(equalTo: lblTitleInterestInfo.bottomAnchor, constant: 15).isActive = true
+        lblTitleTotalMoneyInfo.text = StringEnum.TITLE_TOTAL_MONEY_DOT.rawValue
+        lblTitleTotalMoneyInfo.font = UIFont.systemFont(ofSize: 16)
+        
+        viewInfo.addSubview(lblTotalMoneyInfo)
+        lblTotalMoneyInfo.translatesAutoresizingMaskIntoConstraints = false
+        lblTotalMoneyInfo.trailingAnchor.constraint(equalTo: viewInfo.trailingAnchor, constant: -25).isActive = true
+        lblTotalMoneyInfo.topAnchor.constraint(equalTo: lblTitleInterestInfo.bottomAnchor, constant: 15).isActive = true
+        lblTotalMoneyInfo.text = "2.380.000 VNĐ"
+        lblTotalMoneyInfo.font = UIFont.boldSystemFont(ofSize: 16)
+        lblTotalMoneyInfo.textColor = UIColor.rgb(fromHex: ColorEnum.TEXT_ORANGE.rawValue)
+        
+        viewInfo.addSubview(cbCheckBoxContract)
+        cbCheckBoxContract.translatesAutoresizingMaskIntoConstraints = false
+        cbCheckBoxContract.leadingAnchor.constraint(equalTo: viewInfo.leadingAnchor, constant: 20).isActive = true
+        cbCheckBoxContract.topAnchor.constraint(equalTo: lblTitleTotalMoneyInfo.bottomAnchor, constant: 10).isActive = true
+        cbCheckBoxContract.setImage(#imageLiteral(resourceName: "ios_check_green"), for: .normal)
+        cbCheckBoxContract.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        cbCheckBoxContract.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        cbCheckBoxContract.frame = CGRect(x: 0, y: 0, width: 40, height: 40);
+        cbCheckBoxContract.imageContentMode = 1//fit
+        cbCheckBoxContract.addTarget(self, action: #selector(checkContract), for: .touchUpInside)
+        
+        viewInfo.addSubview(lblContractInfo)
+        lblContractInfo.translatesAutoresizingMaskIntoConstraints = false
+        lblContractInfo.leadingAnchor.constraint(equalTo: cbCheckBoxContract.trailingAnchor, constant: 10).isActive = true
+        lblContractInfo.trailingAnchor.constraint(equalTo: viewInfo.trailingAnchor, constant: -10).isActive = true
+        lblContractInfo.topAnchor.constraint(equalTo: cbCheckBoxContract.topAnchor).isActive = true
+        lblContractInfo.text = StringEnum.TITLE_CONTRACT.rawValue
+        lblContractInfo.numberOfLines = 0
+        
+        viewInfo.addSubview(btContract)
+        btContract.translatesAutoresizingMaskIntoConstraints = false
+        btContract.leadingAnchor.constraint(equalTo: lblContractInfo.leadingAnchor).isActive = true
+        btContract.topAnchor.constraint(equalTo: lblContractInfo.bottomAnchor).isActive = true
+        btContract.bottomAnchor.constraint(equalTo: viewInfo.bottomAnchor, constant: -50).isActive = true
+        btContract.setTitle(StringEnum.BTN_CONTRACT.rawValue, for: .normal)
+        btContract.addTarget(self, action: #selector(actionContract), for: .touchUpInside)
+        
+        mainView.addSubview(btCancel)
+        btCancel.translatesAutoresizingMaskIntoConstraints = false
+        btCancel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 15).isActive = true
+        btCancel.topAnchor.constraint(equalTo: viewInfo.bottomAnchor, constant: 15).isActive = true
+        btCancel.bottomAnchor.constraint(equalTo: (scrollView?.bottomAnchor)!, constant: -10).isActive = true
+        btCancel.widthAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width - 45) / 2).isActive = true
+        btCancel.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        btCancel.bounds.size = CGSize(width: (UIScreen.main.bounds.width - 45) / 2, height: 55)
+        btCancel.setTitle(StringEnum.LBL_CANCEL.rawValue, for: .normal)
+        btCancel.setTitleColor(UIColor.rgb(fromHex: ColorEnum.TEXT_ORANGE.rawValue), for: .normal)
+        btCancel.backgroundColor = UIColor.white
+        btCancel.dropShadow(btCancel.bounds.height / 2)
+        btCancel.addTarget(self, action: #selector(actionCancel), for: .touchUpInside)
+        
+        mainView.addSubview(btRegister)
+        btRegister.translatesAutoresizingMaskIntoConstraints = false
+        btRegister.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -15).isActive = true
+        btRegister.topAnchor.constraint(equalTo: viewInfo.bottomAnchor, constant: 15).isActive = true
+        btRegister.widthAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width - 45) / 2).isActive = true
+        btRegister.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        btRegister.bounds.size = CGSize(width: (UIScreen.main.bounds.width - 45) / 2, height: 55)
+        btRegister.setTitle(StringEnum.TITLE_LOAN_REGISTRATION.rawValue, for: .normal)
+        btRegister.applyGradient(
+            colours: [
+                UIColor.rgb(fromHex: ColorEnum.BLUE_LIGHT.rawValue),
+                UIColor.rgb(fromHex: ColorEnum.BLUE_DARK.rawValue)
+            ],
+            startPoint: CGPoint(x: 0.0, y: 0.0),
+            endPoint: CGPoint(x: 1.0, y: 0.0),
+            w: btRegister.bounds.width,
+            h: btRegister.bounds.height,
+            cornerRadius: btRegister.bounds.height / 2
+        )
+        btRegister.dropShadow(btRegister.bounds.height / 2)
+        btRegister.addTarget(self, action: #selector(actionRegister), for: .touchUpInside)
+        
+    }
+    
+    @objc func actionCancel(sender:UIButton!) {
+        
+    }
+    
+    @objc func actionRegister(sender:UIButton!) {
+        
+    }
+    
+    @objc func checkContract(sender:UIButton!) {
+        isCheckContract = !isCheckContract
+        if(isCheckContract) {
+            cbCheckBoxContract.setImage(#imageLiteral(resourceName: "ios_check_green"), for: .normal)
+        } else {
+            cbCheckBoxContract.setImage(#imageLiteral(resourceName: "ios_uncheck_green"), for: .normal)
+        }
+    }
+    
+    @objc func actionContract(sender:UIButton!) {
+        
     }
 
     func paramUISliderLoanMoney(_ f: Int) {
@@ -398,7 +543,7 @@ class LoanRegistrationView: UIViewController {
     }
     
     func paramUISliderLoanTurm(_ f: Int) {
-        lblLoanTurm.text = String(f) + " ngày"
+        lblLoanTurm.text = String(f*10) + " ngày"
     }
     
     override func didReceiveMemoryWarning() {

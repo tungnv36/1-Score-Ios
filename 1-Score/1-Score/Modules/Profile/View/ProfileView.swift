@@ -209,7 +209,21 @@ extension ProfileView : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        switch indexPath.row {
+        case 0:
+            profilePresenter?.goToUpdateProfile()
+            break
+        case 1:
+            break
+        case 2:
+            break
+        case 3:
+            break
+        case 4:
+            break
+        default:
+            break
+        }
     }
     
 }

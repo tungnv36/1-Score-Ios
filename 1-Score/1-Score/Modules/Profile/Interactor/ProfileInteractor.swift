@@ -13,4 +13,8 @@ class ProfileInteractor : ProfileInteractorInputProtocol {
     var presenter: ProfileInteractorOutputProtocol?
     var dataStore: ProfileDataStoreProtocol?
     
+    func goToUpdateProfile() {
+        presenter?.goToUpdateProfileOutput()
+    }
+    
 }
