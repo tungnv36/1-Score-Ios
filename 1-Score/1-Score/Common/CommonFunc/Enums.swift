@@ -31,11 +31,24 @@ enum ColorEnum:Int {
 enum StringEnum:String {
     case LBL_LOGIN = "Đăng nhập"
     case LBL_REGISTER = "Đăng ký"
+    case LBL_UPDATE = "Cập nhật"
     case LBL_CANCEL = "Huỷ"
     case LBL_USER = "Nhập số điện thoại"
     case LBL_PASS = "Mật khẩu"
     case LBL_REPASS = "Nhập lại mật khẩu"
     case LBL_EMAIL = "E-mail"
+    
+    case LBL_NAME = "Họ và tên"
+    case LBL_DATE_OF_BIRTH = "Ngày sinh"
+    case LBL_SEX = "Giới tính"
+    case LBL_ID_NUMBER = "Số CMND"
+    case LBL_ADDRESS = "Địa chỉ liên hệ"
+    case LBL_NUMBER_ACC = "Số tài khoản"
+    case LBL_CARD_TERM = "Thời hạn thẻ"
+    case LBL_CARD_FRONT = "Mặt trước CMND"
+    case LBL_CARD_BACK = "Mặt sau CMND"
+    case LBL_ATM = "Thẻ ATM"
+    
     case BTN_LOST_PASS = "Quên mật khẩu?"
     case BTN_LOAN = "Vay"
     case BTN_CONTRACT = "Hợp đồng"
@@ -45,6 +58,8 @@ enum StringEnum:String {
     
     case TITLE_HOME_PAGE = "Trang chủ"
     case TITLE_PER_INFO_PAGE = "Thông tin cá nhân"
+    case TITLE_BASIC_INFO_PAGE = "Thông tin cơ bản"
+    case TITLE_BANK_INFO = "Thông tin ngân hàng"
     case TITLE_LOAN_REQUEST = "Yêu cầu vay"
     case TITLE_LOAN_REGISTRATION = "Đăng ký vay"
     case TITLE_FORM_OF_LOAN = "Hình thức vay"
