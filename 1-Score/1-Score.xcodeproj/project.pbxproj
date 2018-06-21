@@ -71,6 +71,16 @@
 		22692B0A20CED773005C3036 /* MenuEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0920CED773005C3036 /* MenuEntity.swift */; };
 		22692B0C20CED780005C3036 /* HomePageWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0B20CED780005C3036 /* HomePageWireframe.swift */; };
 		22692B0E20CED78C005C3036 /* HomePageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0D20CED78C005C3036 /* HomePageDataStore.swift */; };
+		226D703220DB602200848D9A /* UpdateJobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D703120DB602200848D9A /* UpdateJobView.swift */; };
+		226D703420DB603000848D9A /* UpdateJobPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D703320DB603000848D9A /* UpdateJobPresenter.swift */; };
+		226D703620DB603A00848D9A /* UpdateJobInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D703520DB603A00848D9A /* UpdateJobInteractor.swift */; };
+		226D703820DB604300848D9A /* UpdateJobWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D703720DB604300848D9A /* UpdateJobWireframe.swift */; };
+		226D703A20DB604B00848D9A /* UpdateJobEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D703920DB604B00848D9A /* UpdateJobEntity.swift */; };
+		226D703C20DB605500848D9A /* UpdateJobDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D703B20DB605500848D9A /* UpdateJobDataStore.swift */; };
+		226D703E20DB605D00848D9A /* UpdateJobProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D703D20DB605D00848D9A /* UpdateJobProtocol.swift */; };
+		226D704320DBA8C000848D9A /* ColleagueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D704120DBA8C000848D9A /* ColleagueCell.swift */; };
+		226D704420DBA8C000848D9A /* ColleagueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226D704220DBA8C000848D9A /* ColleagueCell.xib */; };
+		226D704620DBAB9900848D9A /* ColleagueEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D704520DBAB9900848D9A /* ColleagueEntity.swift */; };
 		2277310120D8DDD9006BA0F0 /* UnderlineTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277310020D8DDD9006BA0F0 /* UnderlineTextButton.swift */; };
 		2277310B20D8FF00006BA0F0 /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277310A20D8FF00006BA0F0 /* UpdateProfileView.swift */; };
 		2277310D20D8FF0D006BA0F0 /* UpdateProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277310C20D8FF0D006BA0F0 /* UpdateProfilePresenter.swift */; };
@@ -192,6 +202,16 @@
 		22692B0920CED773005C3036 /* MenuEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuEntity.swift; sourceTree = "<group>"; };
 		22692B0B20CED780005C3036 /* HomePageWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageWireframe.swift; sourceTree = "<group>"; };
 		22692B0D20CED78C005C3036 /* HomePageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageDataStore.swift; sourceTree = "<group>"; };
+		226D703120DB602200848D9A /* UpdateJobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJobView.swift; sourceTree = "<group>"; };
+		226D703320DB603000848D9A /* UpdateJobPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJobPresenter.swift; sourceTree = "<group>"; };
+		226D703520DB603A00848D9A /* UpdateJobInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJobInteractor.swift; sourceTree = "<group>"; };
+		226D703720DB604300848D9A /* UpdateJobWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJobWireframe.swift; sourceTree = "<group>"; };
+		226D703920DB604B00848D9A /* UpdateJobEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJobEntity.swift; sourceTree = "<group>"; };
+		226D703B20DB605500848D9A /* UpdateJobDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJobDataStore.swift; sourceTree = "<group>"; };
+		226D703D20DB605D00848D9A /* UpdateJobProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJobProtocol.swift; sourceTree = "<group>"; };
+		226D704120DBA8C000848D9A /* ColleagueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColleagueCell.swift; sourceTree = "<group>"; };
+		226D704220DBA8C000848D9A /* ColleagueCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColleagueCell.xib; sourceTree = "<group>"; };
+		226D704520DBAB9900848D9A /* ColleagueEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColleagueEntity.swift; sourceTree = "<group>"; };
 		2277310020D8DDD9006BA0F0 /* UnderlineTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTextButton.swift; sourceTree = "<group>"; };
 		2277310A20D8FF00006BA0F0 /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
 		2277310C20D8FF0D006BA0F0 /* UpdateProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfilePresenter.swift; sourceTree = "<group>"; };
@@ -332,6 +352,7 @@
 		2202185F20CD75B10016EA9E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				226D702920DB5FDB00848D9A /* UpdateJob */,
 				2277310220D8FEBB006BA0F0 /* UpdateProfile */,
 				2204D03420D7671F00B82D31 /* LoanRegistration */,
 				22BFD8A620D124D200CFD201 /* LoanRequest */,
@@ -841,6 +862,79 @@
 			path = DataStore;
 			sourceTree = "<group>";
 		};
+		226D702920DB5FDB00848D9A /* UpdateJob */ = {
+			isa = PBXGroup;
+			children = (
+				226D703020DB600A00848D9A /* Protocol */,
+				226D702F20DB600300848D9A /* DataStore */,
+				226D702E20DB5FFE00848D9A /* Entity */,
+				226D702D20DB5FF700848D9A /* Wireframe */,
+				226D702C20DB5FF100848D9A /* Interactor */,
+				226D702B20DB5FEB00848D9A /* Presenter */,
+				226D702A20DB5FE600848D9A /* View */,
+			);
+			path = UpdateJob;
+			sourceTree = "<group>";
+		};
+		226D702A20DB5FE600848D9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				226D703120DB602200848D9A /* UpdateJobView.swift */,
+				226D704120DBA8C000848D9A /* ColleagueCell.swift */,
+				226D704220DBA8C000848D9A /* ColleagueCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		226D702B20DB5FEB00848D9A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				226D703320DB603000848D9A /* UpdateJobPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		226D702C20DB5FF100848D9A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				226D703520DB603A00848D9A /* UpdateJobInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		226D702D20DB5FF700848D9A /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				226D703720DB604300848D9A /* UpdateJobWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		226D702E20DB5FFE00848D9A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				226D703920DB604B00848D9A /* UpdateJobEntity.swift */,
+				226D704520DBAB9900848D9A /* ColleagueEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		226D702F20DB600300848D9A /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				226D703B20DB605500848D9A /* UpdateJobDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		226D703020DB600A00848D9A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				226D703D20DB605D00848D9A /* UpdateJobProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		2277310220D8FEBB006BA0F0 /* UpdateProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1192,6 +1286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22BFD89D20D0D55700CFD201 /* ProfileViewCell.xib in Resources */,
+				226D704420DBA8C000848D9A /* ColleagueCell.xib in Resources */,
 				225ACFF420CE6B5600F9CA34 /* Segoe.ttf in Resources */,
 				2202183B20CD751E0016EA9E /* LaunchScreen.storyboard in Resources */,
 				2204D03320D75B1700B82D31 /* LoanRequestViewCellNib.xib in Resources */,
@@ -1306,6 +1401,7 @@
 				22692B0E20CED78C005C3036 /* HomePageDataStore.swift in Sources */,
 				225AD00620CE6FDA00F9CA34 /* LoginEntity.swift in Sources */,
 				2202186F20CD75F40016EA9E /* ExtensionUIButton.swift in Sources */,
+				226D703820DB604300848D9A /* UpdateJobWireframe.swift in Sources */,
 				225AD01920CE8CAB00F9CA34 /* RegisterInteractor.swift in Sources */,
 				2202188B20CD87E50016EA9E /* Intro1View.swift in Sources */,
 				22692B0420CED6FA005C3036 /* HomePagePresenter.swift in Sources */,
@@ -1326,7 +1422,10 @@
 				22BFD89120D0B52300CFD201 /* ProfileInteractor.swift in Sources */,
 				22692B0620CED719005C3036 /* HomePageInteractor.swift in Sources */,
 				225AD01B20CE8CBE00F9CA34 /* RegisterProtocol.swift in Sources */,
+				226D703A20DB604B00848D9A /* UpdateJobEntity.swift in Sources */,
 				22BFD8AF20D1252D00CFD201 /* LoanRequestView.swift in Sources */,
+				226D703C20DB605500848D9A /* UpdateJobDataStore.swift in Sources */,
+				226D704320DBA8C000848D9A /* ColleagueCell.swift in Sources */,
 				225AD00020CE6FBB00F9CA34 /* LoginPresenter.swift in Sources */,
 				22E5C8E920D4ABFF0056023C /* LoanRequestData.swift in Sources */,
 				2202186E20CD75F40016EA9E /* ExtensionColor.swift in Sources */,
@@ -1344,13 +1443,17 @@
 				2277310B20D8FF00006BA0F0 /* UpdateProfileView.swift in Sources */,
 				22692B0820CED769005C3036 /* HomePageProtocol.swift in Sources */,
 				2202187B20CD7ABE0016EA9E /* IntroductionView.swift in Sources */,
+				226D703420DB603000848D9A /* UpdateJobPresenter.swift in Sources */,
+				226D704620DBAB9900848D9A /* ColleagueEntity.swift in Sources */,
 				2202188D20CD87EF0016EA9E /* Intro2View.swift in Sources */,
 				2277310F20D8FF18006BA0F0 /* UpdateProfileInteractor.swift in Sources */,
 				2204D03220D75B1700B82D31 /* LoanRequestViewCellNib.swift in Sources */,
 				22B262B520D7AD6300969422 /* CustomSlider.swift in Sources */,
 				225AD00420CE6FD100F9CA34 /* LoginProtocol.swift in Sources */,
+				226D703220DB602200848D9A /* UpdateJobView.swift in Sources */,
 				225AD00220CE6FC700F9CA34 /* LoginInteractor.swift in Sources */,
 				2204D04520D768B200B82D31 /* LoanRegistrationProtocol.swift in Sources */,
+				226D703E20DB605D00848D9A /* UpdateJobProtocol.swift in Sources */,
 				22BFD8B120D1253900CFD201 /* LoanPresenter.swift in Sources */,
 				225AD01D20CE8CD900F9CA34 /* RegisterWireframe.swift in Sources */,
 				2202182E20CD751C0016EA9E /* AppDelegate.swift in Sources */,
@@ -1378,6 +1481,7 @@
 				22692B0C20CED780005C3036 /* HomePageWireframe.swift in Sources */,
 				22BFD8B520D1256C00CFD201 /* LoanWireframe.swift in Sources */,
 				2202186C20CD75F40016EA9E /* ExtensionCGFloat.swift in Sources */,
+				226D703620DB603A00848D9A /* UpdateJobInteractor.swift in Sources */,
 				22BFD8B920D1259700CFD201 /* LoanDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

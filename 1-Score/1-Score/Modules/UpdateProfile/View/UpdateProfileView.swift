@@ -52,6 +52,9 @@ class UpdateProfileView: UIViewController {
         addUpdateButton()
         
         setupDropDown()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -522,12 +525,6 @@ class UpdateProfileView: UIViewController {
             cornerRadius: btUpdate.bounds.height / 2
         )
         btUpdate.addTarget(self, action: #selector(actionUpdate), for: .touchUpInside)
-        
-//        btUpdate.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -20).isActive = true
-//        mainView.bottomAnchor.constraint(equalTo: (scrollView?.bottomAnchor)!).isActive = true
-        
-//        btUpdate.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -20).isActive = true
-//        btUpdate.bottomAnchor.constraint(equalTo: (scrollView?.bottomAnchor)!, constant: -200).isActive = true
     }
     
     func createDateOfBirthPicker() {
@@ -542,6 +539,21 @@ class UpdateProfileView: UIViewController {
         
         dateOfBirthPicker.datePickerMode = .date
         dateOfBirthPicker.timeZone = NSTimeZone.local
+    }
+    
+    @objc func keyboardWillAppear(_ notification: NSNotification) {
+        if let userInfo = notification.userInfo,
+            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let inset = keyboardFrame.height
+            
+            scrollView?.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 80 + inset)
+            mainView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 80 + inset)
+        }
+    }
+    
+    @objc func keyboardWillDisappear(_ notification: NSNotification) {
+        scrollView?.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 80)
+        mainView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 80)
     }
     
     @objc func doneDateOfBirthPicker() {

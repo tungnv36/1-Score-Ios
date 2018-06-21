@@ -22,6 +22,10 @@ enum ColorEnum:Int {
     case PROGRESS_LIGHT = 0x6EE2F5
     case PROGRESS_DARK = 0x6454F0
     case TEXT_ORANGE = 0xEC5656
+    case TEXT_LINKEDIN = 0x127BB7
+    case TEXT_FACEBOOK = 0x3B5998
+    case TEXT_ZALO = 0x018FE5
+    case TEXT_INSTAGRAM = 0xF64900
     
     case PROGRESS_COLOR = 0xFDCB48
     case BG_PROGRESS_COLOR = 0x444444
@@ -41,6 +45,11 @@ enum StringEnum:String {
     case LBL_NAME = "Họ và tên"
     case LBL_DATE_OF_BIRTH = "Ngày sinh"
     case LBL_SEX = "Giới tính"
+    case LBL_JOB = "Nghề nghiệp"
+    case LBL_POSITION = "Vị trí"
+    case LBL_SALARY = "Mức lương"
+    case LBL_COMPANY_NAME = "Tên công ty"
+    case LBL_COMPANY_ADDRESS = "Địa chỉ công ty"
     case LBL_ID_NUMBER = "Số CMND"
     case LBL_ADDRESS = "Địa chỉ liên hệ"
     case LBL_NUMBER_ACC = "Số tài khoản"
@@ -48,10 +57,17 @@ enum StringEnum:String {
     case LBL_CARD_FRONT = "Mặt trước CMND"
     case LBL_CARD_BACK = "Mặt sau CMND"
     case LBL_ATM = "Thẻ ATM"
+    case LBL_CV = "CV"
+    case LBL_SALARY_BOARD = "Bảng lương"
     
     case BTN_LOST_PASS = "Quên mật khẩu?"
     case BTN_LOAN = "Vay"
     case BTN_CONTRACT = "Hợp đồng"
+    
+    case LINKEDIN = "Linkedin"
+    case FACEBOOK = "Facebook"
+    case ZALO = "Zalo"
+    case INSTAGRAM = "Instagram"
     
     case MSG_USER_EMPTY = "Bạn chưa nhập tài khoản"
     case MSG_PASS_EMPTY = "Bạn chưa nhập mật khẩu"
@@ -59,6 +75,8 @@ enum StringEnum:String {
     case TITLE_HOME_PAGE = "Trang chủ"
     case TITLE_PER_INFO_PAGE = "Thông tin cá nhân"
     case TITLE_BASIC_INFO_PAGE = "Thông tin cơ bản"
+    case TITLE_JOB_INFO = "Thông tin nghề nghiệp"
+    case TITLE_COLLEAGUE_INFO = "Thông tin đồng nghiệp"
     case TITLE_BANK_INFO = "Thông tin ngân hàng"
     case TITLE_LOAN_REQUEST = "Yêu cầu vay"
     case TITLE_LOAN_REGISTRATION = "Đăng ký vay"

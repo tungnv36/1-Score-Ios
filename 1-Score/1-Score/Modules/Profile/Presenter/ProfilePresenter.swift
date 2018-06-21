@@ -18,12 +18,20 @@ class ProfilePresenter : ProfilePresenterProtocol {
         interactor?.goToUpdateProfile()
     }
     
+    func goToUpdateJob() {
+        interactor?.goToUpdateJob()
+    }
+    
 }
 
 extension ProfilePresenter : ProfileInteractorOutputProtocol {
     
     func goToUpdateProfileOutput() {
         wireframe?.goToUpdateProfile(view: view!)
+    }
+    
+    func goToUpdateJobOutput() {
+        wireframe?.goToUpdateJob(view: view!)
     }
     
 }

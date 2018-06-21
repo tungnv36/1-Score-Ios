@@ -18,6 +18,7 @@ protocol ProfilePresenterProtocol : class {
     var wireframe: ProfileWireframeProtocol? { get set }
     
     func goToUpdateProfile()
+    func goToUpdateJob()
 }
 //Interactor
 protocol ProfileInteractorInputProtocol : class {
@@ -25,15 +26,18 @@ protocol ProfileInteractorInputProtocol : class {
     var dataStore:ProfileDataStoreProtocol? { get set }
     
     func goToUpdateProfile()
+    func goToUpdateJob()
 }
 
 protocol ProfileInteractorOutputProtocol : class {
     func goToUpdateProfileOutput()
+    func goToUpdateJobOutput()
 }
 //Wireframe
 protocol ProfileWireframeProtocol : class {
     static func getModule() -> UIViewController
     func goToUpdateProfile(view:ProfileViewProtocol)
+    func goToUpdateJob(view:ProfileViewProtocol)
 }
 //DataStore
 protocol ProfileDataStoreProtocol : class {

@@ -214,6 +214,7 @@ extension ProfileView : UITableViewDelegate, UITableViewDataSource {
             profilePresenter?.goToUpdateProfile()
             break
         case 1:
+            profilePresenter?.goToUpdateJob()
             break
         case 2:
             break

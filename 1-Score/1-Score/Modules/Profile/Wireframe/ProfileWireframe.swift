@@ -35,4 +35,11 @@ class ProfileWireframe : ProfileWireframeProtocol {
         }
     }
     
+    func goToUpdateJob(view:ProfileViewProtocol) {
+        let nextViewController = UpdateJobWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
 }
