@@ -21,4 +21,8 @@ class HomePageInteractor : HomePageInteractorInputProtocol {
         presenter?.goToLoanRequestOutput()
     }
     
+    func goToSetting() {
+        presenter?.goToSettingOutput()
+    }
+    
 }

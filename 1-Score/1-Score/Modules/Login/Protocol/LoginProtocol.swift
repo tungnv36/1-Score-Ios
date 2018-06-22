@@ -21,6 +21,7 @@ protocol LoginPresenterProtocol : class {
     var wireframe: LoginWireframeProtocol? { get set }
     
     func login(username:String, password:String)
+    func goToOtp()
 }
 //Interactor
 protocol LoginInteractorInputProtocol : class {
@@ -28,6 +29,7 @@ protocol LoginInteractorInputProtocol : class {
     var dataStore:LoginDataStoreProtocol? { get set }
     
     func login(username:String, password:String)
+    func goToOtp()
 }
 
 protocol LoginInteractorOutputProtocol : class {
@@ -35,11 +37,14 @@ protocol LoginInteractorOutputProtocol : class {
     func passEmpty(msg:String)
     func loginSuccess(username:String, password:String)
     func loginFailed(err:String)
+    
+    func goToOtpOutput()
 }
 //Wireframe
 protocol LoginWireframeProtocol : class {
     static func getModule() -> UIViewController
     func goToHomePage(view: LoginViewProtocol)
+    func goToOtp(view: LoginViewProtocol)
 }
 //DataStore
 protocol LoginDataStoreProtocol : class {

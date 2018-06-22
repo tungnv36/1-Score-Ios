@@ -35,4 +35,11 @@ class LoginWireframe : LoginWireframeProtocol {
         }
     }
     
+    func goToOtp(view: LoginViewProtocol) {
+        let nextViewController = OtpWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
 }

@@ -22,6 +22,10 @@ class HomePagePresenter : HomePagePresenterProtocol {
         interactor?.goToLoanRequest()
     }
     
+    func goToSetting() {
+        interactor?.goToSetting()
+    }
+    
 }
 
 extension HomePagePresenter : HomePageInteractorOutputProtocol {
@@ -32,6 +36,10 @@ extension HomePagePresenter : HomePageInteractorOutputProtocol {
     
     func goToLoanRequestOutput() {
         wireframe?.goToLoanRequest(view: view!)
+    }
+    
+    func goToSettingOutput() {
+        wireframe?.goToSetting(view: view!)
     }
     
 }

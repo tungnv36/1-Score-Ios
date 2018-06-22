@@ -19,6 +19,7 @@ protocol HomePagePresenterProtocol : class {
     
     func goToProfile()
     func goToLoanRequest()
+    func goToSetting()
 }
 //Interactor
 protocol HomePageInteractorInputProtocol : class {
@@ -27,17 +28,20 @@ protocol HomePageInteractorInputProtocol : class {
     
     func goToProfile()
     func goToLoanRequest()
+    func goToSetting()
 }
 
 protocol HomePageInteractorOutputProtocol : class {
     func goToProfileOutput()
     func goToLoanRequestOutput()
+    func goToSettingOutput()
 }
 //Wireframe
 protocol HomePageWireframeProtocol : class {
     static func getModule() -> UIViewController
     func goToProfile(view: HomePageViewProtocol)
     func goToLoanRequest(view: HomePageViewProtocol)
+    func goToSetting(view: HomePageViewProtocol)
 }
 //DataStore
 protocol HomePageDataStoreProtocol : class {

@@ -47,6 +47,7 @@ enum StringEnum:String {
     case LBL_JOB = "Nghề nghiệp"
     case LBL_FAMILY = "Gia đình"
     case LBL_SOCIAL_NETWORK = "Mạng xã hội"
+    case LBL_PAPER = "Giấy tờ"
     case LBL_POSITION = "Vị trí"
     case LBL_SALARY = "Mức lương"
     case LBL_COMPANY_NAME = "Tên công ty"
@@ -66,6 +67,7 @@ enum StringEnum:String {
     case LBL_ARE_YOU_MARRIED = "Bạn có gia đình chưa?"
     case LBL_WH_NAME = "Họ tên vợ/chồng"
     case LBL_WH_PHONE = "Số điện thoại vợ/chồng"
+    case LBL_SETTING = "Cài đặt"
     
     case BTN_LOST_PASS = "Quên mật khẩu?"
     case BTN_LOAN = "Vay"
@@ -86,6 +88,7 @@ enum StringEnum:String {
     case TITLE_FAMILY_INFO = "Thông tin gia đình"
     case TITLE_COLLEAGUE_INFO = "Thông tin đồng nghiệp"
     case TITLE_SOCIAL_NETWORK_INFO = "Thông tin mạng xã hội"
+    case TITLE_PAPER_INFO = "Ảnh chụp giấy tờ"
     case TITLE_BANK_INFO = "Thông tin ngân hàng"
     case TITLE_LOAN_REQUEST = "Yêu cầu vay"
     case TITLE_LOAN_REGISTRATION = "Đăng ký vay"
@@ -101,6 +104,8 @@ enum StringEnum:String {
     case TITLE_INTEREST_DOT = "Lãi: "
     case TITLE_TOTAL_MONEY_DOT = "Tổng tiền phải trả: "
     case TITLE_CONTRACT = "Tôi đã đọc và đồng ý với các điều khoản của"
+    
+    case LBL_DES_OTP = "Vui lòng nhập số điện thoại của bạn, hệ thống sẽ gửi mã OTP để xác nhận"
     
     case SELECT_FORM_OF_LOAN = "Chọn hình thức vay"
     case SELECT_PAYMENT_METHOD = "Chọn phương thức thanh toán"

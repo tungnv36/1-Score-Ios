@@ -42,4 +42,11 @@ class HomePageWireframe : HomePageWireframeProtocol {
         }
     }
     
+    func goToSetting(view: HomePageViewProtocol) {
+        let nextViewController = SettingWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
 }

@@ -62,6 +62,39 @@
 		224A421620DCB060007FFFBC /* SocialNetworkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A421420DCB060007FFFBC /* SocialNetworkCell.swift */; };
 		224A421720DCB060007FFFBC /* SocialNetworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224A421520DCB060007FFFBC /* SocialNetworkCell.xib */; };
 		224A421920DCB0A8007FFFBC /* SocialNetworkDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A421820DCB0A8007FFFBC /* SocialNetworkDataStore.swift */; };
+		224A422320DCB6E0007FFFBC /* UpdatePaperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A422220DCB6E0007FFFBC /* UpdatePaperProtocol.swift */; };
+		224A422520DCB703007FFFBC /* UpdatePaperDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A422420DCB703007FFFBC /* UpdatePaperDataStore.swift */; };
+		224A422720DCB722007FFFBC /* PaperEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A422620DCB722007FFFBC /* PaperEntity.swift */; };
+		224A422920DCB736007FFFBC /* UpdatePaperWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A422820DCB736007FFFBC /* UpdatePaperWireframe.swift */; };
+		224A422B20DCB764007FFFBC /* UpdatePaperInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A422A20DCB764007FFFBC /* UpdatePaperInteractor.swift */; };
+		224A422D20DCB781007FFFBC /* UpdatePaperPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A422C20DCB781007FFFBC /* UpdatePaperPresenter.swift */; };
+		224A422F20DCB7C6007FFFBC /* UpdatePaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A422E20DCB7C6007FFFBC /* UpdatePaperView.swift */; };
+		224A423120DCD3B6007FFFBC /* PaperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A423020DCD3B6007FFFBC /* PaperData.swift */; };
+		224A423320DCD58E007FFFBC /* UpdatePaperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A423220DCD58E007FFFBC /* UpdatePaperCell.swift */; };
+		224A423D20DCDBDC007FFFBC /* SettingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A423C20DCDBDC007FFFBC /* SettingProtocol.swift */; };
+		224A423F20DCDBFB007FFFBC /* SettingDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A423E20DCDBFB007FFFBC /* SettingDataStore.swift */; };
+		224A424120DCDC14007FFFBC /* SettingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A424020DCDC14007FFFBC /* SettingEntity.swift */; };
+		224A424320DCDC34007FFFBC /* SettingWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A424220DCDC34007FFFBC /* SettingWireframe.swift */; };
+		224A424520DCDC5A007FFFBC /* Settinginteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A424420DCDC5A007FFFBC /* Settinginteractor.swift */; };
+		224A424720DCDC83007FFFBC /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A424620DCDC83007FFFBC /* SettingPresenter.swift */; };
+		224A424920DCDCB9007FFFBC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A424820DCDCB9007FFFBC /* SettingView.swift */; };
+		224A424C20DCE558007FFFBC /* MenuSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A424A20DCE558007FFFBC /* MenuSettingCell.swift */; };
+		224A424D20DCE558007FFFBC /* MenuSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224A424B20DCE558007FFFBC /* MenuSettingCell.xib */; };
+		224A424F20DCE754007FFFBC /* SettingMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A424E20DCE754007FFFBC /* SettingMenuData.swift */; };
+		224A425920DCF17C007FFFBC /* ChangePhoneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A425820DCF17C007FFFBC /* ChangePhoneProtocol.swift */; };
+		224A425B20DCF1BB007FFFBC /* ChangePhoneDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A425A20DCF1BB007FFFBC /* ChangePhoneDataStore.swift */; };
+		224A425D20DCF1D9007FFFBC /* ChangePhoneEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A425C20DCF1D9007FFFBC /* ChangePhoneEntity.swift */; };
+		224A425F20DCF216007FFFBC /* ChangePhoneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A425E20DCF216007FFFBC /* ChangePhoneInteractor.swift */; };
+		224A426120DCF235007FFFBC /* ChangePhonePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A426020DCF235007FFFBC /* ChangePhonePresenter.swift */; };
+		224A426320DCF263007FFFBC /* ChangePhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A426220DCF263007FFFBC /* ChangePhoneView.swift */; };
+		224A426520DCF294007FFFBC /* ChangePhoneWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A426420DCF294007FFFBC /* ChangePhoneWireframe.swift */; };
+		224A426F20DCF987007FFFBC /* OtpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A426E20DCF987007FFFBC /* OtpProtocol.swift */; };
+		224A427120DCF9A7007FFFBC /* OtpDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A427020DCF9A7007FFFBC /* OtpDataStore.swift */; };
+		224A427320DCF9BD007FFFBC /* OtpEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A427220DCF9BD007FFFBC /* OtpEntity.swift */; };
+		224A427520DCF9CB007FFFBC /* OtpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A427420DCF9CB007FFFBC /* OtpInteractor.swift */; };
+		224A427720DCF9F7007FFFBC /* OtpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A427620DCF9F7007FFFBC /* OtpPresenter.swift */; };
+		224A427920DCFA35007FFFBC /* OtpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A427820DCFA35007FFFBC /* OtpView.swift */; };
+		224A427B20DCFA70007FFFBC /* OtpWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A427A20DCFA70007FFFBC /* OtpWireframe.swift */; };
 		225ACFE020CE171700F9CA34 /* IntroductionDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225ACFDF20CE171700F9CA34 /* IntroductionDataStore.swift */; };
 		225ACFE220CE242D00F9CA34 /* IntroductionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225ACFE120CE242D00F9CA34 /* IntroductionEntity.swift */; };
 		225ACFE520CE252900F9CA34 /* MainWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225ACFE420CE252900F9CA34 /* MainWireframe.swift */; };
@@ -213,6 +246,39 @@
 		224A421420DCB060007FFFBC /* SocialNetworkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialNetworkCell.swift; sourceTree = "<group>"; };
 		224A421520DCB060007FFFBC /* SocialNetworkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialNetworkCell.xib; sourceTree = "<group>"; };
 		224A421820DCB0A8007FFFBC /* SocialNetworkDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialNetworkDataStore.swift; sourceTree = "<group>"; };
+		224A422220DCB6E0007FFFBC /* UpdatePaperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePaperProtocol.swift; sourceTree = "<group>"; };
+		224A422420DCB703007FFFBC /* UpdatePaperDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePaperDataStore.swift; sourceTree = "<group>"; };
+		224A422620DCB722007FFFBC /* PaperEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperEntity.swift; sourceTree = "<group>"; };
+		224A422820DCB736007FFFBC /* UpdatePaperWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePaperWireframe.swift; sourceTree = "<group>"; };
+		224A422A20DCB764007FFFBC /* UpdatePaperInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePaperInteractor.swift; sourceTree = "<group>"; };
+		224A422C20DCB781007FFFBC /* UpdatePaperPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePaperPresenter.swift; sourceTree = "<group>"; };
+		224A422E20DCB7C6007FFFBC /* UpdatePaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePaperView.swift; sourceTree = "<group>"; };
+		224A423020DCD3B6007FFFBC /* PaperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperData.swift; sourceTree = "<group>"; };
+		224A423220DCD58E007FFFBC /* UpdatePaperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePaperCell.swift; sourceTree = "<group>"; };
+		224A423C20DCDBDC007FFFBC /* SettingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProtocol.swift; sourceTree = "<group>"; };
+		224A423E20DCDBFB007FFFBC /* SettingDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDataStore.swift; sourceTree = "<group>"; };
+		224A424020DCDC14007FFFBC /* SettingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingEntity.swift; sourceTree = "<group>"; };
+		224A424220DCDC34007FFFBC /* SettingWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWireframe.swift; sourceTree = "<group>"; };
+		224A424420DCDC5A007FFFBC /* Settinginteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settinginteractor.swift; sourceTree = "<group>"; };
+		224A424620DCDC83007FFFBC /* SettingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPresenter.swift; sourceTree = "<group>"; };
+		224A424820DCDCB9007FFFBC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		224A424A20DCE558007FFFBC /* MenuSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSettingCell.swift; sourceTree = "<group>"; };
+		224A424B20DCE558007FFFBC /* MenuSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuSettingCell.xib; sourceTree = "<group>"; };
+		224A424E20DCE754007FFFBC /* SettingMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMenuData.swift; sourceTree = "<group>"; };
+		224A425820DCF17C007FFFBC /* ChangePhoneProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneProtocol.swift; sourceTree = "<group>"; };
+		224A425A20DCF1BB007FFFBC /* ChangePhoneDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneDataStore.swift; sourceTree = "<group>"; };
+		224A425C20DCF1D9007FFFBC /* ChangePhoneEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneEntity.swift; sourceTree = "<group>"; };
+		224A425E20DCF216007FFFBC /* ChangePhoneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneInteractor.swift; sourceTree = "<group>"; };
+		224A426020DCF235007FFFBC /* ChangePhonePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhonePresenter.swift; sourceTree = "<group>"; };
+		224A426220DCF263007FFFBC /* ChangePhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneView.swift; sourceTree = "<group>"; };
+		224A426420DCF294007FFFBC /* ChangePhoneWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneWireframe.swift; sourceTree = "<group>"; };
+		224A426E20DCF987007FFFBC /* OtpProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpProtocol.swift; sourceTree = "<group>"; };
+		224A427020DCF9A7007FFFBC /* OtpDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpDataStore.swift; sourceTree = "<group>"; };
+		224A427220DCF9BD007FFFBC /* OtpEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpEntity.swift; sourceTree = "<group>"; };
+		224A427420DCF9CB007FFFBC /* OtpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpInteractor.swift; sourceTree = "<group>"; };
+		224A427620DCF9F7007FFFBC /* OtpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpPresenter.swift; sourceTree = "<group>"; };
+		224A427820DCFA35007FFFBC /* OtpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpView.swift; sourceTree = "<group>"; };
+		224A427A20DCFA70007FFFBC /* OtpWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpWireframe.swift; sourceTree = "<group>"; };
 		225ACFDF20CE171700F9CA34 /* IntroductionDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionDataStore.swift; sourceTree = "<group>"; };
 		225ACFE120CE242D00F9CA34 /* IntroductionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionEntity.swift; sourceTree = "<group>"; };
 		225ACFE420CE252900F9CA34 /* MainWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWireframe.swift; sourceTree = "<group>"; };
@@ -392,6 +458,10 @@
 		2202185F20CD75B10016EA9E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				224A426620DCF95D007FFFBC /* Otp */,
+				224A425020DCF124007FFFBC /* ChangePhone */,
+				224A423420DCDBA2007FFFBC /* Setting */,
+				224A421A20DCB6A2007FFFBC /* UpdatePaper */,
 				224A41FE20DCABE6007FFFBC /* UpdateSocialNetwork */,
 				224A41E220DC8AC9007FFFBC /* UpdateFamily */,
 				226D702920DB5FDB00848D9A /* UpdateJob */,
@@ -781,6 +851,291 @@
 				224A420620DCAC42007FFFBC /* UpdateSocialNetworkProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		224A421A20DCB6A2007FFFBC /* UpdatePaper */ = {
+			isa = PBXGroup;
+			children = (
+				224A422120DCB6CD007FFFBC /* Protocol */,
+				224A422020DCB6C8007FFFBC /* DataStore */,
+				224A421F20DCB6C4007FFFBC /* Entity */,
+				224A421E20DCB6BD007FFFBC /* Wireframe */,
+				224A421D20DCB6B8007FFFBC /* Interactor */,
+				224A421C20DCB6B3007FFFBC /* Presenter */,
+				224A421B20DCB6AF007FFFBC /* View */,
+			);
+			path = UpdatePaper;
+			sourceTree = "<group>";
+		};
+		224A421B20DCB6AF007FFFBC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				224A422E20DCB7C6007FFFBC /* UpdatePaperView.swift */,
+				224A423220DCD58E007FFFBC /* UpdatePaperCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		224A421C20DCB6B3007FFFBC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				224A422C20DCB781007FFFBC /* UpdatePaperPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		224A421D20DCB6B8007FFFBC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				224A422A20DCB764007FFFBC /* UpdatePaperInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		224A421E20DCB6BD007FFFBC /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				224A422820DCB736007FFFBC /* UpdatePaperWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		224A421F20DCB6C4007FFFBC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				224A422620DCB722007FFFBC /* PaperEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		224A422020DCB6C8007FFFBC /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				224A422420DCB703007FFFBC /* UpdatePaperDataStore.swift */,
+				224A423020DCD3B6007FFFBC /* PaperData.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		224A422120DCB6CD007FFFBC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				224A422220DCB6E0007FFFBC /* UpdatePaperProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		224A423420DCDBA2007FFFBC /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				224A423B20DCDBCF007FFFBC /* Protocol */,
+				224A423A20DCDBC8007FFFBC /* DataStore */,
+				224A423920DCDBC2007FFFBC /* Entity */,
+				224A423820DCDBBB007FFFBC /* Wireframe */,
+				224A423720DCDBB1007FFFBC /* Interactor */,
+				224A423620DCDBAD007FFFBC /* Presenter */,
+				224A423520DCDBA9007FFFBC /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		224A423520DCDBA9007FFFBC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				224A424820DCDCB9007FFFBC /* SettingView.swift */,
+				224A424A20DCE558007FFFBC /* MenuSettingCell.swift */,
+				224A424B20DCE558007FFFBC /* MenuSettingCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		224A423620DCDBAD007FFFBC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				224A424620DCDC83007FFFBC /* SettingPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		224A423720DCDBB1007FFFBC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				224A424420DCDC5A007FFFBC /* Settinginteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		224A423820DCDBBB007FFFBC /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				224A424220DCDC34007FFFBC /* SettingWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		224A423920DCDBC2007FFFBC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				224A424020DCDC14007FFFBC /* SettingEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		224A423A20DCDBC8007FFFBC /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				224A423E20DCDBFB007FFFBC /* SettingDataStore.swift */,
+				224A424E20DCE754007FFFBC /* SettingMenuData.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		224A423B20DCDBCF007FFFBC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				224A423C20DCDBDC007FFFBC /* SettingProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		224A425020DCF124007FFFBC /* ChangePhone */ = {
+			isa = PBXGroup;
+			children = (
+				224A425220DCF148007FFFBC /* DataStore */,
+				224A425420DCF148007FFFBC /* Entity */,
+				224A425720DCF149007FFFBC /* Interactor */,
+				224A425620DCF148007FFFBC /* Presenter */,
+				224A425320DCF148007FFFBC /* Protocol */,
+				224A425520DCF148007FFFBC /* View */,
+				224A425120DCF148007FFFBC /* Wireframe */,
+			);
+			path = ChangePhone;
+			sourceTree = "<group>";
+		};
+		224A425120DCF148007FFFBC /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				224A426420DCF294007FFFBC /* ChangePhoneWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		224A425220DCF148007FFFBC /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				224A425A20DCF1BB007FFFBC /* ChangePhoneDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		224A425320DCF148007FFFBC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				224A425820DCF17C007FFFBC /* ChangePhoneProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		224A425420DCF148007FFFBC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				224A425C20DCF1D9007FFFBC /* ChangePhoneEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		224A425520DCF148007FFFBC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				224A426220DCF263007FFFBC /* ChangePhoneView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		224A425620DCF148007FFFBC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				224A426020DCF235007FFFBC /* ChangePhonePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		224A425720DCF149007FFFBC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				224A425E20DCF216007FFFBC /* ChangePhoneInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		224A426620DCF95D007FFFBC /* Otp */ = {
+			isa = PBXGroup;
+			children = (
+				224A426820DCF975007FFFBC /* DataStore */,
+				224A426A20DCF975007FFFBC /* Entity */,
+				224A426D20DCF976007FFFBC /* Interactor */,
+				224A426C20DCF976007FFFBC /* Presenter */,
+				224A426920DCF975007FFFBC /* Protocol */,
+				224A426B20DCF976007FFFBC /* View */,
+				224A426720DCF975007FFFBC /* Wireframe */,
+			);
+			path = Otp;
+			sourceTree = "<group>";
+		};
+		224A426720DCF975007FFFBC /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				224A427A20DCFA70007FFFBC /* OtpWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		224A426820DCF975007FFFBC /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				224A427020DCF9A7007FFFBC /* OtpDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		224A426920DCF975007FFFBC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				224A426E20DCF987007FFFBC /* OtpProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		224A426A20DCF975007FFFBC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				224A427220DCF9BD007FFFBC /* OtpEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		224A426B20DCF976007FFFBC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				224A427820DCFA35007FFFBC /* OtpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		224A426C20DCF976007FFFBC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				224A427620DCF9F7007FFFBC /* OtpPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		224A426D20DCF976007FFFBC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				224A427420DCF9CB007FFFBC /* OtpInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		225ACFE320CE251900F9CA34 /* Wireframe */ = {
@@ -1474,6 +1829,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22BFD89D20D0D55700CFD201 /* ProfileViewCell.xib in Resources */,
+				224A424D20DCE558007FFFBC /* MenuSettingCell.xib in Resources */,
 				226D704420DBA8C000848D9A /* ColleagueCell.xib in Resources */,
 				225ACFF420CE6B5600F9CA34 /* Segoe.ttf in Resources */,
 				224A421720DCB060007FFFBC /* SocialNetworkCell.xib in Resources */,
@@ -1581,17 +1937,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				222BA7BA20DA3AFC00E68642 /* MonthYearPickerView.swift in Sources */,
+				224A422320DCB6E0007FFFBC /* UpdatePaperProtocol.swift in Sources */,
 				2202187F20CD829E0016EA9E /* IntroductionPresenter.swift in Sources */,
+				224A423D20DCDBDC007FFFBC /* SettingProtocol.swift in Sources */,
 				22692B0220CED6DD005C3036 /* HomePageView.swift in Sources */,
+				224A424F20DCE754007FFFBC /* SettingMenuData.swift in Sources */,
 				22E5C8E720D4AB590056023C /* LoanRequestEntity.swift in Sources */,
 				225ACFE220CE242D00F9CA34 /* IntroductionEntity.swift in Sources */,
+				224A424720DCDC83007FFFBC /* SettingPresenter.swift in Sources */,
 				22BFD8A120D0F7A000CFD201 /* MenuProfileData.swift in Sources */,
+				224A422D20DCB781007FFFBC /* UpdatePaperPresenter.swift in Sources */,
 				2202183620CD751C0016EA9E /* __Score.xcdatamodeld in Sources */,
 				221472A420CF5B630070AA3C /* MKMagneticProgress.swift in Sources */,
+				224A422720DCB722007FFFBC /* PaperEntity.swift in Sources */,
 				22692B0E20CED78C005C3036 /* HomePageDataStore.swift in Sources */,
 				225AD00620CE6FDA00F9CA34 /* LoginEntity.swift in Sources */,
 				2202186F20CD75F40016EA9E /* ExtensionUIButton.swift in Sources */,
 				226D703820DB604300848D9A /* UpdateJobWireframe.swift in Sources */,
+				224A427720DCF9F7007FFFBC /* OtpPresenter.swift in Sources */,
 				225AD01920CE8CAB00F9CA34 /* RegisterInteractor.swift in Sources */,
 				2202188B20CD87E50016EA9E /* Intro1View.swift in Sources */,
 				22692B0420CED6FA005C3036 /* HomePagePresenter.swift in Sources */,
@@ -1607,10 +1970,12 @@
 				221472A620CFC1080070AA3C /* HomePageViewCell.swift in Sources */,
 				224A41FC20DC9F4E007FFFBC /* MemberCell.swift in Sources */,
 				225AD00820CE6FE500F9CA34 /* LoginWireframe.swift in Sources */,
+				224A427120DCF9A7007FFFBC /* OtpDataStore.swift in Sources */,
 				22BFD8B320D1255100CFD201 /* LoanInteractor.swift in Sources */,
 				2204D03F20D7688700B82D31 /* LoanRegistrationPresenter.swift in Sources */,
 				224A421620DCB060007FFFBC /* SocialNetworkCell.swift in Sources */,
 				224A41F720DC8B99007FFFBC /* UpdateFamilyProtocol.swift in Sources */,
+				224A426320DCF263007FFFBC /* ChangePhoneView.swift in Sources */,
 				2277310120D8DDD9006BA0F0 /* UnderlineTextButton.swift in Sources */,
 				224A41F520DC8B91007FFFBC /* UpdateFamilyDataStore.swift in Sources */,
 				225ACFE020CE171700F9CA34 /* IntroductionDataStore.swift in Sources */,
@@ -1620,14 +1985,18 @@
 				225AD01B20CE8CBE00F9CA34 /* RegisterProtocol.swift in Sources */,
 				226D703A20DB604B00848D9A /* UpdateJobEntity.swift in Sources */,
 				22BFD8AF20D1252D00CFD201 /* LoanRequestView.swift in Sources */,
+				224A424120DCDC14007FFFBC /* SettingEntity.swift in Sources */,
 				224A420F20DCACE7007FFFBC /* UpdateSocialNetworkInteractor.swift in Sources */,
 				226D703C20DB605500848D9A /* UpdateJobDataStore.swift in Sources */,
+				224A424920DCDCB9007FFFBC /* SettingView.swift in Sources */,
 				226D704320DBA8C000848D9A /* ColleagueCell.swift in Sources */,
+				224A427B20DCFA70007FFFBC /* OtpWireframe.swift in Sources */,
 				225AD00020CE6FBB00F9CA34 /* LoginPresenter.swift in Sources */,
 				22E5C8E920D4ABFF0056023C /* LoanRequestData.swift in Sources */,
 				224A420D20DCACC7007FFFBC /* UpdateSocialNetworkWireframe.swift in Sources */,
 				2202186E20CD75F40016EA9E /* ExtensionColor.swift in Sources */,
 				225AD01520CE8C6600F9CA34 /* RegisterView.swift in Sources */,
+				224A423320DCD58E007FFFBC /* UpdatePaperCell.swift in Sources */,
 				2202186A20CD75F40016EA9E /* ExtensionView.swift in Sources */,
 				225ACFF220CE276500F9CA34 /* MainDataStore.swift in Sources */,
 				2204D03D20D7687000B82D31 /* LoanRegistrationView.swift in Sources */,
@@ -1637,15 +2006,19 @@
 				22BFD88D20D0B50600CFD201 /* ProfileView.swift in Sources */,
 				2202187D20CD80140016EA9E /* IntroductionWireframe.swift in Sources */,
 				2204D04320D768A900B82D31 /* LoanRegistrationWireframe.swift in Sources */,
+				224A422920DCB736007FFFBC /* UpdatePaperWireframe.swift in Sources */,
 				225ACFFE20CE6FAD00F9CA34 /* LoginView.swift in Sources */,
 				2277310B20D8FF00006BA0F0 /* UpdateProfileView.swift in Sources */,
 				22692B0820CED769005C3036 /* HomePageProtocol.swift in Sources */,
 				2202187B20CD7ABE0016EA9E /* IntroductionView.swift in Sources */,
+				224A422520DCB703007FFFBC /* UpdatePaperDataStore.swift in Sources */,
 				226D703420DB603000848D9A /* UpdateJobPresenter.swift in Sources */,
 				226D704620DBAB9900848D9A /* ColleagueEntity.swift in Sources */,
 				224A420720DCAC42007FFFBC /* UpdateSocialNetworkProtocol.swift in Sources */,
 				2202188D20CD87EF0016EA9E /* Intro2View.swift in Sources */,
+				224A423F20DCDBFB007FFFBC /* SettingDataStore.swift in Sources */,
 				2277310F20D8FF18006BA0F0 /* UpdateProfileInteractor.swift in Sources */,
+				224A426520DCF294007FFFBC /* ChangePhoneWireframe.swift in Sources */,
 				224A421120DCAD04007FFFBC /* UpdateSocialNetworkPresenter.swift in Sources */,
 				224A41F320DC8B84007FFFBC /* UpdateFamilyEntity.swift in Sources */,
 				224A41F120DC8B7A007FFFBC /* UpdateFamilyWireframe.swift in Sources */,
@@ -1653,18 +2026,25 @@
 				22B262B520D7AD6300969422 /* CustomSlider.swift in Sources */,
 				225AD00420CE6FD100F9CA34 /* LoginProtocol.swift in Sources */,
 				224A420920DCAC71007FFFBC /* UpdateSocialNetworkDataStore.swift in Sources */,
+				224A424520DCDC5A007FFFBC /* Settinginteractor.swift in Sources */,
 				226D703220DB602200848D9A /* UpdateJobView.swift in Sources */,
 				224A420B20DCAC8D007FFFBC /* SocialNetworkEntity.swift in Sources */,
+				224A425F20DCF216007FFFBC /* ChangePhoneInteractor.swift in Sources */,
+				224A425920DCF17C007FFFBC /* ChangePhoneProtocol.swift in Sources */,
 				225AD00220CE6FC700F9CA34 /* LoginInteractor.swift in Sources */,
+				224A424320DCDC34007FFFBC /* SettingWireframe.swift in Sources */,
 				2204D04520D768B200B82D31 /* LoanRegistrationProtocol.swift in Sources */,
 				226D703E20DB605D00848D9A /* UpdateJobProtocol.swift in Sources */,
 				22BFD8B120D1253900CFD201 /* LoanPresenter.swift in Sources */,
 				225AD01D20CE8CD900F9CA34 /* RegisterWireframe.swift in Sources */,
+				224A422B20DCB764007FFFBC /* UpdatePaperInteractor.swift in Sources */,
+				224A425B20DCF1BB007FFFBC /* ChangePhoneDataStore.swift in Sources */,
 				224A421920DCB0A8007FFFBC /* SocialNetworkDataStore.swift in Sources */,
 				2202182E20CD751C0016EA9E /* AppDelegate.swift in Sources */,
 				225AD02120CE8D0100F9CA34 /* RegisterDataStore.swift in Sources */,
 				2202186B20CD75F40016EA9E /* ExtensionTextfield.swift in Sources */,
 				22BFD8A320D10C0500CFD201 /* ExtensionNSLayoutConstraint.swift in Sources */,
+				224A424C20DCE558007FFFBC /* MenuSettingCell.swift in Sources */,
 				225AD01720CE8C8B00F9CA34 /* RegisterPresenter.swift in Sources */,
 				2202188320CD82D20016EA9E /* IntroductionProtocol.swift in Sources */,
 				2277311120D8FF26006BA0F0 /* UpdateProfileWireframe.swift in Sources */,
@@ -1672,10 +2052,14 @@
 				221472A820CFD1110070AA3C /* MenuData.swift in Sources */,
 				2277311720D8FF41006BA0F0 /* UpdateProfileProtocol.swift in Sources */,
 				22BFD89520D0B73F00CFD201 /* ProfileDataStore.swift in Sources */,
+				224A427320DCF9BD007FFFBC /* OtpEntity.swift in Sources */,
+				224A426F20DCF987007FFFBC /* OtpProtocol.swift in Sources */,
 				22B262B320D7ABA500969422 /* ExtensionSlider.swift in Sources */,
 				225ACFEF20CE270800F9CA34 /* MainPresenter.swift in Sources */,
+				224A423120DCD3B6007FFFBC /* PaperData.swift in Sources */,
 				22BFD89720D0B74D00CFD201 /* ProfileProtocol.swift in Sources */,
 				22692B0A20CED773005C3036 /* MenuEntity.swift in Sources */,
+				224A427920DCFA35007FFFBC /* OtpView.swift in Sources */,
 				2204D04720D768BC00B82D31 /* LoanRegistrationDataStore.swift in Sources */,
 				22BFD8B720D1258300CFD201 /* LoanProtocol.swift in Sources */,
 				2277310D20D8FF0D006BA0F0 /* UpdateProfilePresenter.swift in Sources */,
@@ -1683,11 +2067,15 @@
 				224A41EF20DC8B70007FFFBC /* UpdateFamilyInteractor.swift in Sources */,
 				225ACFEB20CE256600F9CA34 /* MainProtocol.swift in Sources */,
 				2202188120CD82AE0016EA9E /* IntroductionInteractor.swift in Sources */,
+				224A426120DCF235007FFFBC /* ChangePhonePresenter.swift in Sources */,
 				2202188720CD83AB0016EA9E /* MainView.swift in Sources */,
+				224A425D20DCF1D9007FFFBC /* ChangePhoneEntity.swift in Sources */,
+				224A422F20DCB7C6007FFFBC /* UpdatePaperView.swift in Sources */,
 				22692B0C20CED780005C3036 /* HomePageWireframe.swift in Sources */,
 				22BFD8B520D1256C00CFD201 /* LoanWireframe.swift in Sources */,
 				224A421320DCAD32007FFFBC /* UpdateSocialNetworkView.swift in Sources */,
 				2202186C20CD75F40016EA9E /* ExtensionCGFloat.swift in Sources */,
+				224A427520DCF9CB007FFFBC /* OtpInteractor.swift in Sources */,
 				226D703620DB603A00848D9A /* UpdateJobInteractor.swift in Sources */,
 				224A41F920DC9DCE007FFFBC /* MemberEntity.swift in Sources */,
 				22BFD8B920D1259700CFD201 /* LoanDataStore.swift in Sources */,
@@ -1866,7 +2254,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "TIMA.--Score";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1885,7 +2273,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "TIMA.--Score";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

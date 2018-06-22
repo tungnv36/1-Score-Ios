@@ -18,6 +18,10 @@ class LoginPresenter : LoginPresenterProtocol {
         interactor?.login(username: username, password: password)
     }
     
+    func goToOtp() {
+        interactor?.goToOtp()
+    }
+    
 }
 
 extension LoginPresenter : LoginInteractorOutputProtocol {
@@ -36,6 +40,10 @@ extension LoginPresenter : LoginInteractorOutputProtocol {
     
     func loginSuccess(username: String, password: String) {
         wireframe?.goToHomePage(view: view!)
+    }
+    
+    func goToOtpOutput() {
+        wireframe?.goToOtp(view: view!)
     }
     
 }

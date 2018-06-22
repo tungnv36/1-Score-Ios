@@ -56,4 +56,11 @@ class ProfileWireframe : ProfileWireframeProtocol {
         }
     }
     
+    func goToUpdatePaper(view:ProfileViewProtocol) {
+        let nextViewController = UpdatePaperWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
 }

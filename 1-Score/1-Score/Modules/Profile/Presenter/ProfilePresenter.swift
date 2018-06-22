@@ -30,6 +30,10 @@ class ProfilePresenter : ProfilePresenterProtocol {
         interactor?.goToUpdateSocialNetwork()
     }
     
+    func goToUpdatePaper() {
+        interactor?.goToUpdatePaper()
+    }
+    
 }
 
 extension ProfilePresenter : ProfileInteractorOutputProtocol {
@@ -48,6 +52,10 @@ extension ProfilePresenter : ProfileInteractorOutputProtocol {
     
     func goToUpdateSocialNetworkOutput() {
         wireframe?.goToUpdateSocialNetwork(view: view!)
+    }
+    
+    func goToUpdatePaperOutput() {
+        wireframe?.goToUpdatePaper(view: view!)
     }
     
 }

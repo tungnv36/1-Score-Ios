@@ -21,6 +21,7 @@ protocol ProfilePresenterProtocol : class {
     func goToUpdateJob()
     func goToUpdateFamily()
     func goToUpdateSocialNetwork()
+    func goToUpdatePaper()
 }
 //Interactor
 protocol ProfileInteractorInputProtocol : class {
@@ -31,6 +32,7 @@ protocol ProfileInteractorInputProtocol : class {
     func goToUpdateJob()
     func goToUpdateFamily()
     func goToUpdateSocialNetwork()
+    func goToUpdatePaper()
 }
 
 protocol ProfileInteractorOutputProtocol : class {
@@ -38,6 +40,7 @@ protocol ProfileInteractorOutputProtocol : class {
     func goToUpdateJobOutput()
     func goToUpdateFamilyOutput()
     func goToUpdateSocialNetworkOutput()
+    func goToUpdatePaperOutput()
 }
 //Wireframe
 protocol ProfileWireframeProtocol : class {
@@ -46,6 +49,7 @@ protocol ProfileWireframeProtocol : class {
     func goToUpdateJob(view:ProfileViewProtocol)
     func goToUpdateFamily(view:ProfileViewProtocol)
     func goToUpdateSocialNetwork(view:ProfileViewProtocol)
+    func goToUpdatePaper(view:ProfileViewProtocol)
 }
 //DataStore
 protocol ProfileDataStoreProtocol : class {

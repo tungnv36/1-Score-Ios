@@ -194,6 +194,7 @@ class LoginView: UIViewController {
         btLostPass.setTitle(StringEnum.BTN_LOST_PASS.rawValue, for: .normal)
         btLostPass.setTitleColor(UIColor.rgb(fromHex: ColorEnum.TEXT_DARK.rawValue), for: .normal)
         btLostPass.titleLabel?.font = UIFont(name: StringEnum.MAIN_FONT.rawValue, size: 14)
+        btLostPass.addTarget(self, action: #selector(forgotPass), for: .touchUpInside)
     }
     
     func addLoginButton() {
@@ -230,6 +231,10 @@ class LoginView: UIViewController {
         loginPresenter?.login(username: txtUser.text!, password: txtPass.text!)
     }
 
+    @objc func forgotPass(sender: UIButton!) {
+        loginPresenter?.goToOtp()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

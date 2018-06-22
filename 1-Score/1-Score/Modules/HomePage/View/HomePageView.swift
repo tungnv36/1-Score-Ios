@@ -250,7 +250,7 @@ class HomePageView: UIViewController {
     }
     
     @objc func actionMenu(sender: UIButton!) {
-        print("TOUCH MENU")
+        homePagePresenter?.goToSetting()
     }
     
     @objc func actionSupport(sender: UIButton!) {

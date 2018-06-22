@@ -29,4 +29,8 @@ class ProfileInteractor : ProfileInteractorInputProtocol {
         presenter?.goToUpdateSocialNetworkOutput()
     }
     
+    func goToUpdatePaper() {
+        presenter?.goToUpdatePaperOutput()
+    }
+    
 }

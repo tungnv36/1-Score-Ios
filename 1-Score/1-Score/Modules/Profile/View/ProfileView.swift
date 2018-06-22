@@ -223,6 +223,7 @@ extension ProfileView : UITableViewDelegate, UITableViewDataSource {
             profilePresenter?.goToUpdateSocialNetwork()
             break
         case 4:
+            profilePresenter?.goToUpdatePaper()
             break
         default:
             break

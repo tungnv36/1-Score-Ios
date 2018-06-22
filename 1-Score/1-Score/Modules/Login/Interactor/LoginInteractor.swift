@@ -25,4 +25,8 @@ class LoginInteractor : LoginInteractorInputProtocol {
         presenter?.loginSuccess(username: username, password: password)
     }
     
+    func goToOtp() {
+        presenter?.goToOtpOutput()
+    }
+    
 }
