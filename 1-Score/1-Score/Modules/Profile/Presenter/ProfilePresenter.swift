@@ -22,6 +22,14 @@ class ProfilePresenter : ProfilePresenterProtocol {
         interactor?.goToUpdateJob()
     }
     
+    func goToUpdateFamily() {
+        interactor?.goToUpdateFamily()
+    }
+    
+    func goToUpdateSocialNetwork() {
+        interactor?.goToUpdateSocialNetwork()
+    }
+    
 }
 
 extension ProfilePresenter : ProfileInteractorOutputProtocol {
@@ -32,6 +40,14 @@ extension ProfilePresenter : ProfileInteractorOutputProtocol {
     
     func goToUpdateJobOutput() {
         wireframe?.goToUpdateJob(view: view!)
+    }
+    
+    func goToUpdateFamilyOutput() {
+        wireframe?.goToUpdateFamily(view: view!)
+    }
+    
+    func goToUpdateSocialNetworkOutput() {
+        wireframe?.goToUpdateSocialNetwork(view: view!)
     }
     
 }

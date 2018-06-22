@@ -1,0 +1,22 @@
+//
+//  UpdateSocialNetworkPresenter.swift
+//  1-Score
+//
+//  Created by TIMA on 6/22/18.
+//  Copyright © 2018 TIMA. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class UpdateSocialNetworkPresenter : UpdateSocialNetworkPresenterProtocol {
+    
+    var view: UpdateSocialNetworkViewProtocol?
+    var interactor: UpdateSocialNetworkInteractorInputProtocol?
+    var wireframe: UpdateSocialNetworkWireframeProtocol?
+    
+}
+
+extension UpdateSocialNetworkPresenter : UpdateSocialNetworkInteractorOutputProtocol {
+    
+}

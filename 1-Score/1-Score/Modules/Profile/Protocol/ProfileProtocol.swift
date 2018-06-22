@@ -19,6 +19,8 @@ protocol ProfilePresenterProtocol : class {
     
     func goToUpdateProfile()
     func goToUpdateJob()
+    func goToUpdateFamily()
+    func goToUpdateSocialNetwork()
 }
 //Interactor
 protocol ProfileInteractorInputProtocol : class {
@@ -27,17 +29,23 @@ protocol ProfileInteractorInputProtocol : class {
     
     func goToUpdateProfile()
     func goToUpdateJob()
+    func goToUpdateFamily()
+    func goToUpdateSocialNetwork()
 }
 
 protocol ProfileInteractorOutputProtocol : class {
     func goToUpdateProfileOutput()
     func goToUpdateJobOutput()
+    func goToUpdateFamilyOutput()
+    func goToUpdateSocialNetworkOutput()
 }
 //Wireframe
 protocol ProfileWireframeProtocol : class {
     static func getModule() -> UIViewController
     func goToUpdateProfile(view:ProfileViewProtocol)
     func goToUpdateJob(view:ProfileViewProtocol)
+    func goToUpdateFamily(view:ProfileViewProtocol)
+    func goToUpdateSocialNetwork(view:ProfileViewProtocol)
 }
 //DataStore
 protocol ProfileDataStoreProtocol : class {

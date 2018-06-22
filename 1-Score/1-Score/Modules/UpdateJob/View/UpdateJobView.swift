@@ -211,6 +211,7 @@ class UpdateJobView: UIViewController {
         lblScoreJobInfo.text = StringEnum.TEMPLE_SCORE.rawValue
         lblScoreJobInfo.font = UIFont.systemFont(ofSize: 14)
         lblScoreJobInfo.textColor = UIColor.white
+        
         //add job
         let lblJob:UILabel = UILabel()
         viewJobInfo.addSubview(lblJob)
@@ -606,7 +607,6 @@ class UpdateJobView: UIViewController {
         btAddColleague.addTarget(self, action: #selector(actionAddColleague), for: .touchUpInside)
         
         btAddColleague.bottomAnchor.constraint(equalTo: viewColleague.bottomAnchor).isActive = true
-//        viewColleague.bottomAnchor.constraint(equalTo: (scrollView?.bottomAnchor)!, constant: -20).isActive = true
     }
     
     func addButton() {

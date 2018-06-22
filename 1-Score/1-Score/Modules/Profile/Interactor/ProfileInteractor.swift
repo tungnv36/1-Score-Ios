@@ -21,4 +21,12 @@ class ProfileInteractor : ProfileInteractorInputProtocol {
         presenter?.goToUpdateJobOutput()
     }
     
+    func goToUpdateFamily() {
+        presenter?.goToUpdateFamilyOutput()
+    }
+    
+    func goToUpdateSocialNetwork() {
+        presenter?.goToUpdateSocialNetworkOutput()
+    }
+    
 }

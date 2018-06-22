@@ -217,8 +217,10 @@ extension ProfileView : UITableViewDelegate, UITableViewDataSource {
             profilePresenter?.goToUpdateJob()
             break
         case 2:
+            profilePresenter?.goToUpdateFamily()
             break
         case 3:
+            profilePresenter?.goToUpdateSocialNetwork()
             break
         case 4:
             break

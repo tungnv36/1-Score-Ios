@@ -42,4 +42,18 @@ class ProfileWireframe : ProfileWireframeProtocol {
         }
     }
     
+    func goToUpdateFamily(view:ProfileViewProtocol) {
+        let nextViewController = UpdateFamilyWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
+    func goToUpdateSocialNetwork(view:ProfileViewProtocol) {
+        let nextViewController = UpdateSocialNetworkWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
 }
