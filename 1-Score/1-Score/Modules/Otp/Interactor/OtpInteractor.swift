@@ -14,4 +14,8 @@ class OtpInteractor : OtpInteractorInputProtocol {
     var presenter: OtpInteractorOutputProtocol?
     var dataStore: OtpDataStoreProtocol?
     
+    func goToAuthenticOtp() {
+        presenter?.goToAuthenticOtpOutput()
+    }
+    
 }

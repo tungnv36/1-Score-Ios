@@ -17,20 +17,23 @@ protocol OtpPresenterProtocol : class {
     var interactor: OtpInteractorInputProtocol? { get set }
     var wireframe: OtpWireframeProtocol? { get set }
     
+    func goToAuthenticOtp()
 }
 //Interactor
 protocol OtpInteractorInputProtocol : class {
     var presenter:OtpInteractorOutputProtocol? { get set }
     var dataStore:OtpDataStoreProtocol? { get set }
     
+    func goToAuthenticOtp()
 }
 
 protocol OtpInteractorOutputProtocol : class {
-    
+    func goToAuthenticOtpOutput()
 }
 //Wireframe
 protocol OtpWireframeProtocol : class {
     static func getModule() -> UIViewController;
+    func goToAuthenticOtp(view:OtpViewProtocol!)
 }
 //DataStore
 protocol OtpDataStoreProtocol : class {

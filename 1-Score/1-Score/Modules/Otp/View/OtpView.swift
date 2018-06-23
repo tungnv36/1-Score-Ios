@@ -52,13 +52,13 @@ class OtpView: UIViewController {
         txtOtp.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20).isActive = true
         txtOtp.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20).isActive = true
         txtOtp.centerYAnchor.constraint(equalTo: mainView.centerYAnchor).isActive = true
-        txtOtp.heightAnchor.constraint(equalToConstant: 35).isActive = true
-        txtOtp.bounds.size.height = 35
+        txtOtp.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        txtOtp.bounds.size.height = 40
         txtOtp.placeholder = "Nhập OTP"
         txtOtp.autocorrectionType = .no
         txtOtp.layer.masksToBounds = true
         txtOtp.layer.borderWidth = 1
-        txtOtp.layer.borderColor = UIColor.rgb(fromHex: ColorEnum.TEXT_DARK.rawValue).cgColor
+        txtOtp.layer.borderColor = UIColor.rgb(fromHex: ColorEnum.TEXT_MEDIUM.rawValue).cgColor
         txtOtp.layer.cornerRadius = 5
         txtOtp.textAlignment = .center
         
@@ -73,18 +73,19 @@ class OtpView: UIViewController {
         lblDescription.textColor = UIColor.rgb(fromHex: ColorEnum.TEXT_MEDIUM.rawValue)
         
         mainView.addSubview(ivLogo)
+        ivLogo.translatesAutoresizingMaskIntoConstraints = false
         ivLogo.centerXAnchor.constraint(equalTo: mainView.centerXAnchor).isActive = true
-        ivLogo.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -40).isActive = true
-        ivLogo.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/4).isActive = true;
-        ivLogo.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/4).isActive = true;
-        ivLogo.bounds.size = CGSize(width: UIScreen.main.bounds.width/4, height: UIScreen.main.bounds.width/4)
+        ivLogo.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: -30).isActive = true
+        ivLogo.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/3).isActive = true;
+        ivLogo.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/3).isActive = true;
+        ivLogo.bounds.size = CGSize(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.width/3)
         ivLogo.image = #imageLiteral(resourceName: "logo")
         ivLogo.contentMode = .scaleAspectFit
         
         let heightButton:CGFloat = 55
         mainView.addSubview(btConfirm)
         btConfirm.translatesAutoresizingMaskIntoConstraints = false
-        btConfirm.topAnchor.constraint(equalTo: txtOtp.bottomAnchor, constant: 20).isActive = true
+        btConfirm.topAnchor.constraint(equalTo: txtOtp.bottomAnchor, constant: 30).isActive = true
         btConfirm.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 50).isActive = true
         btConfirm.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -50).isActive = true
         btConfirm.heightAnchor.constraint(equalToConstant: heightButton).isActive = true
@@ -111,7 +112,7 @@ class OtpView: UIViewController {
     }
     
     @objc func actionConfirm(sender:UIButton!) {
-        
+        otpPresenter?.goToAuthenticOtp()
     }
     
     override func didReceiveMemoryWarning() {

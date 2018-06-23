@@ -28,5 +28,12 @@ class OtpWireframe : OtpWireframeProtocol {
         
         return otpView
     }
+ 
+    func goToAuthenticOtp(view:OtpViewProtocol!) {
+        let nextVC = AuthenticOtpWireframe.getModule()
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextVC, animated: true, completion: nil)
+        }
+    }
     
 }

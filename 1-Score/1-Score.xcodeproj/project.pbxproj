@@ -42,6 +42,20 @@
 		221472A620CFC1080070AA3C /* HomePageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221472A520CFC1080070AA3C /* HomePageViewCell.swift */; };
 		221472A820CFD1110070AA3C /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221472A720CFD1110070AA3C /* MenuData.swift */; };
 		222BA7BA20DA3AFC00E68642 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222BA7B920DA3AFC00E68642 /* MonthYearPickerView.swift */; };
+		2238122D20DE33C500A91ADF /* AuthenticOtpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238122C20DE33C500A91ADF /* AuthenticOtpProtocol.swift */; };
+		2238122F20DE340E00A91ADF /* AuthenticOtpDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238122E20DE340E00A91ADF /* AuthenticOtpDataStore.swift */; };
+		2238123120DE342D00A91ADF /* AuthenticOtpEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238123020DE342D00A91ADF /* AuthenticOtpEntity.swift */; };
+		2238123320DE343900A91ADF /* AuthenticOtpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238123220DE343900A91ADF /* AuthenticOtpInteractor.swift */; };
+		2238123520DE346D00A91ADF /* AuthenticOtpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238123420DE346D00A91ADF /* AuthenticOtpPresenter.swift */; };
+		2238123720DE34A400A91ADF /* AuthenticOtpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238123620DE34A400A91ADF /* AuthenticOtpView.swift */; };
+		2238123920DE34D900A91ADF /* AuthenticOtpWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238123820DE34D900A91ADF /* AuthenticOtpWireframe.swift */; };
+		2238124320DE3AA900A91ADF /* ChangePassProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238124220DE3AA900A91ADF /* ChangePassProtocol.swift */; };
+		2238124520DE3B3A00A91ADF /* ChangePassDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238124420DE3B3A00A91ADF /* ChangePassDataStore.swift */; };
+		2238124720DE3B5200A91ADF /* ChangePassEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238124620DE3B5200A91ADF /* ChangePassEntity.swift */; };
+		2238124920DE3B6200A91ADF /* ChangePassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238124820DE3B6200A91ADF /* ChangePassInteractor.swift */; };
+		2238124B20DE3B8C00A91ADF /* ChangePassPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238124A20DE3B8C00A91ADF /* ChangePassPresenter.swift */; };
+		2238124D20DE3BD400A91ADF /* ChangePassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238124C20DE3BD400A91ADF /* ChangePassView.swift */; };
+		2238124F20DE3C0600A91ADF /* ChangePassWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238124E20DE3C0600A91ADF /* ChangePassWireframe.swift */; };
 		224A41EB20DC8B1F007FFFBC /* UpdateFamilyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A41EA20DC8B1F007FFFBC /* UpdateFamilyView.swift */; };
 		224A41ED20DC8B5C007FFFBC /* UpdateFamilyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A41EC20DC8B5C007FFFBC /* UpdateFamilyPresenter.swift */; };
 		224A41EF20DC8B70007FFFBC /* UpdateFamilyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A41EE20DC8B70007FFFBC /* UpdateFamilyInteractor.swift */; };
@@ -226,6 +240,20 @@
 		221472A520CFC1080070AA3C /* HomePageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewCell.swift; sourceTree = "<group>"; };
 		221472A720CFD1110070AA3C /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
 		222BA7B920DA3AFC00E68642 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
+		2238122C20DE33C500A91ADF /* AuthenticOtpProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpProtocol.swift; sourceTree = "<group>"; };
+		2238122E20DE340E00A91ADF /* AuthenticOtpDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpDataStore.swift; sourceTree = "<group>"; };
+		2238123020DE342D00A91ADF /* AuthenticOtpEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpEntity.swift; sourceTree = "<group>"; };
+		2238123220DE343900A91ADF /* AuthenticOtpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpInteractor.swift; sourceTree = "<group>"; };
+		2238123420DE346D00A91ADF /* AuthenticOtpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpPresenter.swift; sourceTree = "<group>"; };
+		2238123620DE34A400A91ADF /* AuthenticOtpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpView.swift; sourceTree = "<group>"; };
+		2238123820DE34D900A91ADF /* AuthenticOtpWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpWireframe.swift; sourceTree = "<group>"; };
+		2238124220DE3AA900A91ADF /* ChangePassProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassProtocol.swift; sourceTree = "<group>"; };
+		2238124420DE3B3A00A91ADF /* ChangePassDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassDataStore.swift; sourceTree = "<group>"; };
+		2238124620DE3B5200A91ADF /* ChangePassEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassEntity.swift; sourceTree = "<group>"; };
+		2238124820DE3B6200A91ADF /* ChangePassInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassInteractor.swift; sourceTree = "<group>"; };
+		2238124A20DE3B8C00A91ADF /* ChangePassPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassPresenter.swift; sourceTree = "<group>"; };
+		2238124C20DE3BD400A91ADF /* ChangePassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassView.swift; sourceTree = "<group>"; };
+		2238124E20DE3C0600A91ADF /* ChangePassWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassWireframe.swift; sourceTree = "<group>"; };
 		224A41EA20DC8B1F007FFFBC /* UpdateFamilyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFamilyView.swift; sourceTree = "<group>"; };
 		224A41EC20DC8B5C007FFFBC /* UpdateFamilyPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateFamilyPresenter.swift; sourceTree = "<group>"; };
 		224A41EE20DC8B70007FFFBC /* UpdateFamilyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFamilyInteractor.swift; sourceTree = "<group>"; };
@@ -458,6 +486,8 @@
 		2202185F20CD75B10016EA9E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2238123A20DE3A8C00A91ADF /* ChangePass */,
+				2238122420DE338200A91ADF /* AuthenticOtp */,
 				224A426620DCF95D007FFFBC /* Otp */,
 				224A425020DCF124007FFFBC /* ChangePhone */,
 				224A423420DCDBA2007FFFBC /* Setting */,
@@ -705,6 +735,146 @@
 				222BA7B920DA3AFC00E68642 /* MonthYearPickerView.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		2238122420DE338200A91ADF /* AuthenticOtp */ = {
+			isa = PBXGroup;
+			children = (
+				2238122620DE33AA00A91ADF /* DataStore */,
+				2238122820DE33AA00A91ADF /* Entity */,
+				2238122B20DE33AB00A91ADF /* Interactor */,
+				2238122A20DE33AB00A91ADF /* Presenter */,
+				2238122720DE33AA00A91ADF /* Protocol */,
+				2238122920DE33AA00A91ADF /* View */,
+				2238122520DE33AA00A91ADF /* Wireframe */,
+			);
+			path = AuthenticOtp;
+			sourceTree = "<group>";
+		};
+		2238122520DE33AA00A91ADF /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				2238123820DE34D900A91ADF /* AuthenticOtpWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		2238122620DE33AA00A91ADF /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				2238122E20DE340E00A91ADF /* AuthenticOtpDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		2238122720DE33AA00A91ADF /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2238122C20DE33C500A91ADF /* AuthenticOtpProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		2238122820DE33AA00A91ADF /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2238123020DE342D00A91ADF /* AuthenticOtpEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2238122920DE33AA00A91ADF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2238123620DE34A400A91ADF /* AuthenticOtpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2238122A20DE33AB00A91ADF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2238123420DE346D00A91ADF /* AuthenticOtpPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2238122B20DE33AB00A91ADF /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2238123220DE343900A91ADF /* AuthenticOtpInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2238123A20DE3A8C00A91ADF /* ChangePass */ = {
+			isa = PBXGroup;
+			children = (
+				2238123C20DE3A9A00A91ADF /* DataStore */,
+				2238123E20DE3A9A00A91ADF /* Entity */,
+				2238124120DE3A9A00A91ADF /* Interactor */,
+				2238124020DE3A9A00A91ADF /* Presenter */,
+				2238123D20DE3A9A00A91ADF /* Protocol */,
+				2238123F20DE3A9A00A91ADF /* View */,
+				2238123B20DE3A9A00A91ADF /* Wireframe */,
+			);
+			path = ChangePass;
+			sourceTree = "<group>";
+		};
+		2238123B20DE3A9A00A91ADF /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				2238124E20DE3C0600A91ADF /* ChangePassWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		2238123C20DE3A9A00A91ADF /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				2238124420DE3B3A00A91ADF /* ChangePassDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		2238123D20DE3A9A00A91ADF /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2238124220DE3AA900A91ADF /* ChangePassProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		2238123E20DE3A9A00A91ADF /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2238124620DE3B5200A91ADF /* ChangePassEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2238123F20DE3A9A00A91ADF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2238124C20DE3BD400A91ADF /* ChangePassView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2238124020DE3A9A00A91ADF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2238124A20DE3B8C00A91ADF /* ChangePassPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2238124120DE3A9A00A91ADF /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2238124820DE3B6200A91ADF /* ChangePassInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		224A41E220DC8AC9007FFFBC /* UpdateFamily */ = {
@@ -1940,16 +2110,20 @@
 				224A422320DCB6E0007FFFBC /* UpdatePaperProtocol.swift in Sources */,
 				2202187F20CD829E0016EA9E /* IntroductionPresenter.swift in Sources */,
 				224A423D20DCDBDC007FFFBC /* SettingProtocol.swift in Sources */,
+				2238124320DE3AA900A91ADF /* ChangePassProtocol.swift in Sources */,
 				22692B0220CED6DD005C3036 /* HomePageView.swift in Sources */,
 				224A424F20DCE754007FFFBC /* SettingMenuData.swift in Sources */,
 				22E5C8E720D4AB590056023C /* LoanRequestEntity.swift in Sources */,
+				2238124720DE3B5200A91ADF /* ChangePassEntity.swift in Sources */,
 				225ACFE220CE242D00F9CA34 /* IntroductionEntity.swift in Sources */,
 				224A424720DCDC83007FFFBC /* SettingPresenter.swift in Sources */,
 				22BFD8A120D0F7A000CFD201 /* MenuProfileData.swift in Sources */,
 				224A422D20DCB781007FFFBC /* UpdatePaperPresenter.swift in Sources */,
 				2202183620CD751C0016EA9E /* __Score.xcdatamodeld in Sources */,
+				2238124F20DE3C0600A91ADF /* ChangePassWireframe.swift in Sources */,
 				221472A420CF5B630070AA3C /* MKMagneticProgress.swift in Sources */,
 				224A422720DCB722007FFFBC /* PaperEntity.swift in Sources */,
+				2238123920DE34D900A91ADF /* AuthenticOtpWireframe.swift in Sources */,
 				22692B0E20CED78C005C3036 /* HomePageDataStore.swift in Sources */,
 				225AD00620CE6FDA00F9CA34 /* LoginEntity.swift in Sources */,
 				2202186F20CD75F40016EA9E /* ExtensionUIButton.swift in Sources */,
@@ -1974,6 +2148,7 @@
 				22BFD8B320D1255100CFD201 /* LoanInteractor.swift in Sources */,
 				2204D03F20D7688700B82D31 /* LoanRegistrationPresenter.swift in Sources */,
 				224A421620DCB060007FFFBC /* SocialNetworkCell.swift in Sources */,
+				2238124520DE3B3A00A91ADF /* ChangePassDataStore.swift in Sources */,
 				224A41F720DC8B99007FFFBC /* UpdateFamilyProtocol.swift in Sources */,
 				224A426320DCF263007FFFBC /* ChangePhoneView.swift in Sources */,
 				2277310120D8DDD9006BA0F0 /* UnderlineTextButton.swift in Sources */,
@@ -1983,6 +2158,7 @@
 				22BFD89120D0B52300CFD201 /* ProfileInteractor.swift in Sources */,
 				22692B0620CED719005C3036 /* HomePageInteractor.swift in Sources */,
 				225AD01B20CE8CBE00F9CA34 /* RegisterProtocol.swift in Sources */,
+				2238123320DE343900A91ADF /* AuthenticOtpInteractor.swift in Sources */,
 				226D703A20DB604B00848D9A /* UpdateJobEntity.swift in Sources */,
 				22BFD8AF20D1252D00CFD201 /* LoanRequestView.swift in Sources */,
 				224A424120DCDC14007FFFBC /* SettingEntity.swift in Sources */,
@@ -1993,7 +2169,9 @@
 				224A427B20DCFA70007FFFBC /* OtpWireframe.swift in Sources */,
 				225AD00020CE6FBB00F9CA34 /* LoginPresenter.swift in Sources */,
 				22E5C8E920D4ABFF0056023C /* LoanRequestData.swift in Sources */,
+				2238122F20DE340E00A91ADF /* AuthenticOtpDataStore.swift in Sources */,
 				224A420D20DCACC7007FFFBC /* UpdateSocialNetworkWireframe.swift in Sources */,
+				2238124B20DE3B8C00A91ADF /* ChangePassPresenter.swift in Sources */,
 				2202186E20CD75F40016EA9E /* ExtensionColor.swift in Sources */,
 				225AD01520CE8C6600F9CA34 /* RegisterView.swift in Sources */,
 				224A423320DCD58E007FFFBC /* UpdatePaperCell.swift in Sources */,
@@ -2007,6 +2185,7 @@
 				2202187D20CD80140016EA9E /* IntroductionWireframe.swift in Sources */,
 				2204D04320D768A900B82D31 /* LoanRegistrationWireframe.swift in Sources */,
 				224A422920DCB736007FFFBC /* UpdatePaperWireframe.swift in Sources */,
+				2238124920DE3B6200A91ADF /* ChangePassInteractor.swift in Sources */,
 				225ACFFE20CE6FAD00F9CA34 /* LoginView.swift in Sources */,
 				2277310B20D8FF00006BA0F0 /* UpdateProfileView.swift in Sources */,
 				22692B0820CED769005C3036 /* HomePageProtocol.swift in Sources */,
@@ -2040,21 +2219,26 @@
 				224A422B20DCB764007FFFBC /* UpdatePaperInteractor.swift in Sources */,
 				224A425B20DCF1BB007FFFBC /* ChangePhoneDataStore.swift in Sources */,
 				224A421920DCB0A8007FFFBC /* SocialNetworkDataStore.swift in Sources */,
+				2238123520DE346D00A91ADF /* AuthenticOtpPresenter.swift in Sources */,
 				2202182E20CD751C0016EA9E /* AppDelegate.swift in Sources */,
+				2238123120DE342D00A91ADF /* AuthenticOtpEntity.swift in Sources */,
 				225AD02120CE8D0100F9CA34 /* RegisterDataStore.swift in Sources */,
 				2202186B20CD75F40016EA9E /* ExtensionTextfield.swift in Sources */,
 				22BFD8A320D10C0500CFD201 /* ExtensionNSLayoutConstraint.swift in Sources */,
 				224A424C20DCE558007FFFBC /* MenuSettingCell.swift in Sources */,
 				225AD01720CE8C8B00F9CA34 /* RegisterPresenter.swift in Sources */,
 				2202188320CD82D20016EA9E /* IntroductionProtocol.swift in Sources */,
+				2238122D20DE33C500A91ADF /* AuthenticOtpProtocol.swift in Sources */,
 				2277311120D8FF26006BA0F0 /* UpdateProfileWireframe.swift in Sources */,
 				225ACFED20CE26DC00F9CA34 /* MainInteractor.swift in Sources */,
 				221472A820CFD1110070AA3C /* MenuData.swift in Sources */,
+				2238123720DE34A400A91ADF /* AuthenticOtpView.swift in Sources */,
 				2277311720D8FF41006BA0F0 /* UpdateProfileProtocol.swift in Sources */,
 				22BFD89520D0B73F00CFD201 /* ProfileDataStore.swift in Sources */,
 				224A427320DCF9BD007FFFBC /* OtpEntity.swift in Sources */,
 				224A426F20DCF987007FFFBC /* OtpProtocol.swift in Sources */,
 				22B262B320D7ABA500969422 /* ExtensionSlider.swift in Sources */,
+				2238124D20DE3BD400A91ADF /* ChangePassView.swift in Sources */,
 				225ACFEF20CE270800F9CA34 /* MainPresenter.swift in Sources */,
 				224A423120DCD3B6007FFFBC /* PaperData.swift in Sources */,
 				22BFD89720D0B74D00CFD201 /* ProfileProtocol.swift in Sources */,

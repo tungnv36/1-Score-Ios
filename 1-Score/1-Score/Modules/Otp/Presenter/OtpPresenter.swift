@@ -15,8 +15,16 @@ class OtpPresenter : OtpPresenterProtocol {
     var interactor: OtpInteractorInputProtocol?
     var wireframe: OtpWireframeProtocol?
     
+    func goToAuthenticOtp() {
+        interactor?.goToAuthenticOtp()
+    }
+    
 }
 
 extension OtpPresenter : OtpInteractorOutputProtocol {
+    
+    func goToAuthenticOtpOutput() {
+        wireframe?.goToAuthenticOtp(view: view!)
+    }
     
 }
