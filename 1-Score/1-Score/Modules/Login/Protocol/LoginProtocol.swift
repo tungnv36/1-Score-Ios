@@ -48,5 +48,5 @@ protocol LoginWireframeProtocol : class {
 }
 //DataStore
 protocol LoginDataStoreProtocol : class {
-    
+    func callLogin(loginEntity: LoginEntity, completion:@escaping (_ loginResultEntity: LoginResultEntity) -> ())
 }

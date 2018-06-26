@@ -6,4 +6,9 @@
 //  Copyright © 2018 TIMA. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct LoginEntity {
+    var username:String?
+    var password:String?
+}

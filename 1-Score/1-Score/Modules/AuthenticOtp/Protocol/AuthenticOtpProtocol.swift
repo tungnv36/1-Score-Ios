@@ -32,7 +32,7 @@ protocol AuthenticOtpInteractorOutputProtocol : class {
 }
 //Wireframe
 protocol AuthenticOtpWireframeProtocol : class {
-    static func getModule() -> UIViewController;
+    static func getModule(type:Int) -> UIViewController;
     func goToChangePass(view:AuthenticOtpViewProtocol!)
 }
 //DataStore

@@ -11,7 +11,6 @@
 		218377D8E4546512B8FBFB82 /* Pods_1_ScoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E728AC825E85C78F308A5D /* Pods_1_ScoreTests.framework */; };
 		2202182E20CD751C0016EA9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202182D20CD751C0016EA9E /* AppDelegate.swift */; };
 		2202183620CD751C0016EA9E /* __Score.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2202183420CD751C0016EA9E /* __Score.xcdatamodeld */; };
-		2202183820CD751E0016EA9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2202183720CD751E0016EA9E /* Assets.xcassets */; };
 		2202183B20CD751E0016EA9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2202183920CD751E0016EA9E /* LaunchScreen.storyboard */; };
 		2202184620CD751E0016EA9E /* __ScoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202184520CD751E0016EA9E /* __ScoreTests.swift */; };
 		2202185120CD751E0016EA9E /* __ScoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202185020CD751E0016EA9E /* __ScoreUITests.swift */; };
@@ -30,6 +29,12 @@
 		2202188720CD83AB0016EA9E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202188620CD83AB0016EA9E /* MainView.swift */; };
 		2202188B20CD87E50016EA9E /* Intro1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202188A20CD87E50016EA9E /* Intro1View.swift */; };
 		2202188D20CD87EF0016EA9E /* Intro2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202188C20CD87EF0016EA9E /* Intro2View.swift */; };
+		22049AFB20E1F79900E51635 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22049AFA20E1F79900E51635 /* SwiftyJSON.framework */; };
+		22049AFD20E1F79900E51635 /* SwipeCellKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22049AFC20E1F79900E51635 /* SwipeCellKit.framework */; };
+		22049AFF20E1F85C00E51635 /* LoginApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049AFE20E1F85C00E51635 /* LoginApi.swift */; };
+		22049B0120E1FC4C00E51635 /* LoginResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049B0020E1FC4C00E51635 /* LoginResultEntity.swift */; };
+		22049B0320E235DB00E51635 /* RegisterApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049B0220E235DB00E51635 /* RegisterApi.swift */; };
+		22049B0520E2373F00E51635 /* RegisterResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049B0420E2373F00E51635 /* RegisterResultEntity.swift */; };
 		2204D03220D75B1700B82D31 /* LoanRequestViewCellNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2204D03020D75B1700B82D31 /* LoanRequestViewCellNib.swift */; };
 		2204D03320D75B1700B82D31 /* LoanRequestViewCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2204D03120D75B1700B82D31 /* LoanRequestViewCellNib.xib */; };
 		2204D03D20D7687000B82D31 /* LoanRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2204D03C20D7687000B82D31 /* LoanRegistrationView.swift */; };
@@ -41,6 +46,8 @@
 		221472A420CF5B630070AA3C /* MKMagneticProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221472A320CF5B630070AA3C /* MKMagneticProgress.swift */; };
 		221472A620CFC1080070AA3C /* HomePageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221472A520CFC1080070AA3C /* HomePageViewCell.swift */; };
 		221472A820CFD1110070AA3C /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221472A720CFD1110070AA3C /* MenuData.swift */; };
+		2218C35E20E1F0B200685C3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2218C35D20E1F0B200685C3F /* Assets.xcassets */; };
+		2218C36120E1F68B00685C3F /* CallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218C36020E1F68B00685C3F /* CallApi.swift */; };
 		222BA7BA20DA3AFC00E68642 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222BA7B920DA3AFC00E68642 /* MonthYearPickerView.swift */; };
 		2238122D20DE33C500A91ADF /* AuthenticOtpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238122C20DE33C500A91ADF /* AuthenticOtpProtocol.swift */; };
 		2238122F20DE340E00A91ADF /* AuthenticOtpDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238122E20DE340E00A91ADF /* AuthenticOtpDataStore.swift */; };
@@ -204,7 +211,6 @@
 		2202182A20CD751C0016EA9E /* 1-Score.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "1-Score.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2202182D20CD751C0016EA9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2202183520CD751C0016EA9E /* __Score.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = __Score.xcdatamodel; sourceTree = "<group>"; };
-		2202183720CD751E0016EA9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2202183A20CD751E0016EA9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2202183C20CD751E0016EA9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2202184120CD751E0016EA9E /* 1-ScoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "1-ScoreTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +234,12 @@
 		2202188620CD83AB0016EA9E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2202188A20CD87E50016EA9E /* Intro1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro1View.swift; sourceTree = "<group>"; };
 		2202188C20CD87EF0016EA9E /* Intro2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro2View.swift; sourceTree = "<group>"; };
+		22049AFA20E1F79900E51635 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		22049AFC20E1F79900E51635 /* SwipeCellKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwipeCellKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		22049AFE20E1F85C00E51635 /* LoginApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApi.swift; sourceTree = "<group>"; };
+		22049B0020E1FC4C00E51635 /* LoginResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResultEntity.swift; sourceTree = "<group>"; };
+		22049B0220E235DB00E51635 /* RegisterApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterApi.swift; sourceTree = "<group>"; };
+		22049B0420E2373F00E51635 /* RegisterResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResultEntity.swift; sourceTree = "<group>"; };
 		2204D03020D75B1700B82D31 /* LoanRequestViewCellNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanRequestViewCellNib.swift; sourceTree = "<group>"; };
 		2204D03120D75B1700B82D31 /* LoanRequestViewCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoanRequestViewCellNib.xib; sourceTree = "<group>"; };
 		2204D03C20D7687000B82D31 /* LoanRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanRegistrationView.swift; sourceTree = "<group>"; };
@@ -239,6 +251,8 @@
 		221472A320CF5B630070AA3C /* MKMagneticProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMagneticProgress.swift; sourceTree = "<group>"; };
 		221472A520CFC1080070AA3C /* HomePageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewCell.swift; sourceTree = "<group>"; };
 		221472A720CFD1110070AA3C /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
+		2218C35D20E1F0B200685C3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2218C36020E1F68B00685C3F /* CallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallApi.swift; sourceTree = "<group>"; };
 		222BA7B920DA3AFC00E68642 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
 		2238122C20DE33C500A91ADF /* AuthenticOtpProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpProtocol.swift; sourceTree = "<group>"; };
 		2238122E20DE340E00A91ADF /* AuthenticOtpDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpDataStore.swift; sourceTree = "<group>"; };
@@ -393,6 +407,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22049AFB20E1F79900E51635 /* SwiftyJSON.framework in Frameworks */,
+				22049AFD20E1F79900E51635 /* SwipeCellKit.framework in Frameworks */,
 				22D6BE2620D78EA300AF18A4 /* DropDown.framework in Frameworks */,
 				22BFD88320D0B1B700CFD201 /* MessageUI.framework in Frameworks */,
 				03754C190D865F81207436B5 /* Pods_1_Score.framework in Frameworks */,
@@ -447,7 +463,7 @@
 				2202185E20CD75A90016EA9E /* Common */,
 				2202185F20CD75B10016EA9E /* Modules */,
 				2202182D20CD751C0016EA9E /* AppDelegate.swift */,
-				2202183720CD751E0016EA9E /* Assets.xcassets */,
+				2218C35D20E1F0B200685C3F /* Assets.xcassets */,
 				2202183920CD751E0016EA9E /* LaunchScreen.storyboard */,
 				2202183C20CD751E0016EA9E /* Info.plist */,
 				2202183420CD751C0016EA9E /* __Score.xcdatamodeld */,
@@ -476,6 +492,7 @@
 		2202185E20CD75A90016EA9E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2218C35F20E1F65F00685C3F /* API */,
 				221472A220CF5B3E0070AA3C /* CustomView */,
 				2202186120CD75CD0016EA9E /* Entensions */,
 				2202186020CD75C20016EA9E /* CommonFunc */,
@@ -735,6 +752,14 @@
 				222BA7B920DA3AFC00E68642 /* MonthYearPickerView.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		2218C35F20E1F65F00685C3F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2218C36020E1F68B00685C3F /* CallApi.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		2238122420DE338200A91ADF /* AuthenticOtp */ = {
@@ -1405,6 +1430,7 @@
 			isa = PBXGroup;
 			children = (
 				225AD00520CE6FDA00F9CA34 /* LoginEntity.swift */,
+				22049B0020E1FC4C00E51635 /* LoginResultEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1421,6 +1447,7 @@
 			isa = PBXGroup;
 			children = (
 				225AD00920CE6FF000F9CA34 /* LoginDataStore.swift */,
+				22049AFE20E1F85C00E51635 /* LoginApi.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -1491,6 +1518,7 @@
 			isa = PBXGroup;
 			children = (
 				225AD01E20CE8CF400F9CA34 /* RegisterEntity.swift */,
+				22049B0420E2373F00E51635 /* RegisterResultEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1499,6 +1527,7 @@
 			isa = PBXGroup;
 			children = (
 				225AD02020CE8D0100F9CA34 /* RegisterDataStore.swift */,
+				22049B0220E235DB00E51635 /* RegisterApi.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -1721,6 +1750,8 @@
 		22BFD88120D0B1B600CFD201 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22049AFA20E1F79900E51635 /* SwiftyJSON.framework */,
+				22049AFC20E1F79900E51635 /* SwipeCellKit.framework */,
 				22BD72D520D7A59000860A78 /* JMMarkSlider.framework */,
 				22D6BE2520D78EA300AF18A4 /* DropDown.framework */,
 				22BFD88220D0B1B700CFD201 /* MessageUI.framework */,
@@ -2005,7 +2036,7 @@
 				224A421720DCB060007FFFBC /* SocialNetworkCell.xib in Resources */,
 				2202183B20CD751E0016EA9E /* LaunchScreen.storyboard in Resources */,
 				2204D03320D75B1700B82D31 /* LoanRequestViewCellNib.xib in Resources */,
-				2202183820CD751E0016EA9E /* Assets.xcassets in Resources */,
+				2218C35E20E1F0B200685C3F /* Assets.xcassets in Resources */,
 				224A41FD20DC9F4E007FFFBC /* MemberCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2089,10 +2120,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-1-Score/Pods-1-Score-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2136,6 +2171,7 @@
 				225ACFE520CE252900F9CA34 /* MainWireframe.swift in Sources */,
 				22BFD89320D0B73200CFD201 /* ProfileWireframe.swift in Sources */,
 				225AD00A20CE6FF000F9CA34 /* LoginDataStore.swift in Sources */,
+				2218C36120E1F68B00685C3F /* CallApi.swift in Sources */,
 				224A41ED20DC8B5C007FFFBC /* UpdateFamilyPresenter.swift in Sources */,
 				2204D04120D7689C00B82D31 /* LoanRegistrationInteractor.swift in Sources */,
 				225AD01F20CE8CF400F9CA34 /* RegisterEntity.swift in Sources */,
@@ -2144,10 +2180,12 @@
 				221472A620CFC1080070AA3C /* HomePageViewCell.swift in Sources */,
 				224A41FC20DC9F4E007FFFBC /* MemberCell.swift in Sources */,
 				225AD00820CE6FE500F9CA34 /* LoginWireframe.swift in Sources */,
+				22049B0120E1FC4C00E51635 /* LoginResultEntity.swift in Sources */,
 				224A427120DCF9A7007FFFBC /* OtpDataStore.swift in Sources */,
 				22BFD8B320D1255100CFD201 /* LoanInteractor.swift in Sources */,
 				2204D03F20D7688700B82D31 /* LoanRegistrationPresenter.swift in Sources */,
 				224A421620DCB060007FFFBC /* SocialNetworkCell.swift in Sources */,
+				22049B0520E2373F00E51635 /* RegisterResultEntity.swift in Sources */,
 				2238124520DE3B3A00A91ADF /* ChangePassDataStore.swift in Sources */,
 				224A41F720DC8B99007FFFBC /* UpdateFamilyProtocol.swift in Sources */,
 				224A426320DCF263007FFFBC /* ChangePhoneView.swift in Sources */,
@@ -2241,6 +2279,7 @@
 				2238124D20DE3BD400A91ADF /* ChangePassView.swift in Sources */,
 				225ACFEF20CE270800F9CA34 /* MainPresenter.swift in Sources */,
 				224A423120DCD3B6007FFFBC /* PaperData.swift in Sources */,
+				22049AFF20E1F85C00E51635 /* LoginApi.swift in Sources */,
 				22BFD89720D0B74D00CFD201 /* ProfileProtocol.swift in Sources */,
 				22692B0A20CED773005C3036 /* MenuEntity.swift in Sources */,
 				224A427920DCFA35007FFFBC /* OtpView.swift in Sources */,
@@ -2263,6 +2302,7 @@
 				226D703620DB603A00848D9A /* UpdateJobInteractor.swift in Sources */,
 				224A41F920DC9DCE007FFFBC /* MemberEntity.swift in Sources */,
 				22BFD8B920D1259700CFD201 /* LoanDataStore.swift in Sources */,
+				22049B0320E235DB00E51635 /* RegisterApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

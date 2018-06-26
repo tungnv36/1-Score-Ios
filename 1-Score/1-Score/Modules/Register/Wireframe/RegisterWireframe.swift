@@ -28,4 +28,11 @@ class RegisterWireframe : RegisterWireframeProtocol {
         return registerView
     }
     
+    func goToOtp(view: RegisterViewProtocol) {
+        let nextViewController = AuthenticOtpWireframe.getModule(type: 2)
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
 }

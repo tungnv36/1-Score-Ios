@@ -25,6 +25,20 @@ class AuthenticOtpView: UIViewController {
     var btBack:UIButton = UIButton()
     
     let spacingTextfield:CGFloat = 10
+    var type:Int?
+    
+    convenience init() {
+        self.init(type: nil)
+    }
+    
+    init(type: Int?) {
+        self.type = type
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

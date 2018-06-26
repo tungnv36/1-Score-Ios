@@ -21,16 +21,17 @@ class RegisterView: UIViewController {
     var lblUser:UILabel = UILabel()
     var lblPass:UILabel = UILabel()
     var lblRePass:UILabel = UILabel()
-    var lblEmail:UILabel = UILabel()
+    var lblFullName:UILabel = UILabel()
     var txtUser:UITextField = UITextField()
     var txtPass:UITextField = UITextField()
     var txtRePass:UITextField = UITextField()
-    var txtEmail:UITextField = UITextField()
+    var txtFullName:UITextField = UITextField()
     var btLostPass:UIButton = UIButton()
     var ivIconUser:UIImageView = UIImageView()
     var ivIconPass:UIImageView = UIImageView()
-    var ivIconEmail:UIImageView = UIImageView()
-    var btLogin:UIButton = UIButton()
+    var ivIconRePass:UIImageView = UIImageView()
+    var ivFullName:UIImageView = UIImageView()
+    var btRegister:UIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class RegisterView: UIViewController {
         addMainStackView()
         addBanner()
         addViewRegister()
-        addLoginButton()
+        addRegisterButton()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
@@ -207,51 +208,61 @@ class RegisterView: UIViewController {
         txtRePass.setBottomBorder()
         txtRePass.isSecureTextEntry = true
         
+        //Add icon pass
+        viewRegister.addSubview(ivIconRePass)
+        ivIconRePass.translatesAutoresizingMaskIntoConstraints = false
+        ivIconRePass.centerYAnchor.constraint(equalTo: txtRePass.centerYAnchor).isActive = true
+        ivIconRePass.trailingAnchor.constraint(equalTo: txtRePass.trailingAnchor, constant: -10).isActive = true
+        ivIconRePass.widthAnchor.constraint(equalToConstant: sizeIcon).isActive = true
+        ivIconRePass.heightAnchor.constraint(equalToConstant: sizeIcon).isActive = true
+        ivIconRePass.image = #imageLiteral(resourceName: "ic_pass")
+        ivIconRePass.contentMode = .scaleAspectFit
+        
         //Add label email
-        viewRegister.addSubview(lblEmail)
-        lblEmail.translatesAutoresizingMaskIntoConstraints = false
-        lblEmail.leadingAnchor.constraint(equalTo: viewRegister.leadingAnchor, constant: 20).isActive = true
-        lblEmail.topAnchor.constraint(equalTo: txtRePass.bottomAnchor, constant: 10).isActive = true
-        lblEmail.text = StringEnum.LBL_EMAIL.rawValue
-        lblEmail.textColor = UIColor.rgb(fromHex: ColorEnum.TEXT_LIGHT.rawValue)
-        lblEmail.font = UIFont(name: StringEnum.MAIN_FONT.rawValue, size: 16)
+        viewRegister.addSubview(lblFullName)
+        lblFullName.translatesAutoresizingMaskIntoConstraints = false
+        lblFullName.leadingAnchor.constraint(equalTo: viewRegister.leadingAnchor, constant: 20).isActive = true
+        lblFullName.topAnchor.constraint(equalTo: txtRePass.bottomAnchor, constant: 10).isActive = true
+        lblFullName.text = StringEnum.LBL_NAME.rawValue
+        lblFullName.textColor = UIColor.rgb(fromHex: ColorEnum.TEXT_LIGHT.rawValue)
+        lblFullName.font = UIFont(name: StringEnum.MAIN_FONT.rawValue, size: 16)
         
         //Add textfield email
-        viewRegister.addSubview(txtEmail)
-        txtEmail.translatesAutoresizingMaskIntoConstraints = false
-        txtEmail.leadingAnchor.constraint(equalTo: viewRegister.leadingAnchor, constant: 20).isActive = true
-        txtEmail.trailingAnchor.constraint(equalTo: viewRegister.trailingAnchor, constant: -20).isActive = true
-        txtEmail.topAnchor.constraint(equalTo: lblEmail.bottomAnchor).isActive = true
-        txtEmail.bottomAnchor.constraint(equalTo: viewRegister.bottomAnchor, constant: -20).isActive = true
-        txtEmail.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
-        txtEmail.frame.size.height = heightTextField
-        txtEmail.setBottomBorder()
-        txtEmail.autocorrectionType = .no
-        txtEmail.keyboardType = .emailAddress
+        viewRegister.addSubview(txtFullName)
+        txtFullName.translatesAutoresizingMaskIntoConstraints = false
+        txtFullName.leadingAnchor.constraint(equalTo: viewRegister.leadingAnchor, constant: 20).isActive = true
+        txtFullName.trailingAnchor.constraint(equalTo: viewRegister.trailingAnchor, constant: -20).isActive = true
+        txtFullName.topAnchor.constraint(equalTo: lblFullName.bottomAnchor).isActive = true
+        txtFullName.bottomAnchor.constraint(equalTo: viewRegister.bottomAnchor, constant: -20).isActive = true
+        txtFullName.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
+        txtFullName.frame.size.height = heightTextField
+        txtFullName.setBottomBorder()
+        txtFullName.autocorrectionType = .no
+        txtFullName.keyboardType = .emailAddress
         
         //Add icon email
-        viewRegister.addSubview(ivIconEmail)
-        ivIconEmail.translatesAutoresizingMaskIntoConstraints = false
-        ivIconEmail.centerYAnchor.constraint(equalTo: txtEmail.centerYAnchor).isActive = true
-        ivIconEmail.trailingAnchor.constraint(equalTo: txtEmail.trailingAnchor, constant: -10).isActive = true
-        ivIconEmail.widthAnchor.constraint(equalToConstant: sizeIcon).isActive = true
-        ivIconEmail.heightAnchor.constraint(equalToConstant: sizeIcon).isActive = true
-        ivIconEmail.image = #imageLiteral(resourceName: "ic_email")
-        ivIconEmail.contentMode = .scaleAspectFit
+        viewRegister.addSubview(ivFullName)
+        ivFullName.translatesAutoresizingMaskIntoConstraints = false
+        ivFullName.centerYAnchor.constraint(equalTo: txtFullName.centerYAnchor).isActive = true
+        ivFullName.trailingAnchor.constraint(equalTo: txtFullName.trailingAnchor, constant: -10).isActive = true
+        ivFullName.widthAnchor.constraint(equalToConstant: sizeIcon).isActive = true
+        ivFullName.heightAnchor.constraint(equalToConstant: sizeIcon).isActive = true
+        ivFullName.image = #imageLiteral(resourceName: "ic_full_name")
+        ivFullName.contentMode = .scaleAspectFit
     }
     
-    func addLoginButton() {
+    func addRegisterButton() {
         let heightButton:CGFloat = 55
-        mainStackView.addSubview(btLogin)
-        btLogin.translatesAutoresizingMaskIntoConstraints = false
-        btLogin.topAnchor.constraint(equalTo: viewRegister.bottomAnchor, constant: 30).isActive = true
-        btLogin.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor, constant: 50).isActive = true
-        btLogin.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor, constant: -50).isActive = true
-        btLogin.heightAnchor.constraint(equalToConstant: heightButton).isActive = true
-        btLogin.bounds.size.height = heightButton
+        mainStackView.addSubview(btRegister)
+        btRegister.translatesAutoresizingMaskIntoConstraints = false
+        btRegister.topAnchor.constraint(equalTo: viewRegister.bottomAnchor, constant: 30).isActive = true
+        btRegister.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor, constant: 50).isActive = true
+        btRegister.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor, constant: -50).isActive = true
+        btRegister.heightAnchor.constraint(equalToConstant: heightButton).isActive = true
+        btRegister.bounds.size.height = heightButton
         
-        btLogin.setTitle(StringEnum.LBL_REGISTER.rawValue, for: .normal)
-        btLogin.applyGradient(
+        btRegister.setTitle(StringEnum.LBL_REGISTER.rawValue, for: .normal)
+        btRegister.applyGradient(
             colours: [
                 UIColor.rgb(fromHex: ColorEnum.BLUE_LIGHT.rawValue),
                 UIColor.rgb(fromHex: ColorEnum.BLUE_DARK.rawValue)
@@ -259,19 +270,19 @@ class RegisterView: UIViewController {
             startPoint: CGPoint(x: 0.0, y: 0.0),
             endPoint: CGPoint(x: 1.0, y: 0.0),
             w: UIScreen.main.bounds.width - 100,
-            h: btLogin.bounds.height,
-            cornerRadius: btLogin.bounds.height / 2
+            h: btRegister.bounds.height,
+            cornerRadius: btRegister.bounds.height / 2
         )
-        btLogin.dropShadow(btLogin.bounds.height / 2)
-        btLogin.addTarget(self, action: #selector(actionLogin), for: .touchUpInside)
+        btRegister.dropShadow(btRegister.bounds.height / 2)
+        btRegister.addTarget(self, action: #selector(actionRegister), for: .touchUpInside)
     }
     
     @objc func actionBack(sender: UIButton!) {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func actionLogin(sender: UIButton!) {
-        
+    @objc func actionRegister(sender: UIButton!) {
+        registerPresenter?.register(username: txtUser.text!, password: txtPass.text!, confirmPassword: txtRePass.text!, fullName: txtFullName.text!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -281,5 +292,17 @@ class RegisterView: UIViewController {
 }
 
 extension RegisterView : RegisterViewProtocol {
+    
+    func textfieldEmpty(msg: String) {
+        let alert = UIAlertController(title: "Thông báo!", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func registerFailed(err: String) {
+        let alert = UIAlertController(title: "Thông báo!", message: err, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }

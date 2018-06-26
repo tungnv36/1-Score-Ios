@@ -9,9 +9,9 @@
 import UIKit
 
 enum ColorEnum:Int {
-    case BLUE_DARK = 0x3A3985//0x3194DB//
-    case BLUE_MEDIUM = 0x397ED7//0x83C3E0//
-    case BLUE_LIGHT = 0x3499FF//0x81D5CC//
+    case BLUE_DARK = 0x297ACC//0x3A3985//0x3194DB//
+    case BLUE_MEDIUM = 0x2978CA//0x397ED7//0x83C3E0//
+    case BLUE_LIGHT = 0x32459B//0x3499FF//0x81D5CC//
     case ORANGE_LIGHT = 0xFFCF1B
     case ORANGE_DARK = 0xFF881B
     case TEXT_DARK = 0x2A3C58
@@ -33,6 +33,8 @@ enum ColorEnum:Int {
 }
 
 enum StringEnum:String {
+    case API_BASE_URL = "http://52.76.193.100/api/v1.0/";
+    
     case LBL_LOGIN = "Đăng nhập"
     case LBL_REGISTER = "Đăng ký"
     case LBL_UPDATE = "Cập nhật"
@@ -80,6 +82,9 @@ enum StringEnum:String {
     
     case MSG_USER_EMPTY = "Bạn chưa nhập tài khoản"
     case MSG_PASS_EMPTY = "Bạn chưa nhập mật khẩu"
+    case MSG_REPASS_EMPTY = "Bạn chưa nhập lại mật khẩu"
+    case MSG_FULLNAME_EMPTY = "Bạn chưa nhập họ tên"
+    case MSG_CHECK_REPASS = "Mật khẩu không chính xác"
     
     case TITLE_HOME_PAGE = "Trang chủ"
     case TITLE_PER_INFO_PAGE = "Thông tin cá nhân"
@@ -111,4 +116,5 @@ enum StringEnum:String {
     case SELECT_PAYMENT_METHOD = "Chọn phương thức thanh toán"
     
     case MAIN_FONT = "Segoe"
+
 }

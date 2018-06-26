@@ -11,8 +11,8 @@ import UIKit
 
 class AuthenticOtpWireframe: AuthenticOtpWireframeProtocol {
     
-    static func getModule() -> UIViewController {
-        let authenticOtpView = AuthenticOtpView()
+    static func getModule(type:Int) -> UIViewController {
+        let authenticOtpView = AuthenticOtpView(type: type)
         let presenter:AuthenticOtpPresenterProtocol&AuthenticOtpInteractorOutputProtocol = AuthenticOtpPresenter()
         let interactor:AuthenticOtpInteractorInputProtocol = AuthenticOtpInteractor()
         let dataStore:AuthenticOtpDataStoreProtocol = AuthenticOtpDataStore()

@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import UIKit
+
+struct RegisterEntity {
+    var username:String?
+    var password:String?
+    var confirm_password:String?
+    var fullname:String?
+}

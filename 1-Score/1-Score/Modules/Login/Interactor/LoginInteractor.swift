@@ -22,7 +22,14 @@ class LoginInteractor : LoginInteractorInputProtocol {
             presenter?.userEmpty(msg: StringEnum.MSG_PASS_EMPTY.rawValue)
             return
         }
-        presenter?.loginSuccess(username: username, password: password)
+        let loginEntity = LoginEntity(username: username, password: password)
+        dataStore?.callLogin(loginEntity: loginEntity) { (loginResultEntity : LoginResultEntity) in
+            if(loginResultEntity.StatusCode == 200) {
+                self.presenter?.loginSuccess(username: username, password: password)
+            } else {
+                self.presenter?.loginFailed(err: loginResultEntity.Message!)
+            }
+        }
     }
     
     func goToOtp() {

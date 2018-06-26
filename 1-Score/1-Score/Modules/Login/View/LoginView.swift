@@ -39,7 +39,7 @@ class LoginView: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
         
-        txtUser.text = "0987654321"
+        txtUser.text = "01656226909"
         txtPass.text = "123456"
     }
     
