@@ -11,6 +11,7 @@ import UIKit
 struct LoginResultEntity {
     var StatusCode:Int?
     var Message:String?
+    var Token:String?
     var Address:String?
     var BankAccNumber:String?
     var CardTerm:String?

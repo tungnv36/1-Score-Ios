@@ -13,6 +13,8 @@ protocol LoginViewProtocol : class {
     func loginFailed(err:String)
     func userEmpty(msg:String)
     func passEmpty(msg:String)
+    
+    func loginFailedLostOtp(username:String, err:String)
 }
 //Presenter
 protocol LoginPresenterProtocol : class {
@@ -22,6 +24,7 @@ protocol LoginPresenterProtocol : class {
     
     func login(username:String, password:String)
     func goToOtp()
+    func goToAuthenticOtp(type: Int?, phoneNumber: String?)
 }
 //Interactor
 protocol LoginInteractorInputProtocol : class {
@@ -30,6 +33,7 @@ protocol LoginInteractorInputProtocol : class {
     
     func login(username:String, password:String)
     func goToOtp()
+    func goToAuthenticOtp(type: Int?, phoneNumber: String?)
 }
 
 protocol LoginInteractorOutputProtocol : class {
@@ -37,16 +41,21 @@ protocol LoginInteractorOutputProtocol : class {
     func passEmpty(msg:String)
     func loginSuccess(username:String, password:String)
     func loginFailed(err:String)
+    func loginFailedLostOtp(username:String, err:String)
     
     func goToOtpOutput()
+    func goToAuthenticOtpOutput(type: Int?, phoneNumber: String?)
 }
 //Wireframe
 protocol LoginWireframeProtocol : class {
     static func getModule() -> UIViewController
     func goToHomePage(view: LoginViewProtocol)
     func goToOtp(view: LoginViewProtocol)
+    func goToAuthenticOtp(view: LoginViewProtocol, type: Int?, phoneNumber: String?)
 }
 //DataStore
 protocol LoginDataStoreProtocol : class {
+    func updateUser(loginEntity:LoginResultEntity);
+    func getUser(completion:@escaping (_ loginResultEntity:LoginResultEntity) -> ())
     func callLogin(loginEntity: LoginEntity, completion:@escaping (_ loginResultEntity: LoginResultEntity) -> ())
 }

@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
+struct OtpEntity {
+    var phone_number:String?
+}

@@ -25,14 +25,16 @@ class AuthenticOtpView: UIViewController {
     var btBack:UIButton = UIButton()
     
     let spacingTextfield:CGFloat = 10
-    var type:Int?
+    var type:Int?//1:quên mk, 2: đăng ký
+    var phoneNumber:String?
     
     convenience init() {
-        self.init(type: nil)
+        self.init(type: nil, phoneNumber: nil)
     }
     
-    init(type: Int?) {
+    init(type: Int?, phoneNumber: String?) {
         self.type = type
+        self.phoneNumber = phoneNumber
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -61,9 +63,10 @@ class AuthenticOtpView: UIViewController {
         btBack.translatesAutoresizingMaskIntoConstraints = false
         btBack.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 10).isActive = true
         btBack.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 30).isActive = true
-        btBack.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        btBack.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        btBack.bounds.size = CGSize(width: 20, height: 20)
+        btBack.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        btBack.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        btBack.bounds.size = CGSize(width: 30, height: 30)
+        btBack.setImage(#imageLiteral(resourceName: "ios_back_gray"), for: .normal)
         btBack.addTarget(self, action: #selector(back), for: .touchUpInside)
         
         mainView.addSubview(txtOtp1)
@@ -212,7 +215,13 @@ class AuthenticOtpView: UIViewController {
     }
     
     @objc func actionConfirm(sender:UIButton!) {
-        authenticOtpPresenter?.goToChangePass()
+        if(type == 1) {// change pass
+            let otpCode = txtOtp1.text! + txtOtp2.text! + txtOtp3.text! + txtOtp4.text! + txtOtp5.text! + txtOtp6.text!
+            authenticOtpPresenter?.changePass(phoneNumber: phoneNumber!, otpCode: otpCode, type: type!)
+        } else {// register
+            let otpCode = txtOtp1.text! + txtOtp2.text! + txtOtp3.text! + txtOtp4.text! + txtOtp5.text! + txtOtp6.text!
+            authenticOtpPresenter?.compareOtp(phoneNumber: phoneNumber!, otpCode: otpCode, type: type!)
+        }
     }
     
     @objc func otp1DidChange(_ textField: UITextField) {
@@ -242,5 +251,11 @@ class AuthenticOtpView: UIViewController {
 }
 
 extension AuthenticOtpView : AuthenticOtpViewProtocol {
+    
+    func compareOtpFailed(err: String) {
+        let alert = UIAlertController(title: "Thông báo!", message: err, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }

@@ -15,16 +15,24 @@ class OtpPresenter : OtpPresenterProtocol {
     var interactor: OtpInteractorInputProtocol?
     var wireframe: OtpWireframeProtocol?
     
-    func goToAuthenticOtp() {
-        interactor?.goToAuthenticOtp()
+    func forgotPassword(phoneNumber:String) {
+        interactor?.forgotPassword(phoneNumber: phoneNumber)
     }
     
 }
 
 extension OtpPresenter : OtpInteractorOutputProtocol {
     
-    func goToAuthenticOtpOutput() {
-        wireframe?.goToAuthenticOtp(view: view!)
+    func forgotPassFailed(err:String) {
+        DispatchQueue.main.async {
+            self.view?.forgotPassFailed(err: err)
+        }
+    }
+    
+    func goToAuthenticOtpOutput(phoneNumber:String) {
+        DispatchQueue.main.async {
+            self.wireframe?.goToAuthenticOtp(view: self.view!, phoneNumber: phoneNumber)
+        }
     }
     
 }

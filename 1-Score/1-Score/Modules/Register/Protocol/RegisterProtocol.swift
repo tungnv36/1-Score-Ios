@@ -12,6 +12,7 @@ import UIKit
 protocol RegisterViewProtocol : class {
     func textfieldEmpty(msg:String)
     func registerFailed(err:String)
+    
 }
 //Presenter
 protocol RegisterPresenterProtocol : class {
@@ -37,7 +38,7 @@ protocol RegisterInteractorOutputProtocol : class {
 //Wireframe
 protocol RegisterWireframeProtocol : class {
     static func getModule() -> UIViewController;
-    func goToOtp(view:RegisterViewProtocol)
+    func goToOtp(view:RegisterViewProtocol, phoneNumber:String)
     
 }
 //DataStore

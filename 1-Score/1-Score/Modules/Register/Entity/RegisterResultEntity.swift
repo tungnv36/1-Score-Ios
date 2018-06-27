@@ -13,3 +13,16 @@ struct RegisterResultEntity {
     var StatusCode:Int?
     var Message:String?
 }
+
+struct UserEntity {
+    var Actived:Int?
+    var CreatedDate:Int32?
+    var Email:String?
+    var Fullname:String?
+    var Id:Int?
+    var LastLoginTime:String?
+    var Password:String?
+    var Phone:String?
+    var Role:String?
+    var Username:String?
+}

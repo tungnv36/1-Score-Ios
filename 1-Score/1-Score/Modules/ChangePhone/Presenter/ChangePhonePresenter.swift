@@ -15,8 +15,32 @@ class ChangePhonePresenter : ChangePhonePresenterProtocol {
     var interactor: ChangePhoneInteractorInputProtocol?
     var wireframe: ChangePhoneWireframeProtocol?
     
+    func initOldPhone() {
+        interactor?.initOldPhone()
+    }
+    
+    func changePhone(oldPhone: String, newPhone: String, password: String) {
+        interactor?.changePhone(oldPhone: oldPhone, newPhone: newPhone, password: password)
+    }
+    
 }
 
 extension ChangePhonePresenter : ChangePhoneInteractorOutputProtocol {
+    
+    func initOldPhoneOutput(oldPhone: String) {
+        view?.initOldPhone(oldPhone: oldPhone)
+    }
+    
+    func changePhoneSuccess(msg: String) {
+        DispatchQueue.main.async {
+            self.view?.changePhoneSuccess(msg: msg)
+        }
+    }
+    
+    func changePhoneFailed(err: String) {
+        DispatchQueue.main.async {
+            self.view?.changePhoneFailed(err: err)
+        }
+    }
     
 }

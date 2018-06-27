@@ -47,6 +47,8 @@ class HomePageView: UIViewController {
         addBanner()
         addTableView()
         addMenuSupporter()
+        
+        homePagePresenter?.initData()
     }
     
     func addMainView() {
@@ -306,6 +308,10 @@ class HomePageView: UIViewController {
 
 extension HomePageView : HomePageViewProtocol {
     
+    func initData(loginEntity:LoginResultEntity) {
+        lblName.text = loginEntity.Fullname
+    }
+    
 }
 
 extension HomePageView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -335,7 +341,7 @@ extension HomePageView : UICollectionViewDelegate, UICollectionViewDataSource, U
             break
         case 2://mini game
             break
-        case 3://ỉntroduce friend
+        case 3://ỉntroduction
             break
         default:
             break

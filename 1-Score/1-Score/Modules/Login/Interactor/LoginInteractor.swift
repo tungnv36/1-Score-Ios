@@ -25,7 +25,14 @@ class LoginInteractor : LoginInteractorInputProtocol {
         let loginEntity = LoginEntity(username: username, password: password)
         dataStore?.callLogin(loginEntity: loginEntity) { (loginResultEntity : LoginResultEntity) in
             if(loginResultEntity.StatusCode == 200) {
-                self.presenter?.loginSuccess(username: username, password: password)
+                if(loginResultEntity.Token?.isEmpty)! {
+                    self.presenter?.loginFailed(err: StringEnum.MSG_SERVER_ERROR.rawValue)
+                } else {
+                    self.dataStore?.updateUser(loginEntity: loginResultEntity)
+                    self.presenter?.loginSuccess(username: username, password: password)
+                }
+            } else if(loginResultEntity.StatusCode == 621) {
+                self.presenter?.loginFailedLostOtp(username: username, err: loginResultEntity.Message!)
             } else {
                 self.presenter?.loginFailed(err: loginResultEntity.Message!)
             }
@@ -34,6 +41,10 @@ class LoginInteractor : LoginInteractorInputProtocol {
     
     func goToOtp() {
         presenter?.goToOtpOutput()
+    }
+    
+    func goToAuthenticOtp(type: Int?, phoneNumber: String?) {
+        presenter?.goToAuthenticOtpOutput(type: type, phoneNumber: phoneNumber)
     }
     
 }

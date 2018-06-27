@@ -10,6 +10,7 @@ import UIKit
 
 //View
 protocol OtpViewProtocol : class {
+    func forgotPassFailed(err:String)
 }
 //Presenter
 protocol OtpPresenterProtocol : class {
@@ -17,25 +18,26 @@ protocol OtpPresenterProtocol : class {
     var interactor: OtpInteractorInputProtocol? { get set }
     var wireframe: OtpWireframeProtocol? { get set }
     
-    func goToAuthenticOtp()
+    func forgotPassword(phoneNumber:String)
 }
 //Interactor
 protocol OtpInteractorInputProtocol : class {
     var presenter:OtpInteractorOutputProtocol? { get set }
     var dataStore:OtpDataStoreProtocol? { get set }
     
-    func goToAuthenticOtp()
+    func forgotPassword(phoneNumber:String)
 }
 
 protocol OtpInteractorOutputProtocol : class {
-    func goToAuthenticOtpOutput()
+    func forgotPassFailed(err:String)
+    func goToAuthenticOtpOutput(phoneNumber: String)
 }
 //Wireframe
 protocol OtpWireframeProtocol : class {
     static func getModule() -> UIViewController;
-    func goToAuthenticOtp(view:OtpViewProtocol!)
+    func goToAuthenticOtp(view:OtpViewProtocol!, phoneNumber:String)
 }
 //DataStore
 protocol OtpDataStoreProtocol : class {
-    
+    func sendOtp(otpEntity:OtpEntity, completion:@escaping(_ otpResultEntity:OtpResultEntity) -> ())
 }

@@ -25,6 +25,23 @@ class ChangePassView: UIViewController {
     var ivIconPass:UIImageView = UIImageView()
     var btChangePass:UIButton = UIButton()
     
+    var phoneNumber:String?
+    var token:String?
+    
+    convenience init() {
+        self.init(phoneNumber: nil, token: nil)
+    }
+    
+    init(phoneNumber: String?, token: String?) {
+        self.phoneNumber = phoneNumber
+        self.token = token
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -181,7 +198,7 @@ class ChangePassView: UIViewController {
         btChangePass.heightAnchor.constraint(equalToConstant: heightButton).isActive = true
         btChangePass.bounds.size.height = heightButton
         
-        btChangePass.setTitle(StringEnum.LBL_REGISTER.rawValue, for: .normal)
+        btChangePass.setTitle(StringEnum.LBL_CHANGE_PASS.rawValue, for: .normal)
         btChangePass.applyGradient(
             colours: [
                 UIColor.rgb(fromHex: ColorEnum.BLUE_LIGHT.rawValue),
@@ -202,7 +219,7 @@ class ChangePassView: UIViewController {
     }
     
     @objc func actionChangePass(sender: UIButton!) {
-        
+        changePassPresenter?.changePass(userName: phoneNumber!, newPass: txtPass.text!, rePass: txtRePass.text!, token: token!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -212,5 +229,19 @@ class ChangePassView: UIViewController {
 }
 
 extension ChangePassView : ChangePassViewProtocol {
+    
+    func changePassSuccess(msg:String) {
+        let alert = UIAlertController(title: "Thông báo!", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.changePassPresenter?.goToLogin()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func changePassFailed(err:String) {
+        let alert = UIAlertController(title: "Thông báo!", message: err, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }

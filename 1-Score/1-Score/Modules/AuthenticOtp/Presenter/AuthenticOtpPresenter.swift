@@ -14,17 +14,41 @@ class AuthenticOtpPresenter : AuthenticOtpPresenterProtocol {
     var view: AuthenticOtpViewProtocol?
     var interactor: AuthenticOtpInteractorInputProtocol?
     var wireframe: AuthenticOtpWireframeProtocol?
+   
+    func compareOtp(phoneNumber: String, otpCode: String, type: Int) {
+        interactor?.compareOtp(phoneNumber: phoneNumber, otpCode: otpCode, type: type)
+    }
     
-    func goToChangePass() {
-        interactor?.goToChangePass()
+    func changePass(phoneNumber: String, otpCode: String, type: Int) {
+        interactor?.changePass(phoneNumber: phoneNumber, otpCode: otpCode, type: type)
     }
     
 }
 
 extension AuthenticOtpPresenter : AuthenticOtpInteractorOutputProtocol {
     
-    func goToChangePassOutput() {
-        wireframe?.goToChangePass(view: view!)
+    func compareOtpSuccess(type: Int) {
+        DispatchQueue.main.async {
+            self.wireframe?.goToLogin(view: self.view!)
+        }
+    }
+    
+    func compareOtpFailed(err: String) {
+        DispatchQueue.main.async {
+            self.view?.compareOtpFailed(err: err)
+        }
+    }
+    
+    func changePassSuccess(phoneNumber:String, token:String) {
+        DispatchQueue.main.async {
+            self.wireframe?.goToChangePass(view: self.view!, phoneNumber: phoneNumber, token: token)
+        }
+    }
+    
+    func changePassFailed(err: String) {
+        DispatchQueue.main.async {
+            self.view?.compareOtpFailed(err: err)
+        }
     }
     
 }

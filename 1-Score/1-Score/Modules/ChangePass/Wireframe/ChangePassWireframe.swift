@@ -11,8 +11,8 @@ import UIKit
 
 class ChangePassWireframe : ChangePassWireframeProtocol {
     
-    static func getModule() -> UIViewController {
-        let changePassView = ChangePassView()
+    static func getModule(phoneNumber:String, token:String) -> UIViewController {
+        let changePassView = ChangePassView(phoneNumber: phoneNumber, token: token)
         let presenter:ChangePassPresenterProtocol&ChangePassInteractorOutputProtocol = ChangePassPresenter()
         let interactor:ChangePassInteractorInputProtocol = ChangePassInteractor()
         let dataStore:ChangePassDataStoreProtocol = ChangePassDataStore()
@@ -27,6 +27,12 @@ class ChangePassWireframe : ChangePassWireframeProtocol {
         interactor.dataStore = dataStore
         
         return changePassView
+    }
+    
+    func goToLogin(view: ChangePassViewProtocol) {
+        let loginVC = LoginWireframe.getModule()
+        let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDel.window?.rootViewController = loginVC
     }
     
 }

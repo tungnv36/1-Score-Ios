@@ -27,7 +27,7 @@ extension RegisterPresenter : RegisterInteractorOutputProtocol {
     }
     
     func registerSuccess(phoneNumber:String) {
-        wireframe?.goToOtp(view: view!)
+        wireframe?.goToOtp(view: view!, phoneNumber: phoneNumber)
     }
     
     func registerFailed(err:String) {

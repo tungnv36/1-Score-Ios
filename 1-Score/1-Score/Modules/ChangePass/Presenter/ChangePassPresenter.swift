@@ -15,8 +15,32 @@ class ChangePassPresenter : ChangePassPresenterProtocol {
     var interactor: ChangePassInteractorInputProtocol?
     var wireframe: ChangePassWireframeProtocol?
     
+    func changePass(userName: String, newPass: String, rePass: String, token: String) {
+        interactor?.changePass(userName: userName, newPass: newPass, rePass: rePass, token: token)
+    }
+    
+    func goToLogin() {
+        interactor?.goToLogin()
+    }
+    
 }
 
 extension ChangePassPresenter : ChangePassInteractorOutputProtocol {
+    
+    func changePassSuccess(msg: String) {
+        DispatchQueue.main.async {
+            self.view?.changePassSuccess(msg: msg)
+        }
+    }
+    
+    func changePassFailed(err: String) {
+        DispatchQueue.main.async {
+            self.view?.changePassFailed(err: err)
+        }
+    }
+    
+    func goToLoginOutput() {
+        wireframe?.goToLogin(view: view!)
+    }
     
 }

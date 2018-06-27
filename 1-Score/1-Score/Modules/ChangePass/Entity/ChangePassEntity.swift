@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import UIKit
+
+struct ChangePassEntity {
+    var username:String?
+    var password:String?
+    var confirm_password:String?
+}

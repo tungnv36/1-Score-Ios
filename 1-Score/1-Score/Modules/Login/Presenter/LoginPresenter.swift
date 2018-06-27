@@ -22,6 +22,10 @@ class LoginPresenter : LoginPresenterProtocol {
         interactor?.goToOtp()
     }
     
+    func goToAuthenticOtp(type: Int?, phoneNumber: String?) {
+        interactor?.goToAuthenticOtp(type: type, phoneNumber: phoneNumber)
+    }
+    
 }
 
 extension LoginPresenter : LoginInteractorOutputProtocol {
@@ -35,15 +39,33 @@ extension LoginPresenter : LoginInteractorOutputProtocol {
     }
     
     func loginFailed(err:String) {
-        view?.loginFailed(err: err)
+        DispatchQueue.main.async {
+            self.view?.loginFailed(err: err)
+        }
     }
     
     func loginSuccess(username: String, password: String) {
-        wireframe?.goToHomePage(view: view!)
+        DispatchQueue.main.async {
+            self.wireframe?.goToHomePage(view: self.view!)
+        }
     }
     
     func goToOtpOutput() {
-        wireframe?.goToOtp(view: view!)
+        DispatchQueue.main.async {
+            self.wireframe?.goToOtp(view: self.view!)
+        }
+    }
+    
+    func loginFailedLostOtp(username:String, err: String) {
+        DispatchQueue.main.async {
+            self.view?.loginFailedLostOtp(username: username, err: err)
+        }
+    }
+    
+    func goToAuthenticOtpOutput(type: Int?, phoneNumber: String?) {
+        DispatchQueue.main.async {
+            self.wireframe?.goToAuthenticOtp(view: self.view!, type: type, phoneNumber: phoneNumber)
+        }
     }
     
 }

@@ -25,6 +25,8 @@ class OtpView: UIViewController {
         view.backgroundColor = UIColor.white
         
         setupComponent()
+        
+        txtOtp.text = "01656226909"
     }
 
     func setupComponent() {
@@ -42,9 +44,10 @@ class OtpView: UIViewController {
         btBack.translatesAutoresizingMaskIntoConstraints = false
         btBack.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 10).isActive = true
         btBack.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 30).isActive = true
-        btBack.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        btBack.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        btBack.bounds.size = CGSize(width: 20, height: 20)
+        btBack.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        btBack.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        btBack.bounds.size = CGSize(width: 30, height: 30)
+        btBack.setImage(#imageLiteral(resourceName: "ios_back_gray"), for: .normal)
         btBack.addTarget(self, action: #selector(back), for: .touchUpInside)
         
         mainView.addSubview(txtOtp)
@@ -112,7 +115,7 @@ class OtpView: UIViewController {
     }
     
     @objc func actionConfirm(sender:UIButton!) {
-        otpPresenter?.goToAuthenticOtp()
+        otpPresenter?.forgotPassword(phoneNumber: txtOtp.text!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -123,5 +126,11 @@ class OtpView: UIViewController {
 
 
 extension OtpView : OtpViewProtocol {
+    
+    func forgotPassFailed(err:String) {
+        let alert = UIAlertController(title: "Thông báo!", message: err, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }

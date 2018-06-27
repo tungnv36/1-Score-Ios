@@ -13,6 +13,12 @@ class HomePageInteractor : HomePageInteractorInputProtocol {
     var presenter: HomePageInteractorOutputProtocol?
     var dataStore: HomePageDataStoreProtocol?
     
+    func initData() {
+        dataStore?.getUser(completion: { (loginResultEntity:LoginResultEntity) in
+            self.presenter?.initDataOutput(loginEntity: loginResultEntity)
+        })
+    }
+    
     func goToProfile() {
         presenter?.goToProfileOutput()
     }

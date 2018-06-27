@@ -14,6 +14,10 @@ class HomePagePresenter : HomePagePresenterProtocol {
     var interactor: HomePageInteractorInputProtocol?
     var wireframe: HomePageWireframeProtocol?
     
+    func initData() {
+        interactor?.initData()
+    }
+    
     func goToProfile() {
         interactor?.goToProfile()
     }
@@ -29,6 +33,10 @@ class HomePagePresenter : HomePagePresenterProtocol {
 }
 
 extension HomePagePresenter : HomePageInteractorOutputProtocol {
+    
+    func initDataOutput(loginEntity:LoginResultEntity) {
+        view?.initData(loginEntity: loginEntity)
+    }
     
     func goToProfileOutput() {
         wireframe?.goToProfile(view: view!)

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct ChangePhoneEntity {
-    var oldPhone:String?
-    var newPhone:String?
+    var username:String?
+    var new_phone_number:String?
     var password:String?
 }

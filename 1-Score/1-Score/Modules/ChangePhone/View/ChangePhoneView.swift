@@ -40,6 +40,8 @@ class ChangePhoneView: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
+        
+        changePhonePresenter?.initOldPhone()
     }
 
     override func didReceiveMemoryWarning() {
@@ -231,7 +233,7 @@ class ChangePhoneView: UIViewController {
         btChangePhone.heightAnchor.constraint(equalToConstant: heightButton).isActive = true
         btChangePhone.bounds.size.height = heightButton
         
-        btChangePhone.setTitle(StringEnum.LBL_REGISTER.rawValue, for: .normal)
+        btChangePhone.setTitle(StringEnum.LBL_CHANGE_PHONE.rawValue, for: .normal)
         btChangePhone.applyGradient(
             colours: [
                 UIColor.rgb(fromHex: ColorEnum.BLUE_LIGHT.rawValue),
@@ -252,11 +254,29 @@ class ChangePhoneView: UIViewController {
     }
     
     @objc func actionChangePhone(sender: UIButton!) {
-        print("CHANGE PHONE")
+        changePhonePresenter?.changePhone(oldPhone: txtOldPhone.text!, newPhone: txtNewPhone.text!, password: txtPass.text!)
     }
 
 }
 
 extension ChangePhoneView : ChangePhoneViewProtocol {
+    
+    func initOldPhone(oldPhone:String) {
+        txtOldPhone.text = oldPhone
+    }
+    
+    func changePhoneSuccess(msg:String) {
+        let alert = UIAlertController(title: "Thông báo!", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func changePhoneFailed(err:String) {
+        let alert = UIAlertController(title: "Thông báo!", message: err, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }

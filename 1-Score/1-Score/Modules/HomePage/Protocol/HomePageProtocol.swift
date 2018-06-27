@@ -10,6 +10,7 @@ import UIKit
 
 //View
 protocol HomePageViewProtocol : class {
+    func initData(loginEntity:LoginResultEntity)
 }
 //Presenter
 protocol HomePagePresenterProtocol : class {
@@ -17,6 +18,7 @@ protocol HomePagePresenterProtocol : class {
     var interactor: HomePageInteractorInputProtocol? { get set }
     var wireframe: HomePageWireframeProtocol? { get set }
     
+    func initData()
     func goToProfile()
     func goToLoanRequest()
     func goToSetting()
@@ -26,6 +28,7 @@ protocol HomePageInteractorInputProtocol : class {
     var presenter:HomePageInteractorOutputProtocol? { get set }
     var dataStore:HomePageDataStoreProtocol? { get set }
     
+    func initData()
     func goToProfile()
     func goToLoanRequest()
     func goToSetting()
@@ -35,6 +38,8 @@ protocol HomePageInteractorOutputProtocol : class {
     func goToProfileOutput()
     func goToLoanRequestOutput()
     func goToSettingOutput()
+    
+    func initDataOutput(loginEntity:LoginResultEntity)
 }
 //Wireframe
 protocol HomePageWireframeProtocol : class {
@@ -45,5 +50,5 @@ protocol HomePageWireframeProtocol : class {
 }
 //DataStore
 protocol HomePageDataStoreProtocol : class {
-    
+    func getUser(completion:@escaping (_ loginResultEntity:LoginResultEntity) -> ())
 }

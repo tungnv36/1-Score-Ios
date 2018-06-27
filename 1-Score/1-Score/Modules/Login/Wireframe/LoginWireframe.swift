@@ -31,14 +31,27 @@ class LoginWireframe : LoginWireframeProtocol {
     func goToHomePage(view: LoginViewProtocol) {
         let nextViewController = HomePageWireframe.getModule()
         if let sourceView = view as? UIViewController {
-            sourceView.present(nextViewController, animated:true, completion:nil)
+            DispatchQueue.main.async {
+                sourceView.present(nextViewController, animated:true, completion:nil)
+            }
         }
     }
     
     func goToOtp(view: LoginViewProtocol) {
         let nextViewController = OtpWireframe.getModule()
         if let sourceView = view as? UIViewController {
-            sourceView.present(nextViewController, animated:true, completion:nil)
+            DispatchQueue.main.async {
+                sourceView.present(nextViewController, animated:true, completion:nil)
+            }
+        }
+    }
+    
+    func goToAuthenticOtp(view: LoginViewProtocol, type: Int?, phoneNumber: String?) {
+        let nextViewController = AuthenticOtpWireframe.getModule(type: type!, phoneNumber: phoneNumber!)
+        if let sourceView = view as? UIViewController {
+            DispatchQueue.main.async {
+                sourceView.present(nextViewController, animated:true, completion:nil)
+            }
         }
     }
     

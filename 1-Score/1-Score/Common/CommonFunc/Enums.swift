@@ -37,6 +37,8 @@ enum StringEnum:String {
     
     case LBL_LOGIN = "Đăng nhập"
     case LBL_REGISTER = "Đăng ký"
+    case LBL_CHANGE_PASS = "Đổi mật khẩu"
+    case LBL_CHANGE_PHONE = "Đổi số điện thoại"
     case LBL_UPDATE = "Cập nhật"
     case LBL_CANCEL = "Huỷ"
     case LBL_USER = "Nhập số điện thoại"
@@ -85,6 +87,8 @@ enum StringEnum:String {
     case MSG_REPASS_EMPTY = "Bạn chưa nhập lại mật khẩu"
     case MSG_FULLNAME_EMPTY = "Bạn chưa nhập họ tên"
     case MSG_CHECK_REPASS = "Mật khẩu không chính xác"
+    case MSG_NEW_PHONE_EMPTY = "Bạn chưa nhập số điện thoại mới"
+    case MSG_SERVER_ERROR = "Lỗi server"
     
     case TITLE_HOME_PAGE = "Trang chủ"
     case TITLE_PER_INFO_PAGE = "Thông tin cá nhân"

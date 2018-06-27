@@ -28,10 +28,12 @@ class RegisterWireframe : RegisterWireframeProtocol {
         return registerView
     }
     
-    func goToOtp(view: RegisterViewProtocol) {
-        let nextViewController = AuthenticOtpWireframe.getModule(type: 2)
+    func goToOtp(view: RegisterViewProtocol, phoneNumber:String) {
+        let nextViewController = AuthenticOtpWireframe.getModule(type: 2, phoneNumber: phoneNumber)
         if let sourceView = view as? UIViewController {
-            sourceView.present(nextViewController, animated:true, completion:nil)
+            DispatchQueue.main.async {
+                sourceView.present(nextViewController, animated:true, completion:nil)
+            }
         }
     }
     

@@ -163,6 +163,14 @@
 		2277311320D8FF2E006BA0F0 /* UpdateProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277311220D8FF2E006BA0F0 /* UpdateProfileEntity.swift */; };
 		2277311520D8FF37006BA0F0 /* UpdateProfileDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277311420D8FF37006BA0F0 /* UpdateProfileDataStore.swift */; };
 		2277311720D8FF41006BA0F0 /* UpdateProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277311620D8FF41006BA0F0 /* UpdateProfileProtocol.swift */; };
+		22A2ED5B20E3247E009042B2 /* AuthenticOtpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED5A20E3247E009042B2 /* AuthenticOtpApi.swift */; };
+		22A2ED5D20E3250E009042B2 /* AuthenticOtpResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED5C20E3250E009042B2 /* AuthenticOtpResultEntity.swift */; };
+		22A2ED5F20E33C4B009042B2 /* OtpResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED5E20E33C4B009042B2 /* OtpResultEntity.swift */; };
+		22A2ED6120E33C9A009042B2 /* OtpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED6020E33C9A009042B2 /* OtpApi.swift */; };
+		22A2ED6320E34A0A009042B2 /* ChangePassResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED6220E34A0A009042B2 /* ChangePassResultEntity.swift */; };
+		22A2ED6520E34CAA009042B2 /* ChangePassApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED6420E34CAA009042B2 /* ChangePassApi.swift */; };
+		22A2ED6920E38307009042B2 /* ChangePhoneApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED6820E38307009042B2 /* ChangePhoneApi.swift */; };
+		22A2ED6B20E38415009042B2 /* ChangePhoneResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED6A20E38415009042B2 /* ChangePhoneResultEntity.swift */; };
 		22B262B320D7ABA500969422 /* ExtensionSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B262B220D7ABA500969422 /* ExtensionSlider.swift */; };
 		22B262B520D7AD6300969422 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B262B420D7AD6300969422 /* CustomSlider.swift */; };
 		22BFD88320D0B1B700CFD201 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BFD88220D0B1B700CFD201 /* MessageUI.framework */; };
@@ -368,6 +376,14 @@
 		2277311220D8FF2E006BA0F0 /* UpdateProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileEntity.swift; sourceTree = "<group>"; };
 		2277311420D8FF37006BA0F0 /* UpdateProfileDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileDataStore.swift; sourceTree = "<group>"; };
 		2277311620D8FF41006BA0F0 /* UpdateProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileProtocol.swift; sourceTree = "<group>"; };
+		22A2ED5A20E3247E009042B2 /* AuthenticOtpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpApi.swift; sourceTree = "<group>"; };
+		22A2ED5C20E3250E009042B2 /* AuthenticOtpResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpResultEntity.swift; sourceTree = "<group>"; };
+		22A2ED5E20E33C4B009042B2 /* OtpResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpResultEntity.swift; sourceTree = "<group>"; };
+		22A2ED6020E33C9A009042B2 /* OtpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpApi.swift; sourceTree = "<group>"; };
+		22A2ED6220E34A0A009042B2 /* ChangePassResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassResultEntity.swift; sourceTree = "<group>"; };
+		22A2ED6420E34CAA009042B2 /* ChangePassApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassApi.swift; sourceTree = "<group>"; };
+		22A2ED6820E38307009042B2 /* ChangePhoneApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneApi.swift; sourceTree = "<group>"; };
+		22A2ED6A20E38415009042B2 /* ChangePhoneResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneResultEntity.swift; sourceTree = "<group>"; };
 		22B262B220D7ABA500969422 /* ExtensionSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSlider.swift; sourceTree = "<group>"; };
 		22B262B420D7AD6300969422 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		22BD72D520D7A59000860A78 /* JMMarkSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JMMarkSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -788,6 +804,7 @@
 			isa = PBXGroup;
 			children = (
 				2238122E20DE340E00A91ADF /* AuthenticOtpDataStore.swift */,
+				22A2ED5A20E3247E009042B2 /* AuthenticOtpApi.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -804,6 +821,7 @@
 			isa = PBXGroup;
 			children = (
 				2238123020DE342D00A91ADF /* AuthenticOtpEntity.swift */,
+				22A2ED5C20E3250E009042B2 /* AuthenticOtpResultEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -858,6 +876,7 @@
 			isa = PBXGroup;
 			children = (
 				2238124420DE3B3A00A91ADF /* ChangePassDataStore.swift */,
+				22A2ED6420E34CAA009042B2 /* ChangePassApi.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -874,6 +893,7 @@
 			isa = PBXGroup;
 			children = (
 				2238124620DE3B5200A91ADF /* ChangePassEntity.swift */,
+				22A2ED6220E34A0A009042B2 /* ChangePassResultEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1219,6 +1239,7 @@
 			isa = PBXGroup;
 			children = (
 				224A425A20DCF1BB007FFFBC /* ChangePhoneDataStore.swift */,
+				22A2ED6820E38307009042B2 /* ChangePhoneApi.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -1235,6 +1256,7 @@
 			isa = PBXGroup;
 			children = (
 				224A425C20DCF1D9007FFFBC /* ChangePhoneEntity.swift */,
+				22A2ED6A20E38415009042B2 /* ChangePhoneResultEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1289,6 +1311,7 @@
 			isa = PBXGroup;
 			children = (
 				224A427020DCF9A7007FFFBC /* OtpDataStore.swift */,
+				22A2ED6020E33C9A009042B2 /* OtpApi.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -1305,6 +1328,7 @@
 			isa = PBXGroup;
 			children = (
 				224A427220DCF9BD007FFFBC /* OtpEntity.swift */,
+				22A2ED5E20E33C4B009042B2 /* OtpResultEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -2162,6 +2186,7 @@
 				22692B0E20CED78C005C3036 /* HomePageDataStore.swift in Sources */,
 				225AD00620CE6FDA00F9CA34 /* LoginEntity.swift in Sources */,
 				2202186F20CD75F40016EA9E /* ExtensionUIButton.swift in Sources */,
+				22A2ED6520E34CAA009042B2 /* ChangePassApi.swift in Sources */,
 				226D703820DB604300848D9A /* UpdateJobWireframe.swift in Sources */,
 				224A427720DCF9F7007FFFBC /* OtpPresenter.swift in Sources */,
 				225AD01920CE8CAB00F9CA34 /* RegisterInteractor.swift in Sources */,
@@ -2201,20 +2226,24 @@
 				22BFD8AF20D1252D00CFD201 /* LoanRequestView.swift in Sources */,
 				224A424120DCDC14007FFFBC /* SettingEntity.swift in Sources */,
 				224A420F20DCACE7007FFFBC /* UpdateSocialNetworkInteractor.swift in Sources */,
+				22A2ED5B20E3247E009042B2 /* AuthenticOtpApi.swift in Sources */,
 				226D703C20DB605500848D9A /* UpdateJobDataStore.swift in Sources */,
 				224A424920DCDCB9007FFFBC /* SettingView.swift in Sources */,
 				226D704320DBA8C000848D9A /* ColleagueCell.swift in Sources */,
 				224A427B20DCFA70007FFFBC /* OtpWireframe.swift in Sources */,
 				225AD00020CE6FBB00F9CA34 /* LoginPresenter.swift in Sources */,
 				22E5C8E920D4ABFF0056023C /* LoanRequestData.swift in Sources */,
+				22A2ED5F20E33C4B009042B2 /* OtpResultEntity.swift in Sources */,
 				2238122F20DE340E00A91ADF /* AuthenticOtpDataStore.swift in Sources */,
 				224A420D20DCACC7007FFFBC /* UpdateSocialNetworkWireframe.swift in Sources */,
 				2238124B20DE3B8C00A91ADF /* ChangePassPresenter.swift in Sources */,
 				2202186E20CD75F40016EA9E /* ExtensionColor.swift in Sources */,
 				225AD01520CE8C6600F9CA34 /* RegisterView.swift in Sources */,
 				224A423320DCD58E007FFFBC /* UpdatePaperCell.swift in Sources */,
+				22A2ED6920E38307009042B2 /* ChangePhoneApi.swift in Sources */,
 				2202186A20CD75F40016EA9E /* ExtensionView.swift in Sources */,
 				225ACFF220CE276500F9CA34 /* MainDataStore.swift in Sources */,
+				22A2ED6B20E38415009042B2 /* ChangePhoneResultEntity.swift in Sources */,
 				2204D03D20D7687000B82D31 /* LoanRegistrationView.swift in Sources */,
 				2277311520D8FF37006BA0F0 /* UpdateProfileDataStore.swift in Sources */,
 				2202186320CD75DB0016EA9E /* Enums.swift in Sources */,
@@ -2237,10 +2266,12 @@
 				2277310F20D8FF18006BA0F0 /* UpdateProfileInteractor.swift in Sources */,
 				224A426520DCF294007FFFBC /* ChangePhoneWireframe.swift in Sources */,
 				224A421120DCAD04007FFFBC /* UpdateSocialNetworkPresenter.swift in Sources */,
+				22A2ED6320E34A0A009042B2 /* ChangePassResultEntity.swift in Sources */,
 				224A41F320DC8B84007FFFBC /* UpdateFamilyEntity.swift in Sources */,
 				224A41F120DC8B7A007FFFBC /* UpdateFamilyWireframe.swift in Sources */,
 				2204D03220D75B1700B82D31 /* LoanRequestViewCellNib.swift in Sources */,
 				22B262B520D7AD6300969422 /* CustomSlider.swift in Sources */,
+				22A2ED5D20E3250E009042B2 /* AuthenticOtpResultEntity.swift in Sources */,
 				225AD00420CE6FD100F9CA34 /* LoginProtocol.swift in Sources */,
 				224A420920DCAC71007FFFBC /* UpdateSocialNetworkDataStore.swift in Sources */,
 				224A424520DCDC5A007FFFBC /* Settinginteractor.swift in Sources */,
@@ -2294,6 +2325,7 @@
 				2202188720CD83AB0016EA9E /* MainView.swift in Sources */,
 				224A425D20DCF1D9007FFFBC /* ChangePhoneEntity.swift in Sources */,
 				224A422F20DCB7C6007FFFBC /* UpdatePaperView.swift in Sources */,
+				22A2ED6120E33C9A009042B2 /* OtpApi.swift in Sources */,
 				22692B0C20CED780005C3036 /* HomePageWireframe.swift in Sources */,
 				22BFD8B520D1256C00CFD201 /* LoanWireframe.swift in Sources */,
 				224A421320DCAD32007FFFBC /* UpdateSocialNetworkView.swift in Sources */,

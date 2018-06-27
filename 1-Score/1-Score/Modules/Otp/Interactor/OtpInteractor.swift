@@ -14,8 +14,19 @@ class OtpInteractor : OtpInteractorInputProtocol {
     var presenter: OtpInteractorOutputProtocol?
     var dataStore: OtpDataStoreProtocol?
     
-    func goToAuthenticOtp() {
-        presenter?.goToAuthenticOtpOutput()
+    func forgotPassword(phoneNumber:String) {
+        if(phoneNumber.isEmpty) {
+            presenter?.forgotPassFailed(err: "Bạn chưa nhập số điện thoại")
+            return
+        }
+        let otpEntity = OtpEntity(phone_number: phoneNumber)
+        dataStore?.sendOtp(otpEntity: otpEntity, completion: { (otpResultEntity:OtpResultEntity) in
+            if(otpResultEntity.StatusCode == 200) {
+                self.presenter?.goToAuthenticOtpOutput(phoneNumber: phoneNumber)
+            } else {
+                self.presenter?.forgotPassFailed(err: otpResultEntity.Message!)
+            }
+        })
     }
     
 }

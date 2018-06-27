@@ -27,6 +27,8 @@ class LoginView: UIViewController {
     var ivIconPass:UIImageView = UIImageView()
     var btLogin:UIButton = UIButton()
     
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -41,6 +43,21 @@ class LoginView: UIViewController {
         
         txtUser.text = "01656226909"
         txtPass.text = "123456"
+    }
+    
+    func startLoading() {
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
+    func stopLoading() {
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
     
     @objc func keyboardWillAppear(_ notification: NSNotification) {
@@ -228,6 +245,7 @@ class LoginView: UIViewController {
     }
     
     @objc func actionLogin(sender: UIButton!) {
+//        startLoading()
         loginPresenter?.login(username: txtUser.text!, password: txtPass.text!)
     }
 
@@ -259,6 +277,14 @@ extension LoginView : LoginViewProtocol {
     func loginFailed(err:String) {
         let alert = UIAlertController(title: "Thông báo!", message: err, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func loginFailedLostOtp(username: String, err:String) {
+        let alert = UIAlertController(title: "Thông báo!", message: err, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+            self.loginPresenter?.goToAuthenticOtp(type: 2, phoneNumber: username)
+        }))
         self.present(alert, animated: true, completion: nil)
     }
     

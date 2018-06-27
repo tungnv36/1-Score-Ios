@@ -10,6 +10,7 @@ import UIKit
 
 //View
 protocol AuthenticOtpViewProtocol : class {
+    func compareOtpFailed(err:String)
 }
 //Presenter
 protocol AuthenticOtpPresenterProtocol : class {
@@ -17,25 +18,31 @@ protocol AuthenticOtpPresenterProtocol : class {
     var interactor: AuthenticOtpInteractorInputProtocol? { get set }
     var wireframe: AuthenticOtpWireframeProtocol? { get set }
     
-    func goToChangePass()
+    func compareOtp(phoneNumber:String, otpCode:String, type:Int)
+    func changePass(phoneNumber:String, otpCode:String, type:Int)
 }
 //Interactor
 protocol AuthenticOtpInteractorInputProtocol : class {
     var presenter:AuthenticOtpInteractorOutputProtocol? { get set }
     var dataStore:AuthenticOtpDataStoreProtocol? { get set }
     
-    func goToChangePass()
+    func compareOtp(phoneNumber:String, otpCode:String, type:Int)
+    func changePass(phoneNumber:String, otpCode:String, type:Int)
 }
 
 protocol AuthenticOtpInteractorOutputProtocol : class {
-    func goToChangePassOutput()
+    func compareOtpSuccess(type:Int)
+    func compareOtpFailed(err:String)
+    func changePassSuccess(phoneNumber:String, token:String)
+    func changePassFailed(err:String)
 }
 //Wireframe
 protocol AuthenticOtpWireframeProtocol : class {
-    static func getModule(type:Int) -> UIViewController;
-    func goToChangePass(view:AuthenticOtpViewProtocol!)
+    static func getModule(type:Int, phoneNumber:String) -> UIViewController;
+    func goToChangePass(view:AuthenticOtpViewProtocol!, phoneNumber:String, token:String)
+    func goToLogin(view:AuthenticOtpViewProtocol!)
 }
 //DataStore
 protocol AuthenticOtpDataStoreProtocol : class {
-    
+    func compareOtp(authenticOtpEntity:AuthenticOtpEntity, completion:@escaping(_ authenticOtpResultEntity:AuthenticOtpResultEntity) -> ())
 }
