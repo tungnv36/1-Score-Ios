@@ -49,6 +49,20 @@ class HomePageView: UIViewController {
         addMenuSupporter()
         
         homePagePresenter?.initData()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(HomePageView.handleModalDismissed(not:)),
+                                               name: NSNotification.Name(rawValue: "modalIsDimissed"),
+                                               object: nil)
+    }
+    
+    @objc func handleModalDismissed(not: Notification) {
+        print("CALLBACK")
+        if let userInfo = not.userInfo {
+            if let image = userInfo["image"] as? UIImage {
+                ivAvatar.image = image
+            }
+        }
     }
     
     func addMainView() {
@@ -159,6 +173,12 @@ class HomePageView: UIViewController {
         ivAvatar.image = #imageLiteral(resourceName: "avatar")
         ivAvatar.contentMode = .scaleAspectFit
         
+        let recognizer = UITapGestureRecognizer()
+        ivAvatar.isUserInteractionEnabled = true
+        recognizer.addTarget(self, action: #selector(tapAvatar))
+        ivAvatar.addGestureRecognizer(recognizer)
+//        ivAvatar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAvatar)))
+        
         //Add current level
         viewBanner.addSubview(lblCurrentLevel)
         lblCurrentLevel.translatesAutoresizingMaskIntoConstraints = false
@@ -268,17 +288,20 @@ class HomePageView: UIViewController {
                 UIApplication.shared.openURL(url)
             }
         }
-        
-//        if let phoneCallURL = URL(string: "tel://01656226909") {
-//            let application:UIApplication = UIApplication.shared
-//            if (application.canOpenURL(phoneCallURL)) {
-//                application.open(phoneCallURL, options: [:], completionHandler: nil)
-//            }
-//        }
     }
     
     @objc func actionChat(sender: UIButton!) {
         showHideMenuSupporter()
+    }
+    
+//    @objc func tapAvatar(_ sender: UITapGestureRecognizer) {
+//        print("TAP AVATAR")
+//        homePagePresenter?.goToCamera()
+//    }
+    
+    @objc func tapAvatar() {
+        print("image tapped")
+        homePagePresenter?.goToCamera()
     }
 
     override func didReceiveMemoryWarning() {

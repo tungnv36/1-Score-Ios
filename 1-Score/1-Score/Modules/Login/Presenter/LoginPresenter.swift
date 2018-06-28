@@ -14,8 +14,8 @@ class LoginPresenter : LoginPresenterProtocol {
     var interactor: LoginInteractorInputProtocol?
     var wireframe: LoginWireframeProtocol?
     
-    func login(username: String, password: String) {
-        interactor?.login(username: username, password: password)
+    func login(activityIndicator:UIActivityIndicatorView, username: String, password: String) {
+        interactor?.login(activityIndicator:activityIndicator, username: username, password: password)
     }
     
     func goToOtp() {
@@ -30,23 +30,31 @@ class LoginPresenter : LoginPresenterProtocol {
 
 extension LoginPresenter : LoginInteractorOutputProtocol {
     
-    func userEmpty(msg: String) {
+    func userEmpty(activityIndicator:UIActivityIndicatorView, msg: String) {
         view?.userEmpty(msg: msg)
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
     
-    func passEmpty(msg: String) {
+    func passEmpty(activityIndicator:UIActivityIndicatorView, msg: String) {
         view?.passEmpty(msg: msg)
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
     
-    func loginFailed(err:String) {
+    func loginFailed(activityIndicator:UIActivityIndicatorView, err:String) {
         DispatchQueue.main.async {
             self.view?.loginFailed(err: err)
+            activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
         }
     }
     
-    func loginSuccess(username: String, password: String) {
+    func loginSuccess(activityIndicator:UIActivityIndicatorView, username: String, password: String) {
         DispatchQueue.main.async {
             self.wireframe?.goToHomePage(view: self.view!)
+            activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
         }
     }
     
@@ -56,9 +64,11 @@ extension LoginPresenter : LoginInteractorOutputProtocol {
         }
     }
     
-    func loginFailedLostOtp(username:String, err: String) {
+    func loginFailedLostOtp(activityIndicator:UIActivityIndicatorView, username:String, err: String) {
         DispatchQueue.main.async {
             self.view?.loginFailedLostOtp(username: username, err: err)
+            activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
         }
     }
     

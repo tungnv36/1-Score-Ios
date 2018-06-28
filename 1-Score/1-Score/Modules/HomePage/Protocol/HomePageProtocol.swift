@@ -22,6 +22,7 @@ protocol HomePagePresenterProtocol : class {
     func goToProfile()
     func goToLoanRequest()
     func goToSetting()
+    func goToCamera()
 }
 //Interactor
 protocol HomePageInteractorInputProtocol : class {
@@ -32,6 +33,7 @@ protocol HomePageInteractorInputProtocol : class {
     func goToProfile()
     func goToLoanRequest()
     func goToSetting()
+    func goToCamera()
 }
 
 protocol HomePageInteractorOutputProtocol : class {
@@ -40,6 +42,7 @@ protocol HomePageInteractorOutputProtocol : class {
     func goToSettingOutput()
     
     func initDataOutput(loginEntity:LoginResultEntity)
+    func goToCameraOutput()
 }
 //Wireframe
 protocol HomePageWireframeProtocol : class {
@@ -47,6 +50,7 @@ protocol HomePageWireframeProtocol : class {
     func goToProfile(view: HomePageViewProtocol)
     func goToLoanRequest(view: HomePageViewProtocol)
     func goToSetting(view: HomePageViewProtocol)
+    func goToCamera(view: HomePageViewProtocol)
 }
 //DataStore
 protocol HomePageDataStoreProtocol : class {

@@ -30,6 +30,10 @@ class HomePagePresenter : HomePagePresenterProtocol {
         interactor?.goToSetting()
     }
     
+    func goToCamera() {
+        interactor?.goToCamera()
+    }
+    
 }
 
 extension HomePagePresenter : HomePageInteractorOutputProtocol {
@@ -48,6 +52,10 @@ extension HomePagePresenter : HomePageInteractorOutputProtocol {
     
     func goToSettingOutput() {
         wireframe?.goToSetting(view: view!)
+    }
+    
+    func goToCameraOutput() {
+        wireframe?.goToCamera(view: view!)
     }
     
 }

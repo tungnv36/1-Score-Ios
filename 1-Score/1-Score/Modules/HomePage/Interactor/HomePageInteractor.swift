@@ -31,4 +31,8 @@ class HomePageInteractor : HomePageInteractorInputProtocol {
         presenter?.goToSettingOutput()
     }
     
+    func goToCamera() {
+        presenter?.goToCameraOutput()
+    }
+    
 }

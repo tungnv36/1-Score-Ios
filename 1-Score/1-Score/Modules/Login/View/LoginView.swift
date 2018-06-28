@@ -245,8 +245,8 @@ class LoginView: UIViewController {
     }
     
     @objc func actionLogin(sender: UIButton!) {
-//        startLoading()
-        loginPresenter?.login(username: txtUser.text!, password: txtPass.text!)
+        startLoading()
+        loginPresenter?.login(activityIndicator: activityIndicator, username: txtUser.text!, password: txtPass.text!)
     }
 
     @objc func forgotPass(sender: UIButton!) {

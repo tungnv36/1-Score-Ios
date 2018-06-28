@@ -22,7 +22,7 @@ protocol LoginPresenterProtocol : class {
     var interactor: LoginInteractorInputProtocol? { get set }
     var wireframe: LoginWireframeProtocol? { get set }
     
-    func login(username:String, password:String)
+    func login(activityIndicator:UIActivityIndicatorView, username:String, password:String)
     func goToOtp()
     func goToAuthenticOtp(type: Int?, phoneNumber: String?)
 }
@@ -31,17 +31,17 @@ protocol LoginInteractorInputProtocol : class {
     var presenter:LoginInteractorOutputProtocol? { get set }
     var dataStore:LoginDataStoreProtocol? { get set }
     
-    func login(username:String, password:String)
+    func login(activityIndicator:UIActivityIndicatorView, username:String, password:String)
     func goToOtp()
     func goToAuthenticOtp(type: Int?, phoneNumber: String?)
 }
 
 protocol LoginInteractorOutputProtocol : class {
-    func userEmpty(msg:String)
-    func passEmpty(msg:String)
-    func loginSuccess(username:String, password:String)
-    func loginFailed(err:String)
-    func loginFailedLostOtp(username:String, err:String)
+    func userEmpty(activityIndicator:UIActivityIndicatorView, msg:String)
+    func passEmpty(activityIndicator:UIActivityIndicatorView, msg:String)
+    func loginSuccess(activityIndicator:UIActivityIndicatorView, username:String, password:String)
+    func loginFailed(activityIndicator:UIActivityIndicatorView, err:String)
+    func loginFailedLostOtp(activityIndicator:UIActivityIndicatorView, username:String, err:String)
     
     func goToOtpOutput()
     func goToAuthenticOtpOutput(type: Int?, phoneNumber: String?)

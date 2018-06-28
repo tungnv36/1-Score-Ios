@@ -149,6 +149,7 @@ class ChangePhoneView: UIViewController {
         txtOldPhone.setBottomBorder()
         txtOldPhone.autocorrectionType = .no
         txtOldPhone.keyboardType = .phonePad
+        txtOldPhone.isUserInteractionEnabled = false
         
         //Add icon old phone
         viewChangePhone.addSubview(ivIconOldPhone)

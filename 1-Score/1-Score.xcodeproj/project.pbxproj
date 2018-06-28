@@ -46,6 +46,12 @@
 		221472A420CF5B630070AA3C /* MKMagneticProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221472A320CF5B630070AA3C /* MKMagneticProgress.swift */; };
 		221472A620CFC1080070AA3C /* HomePageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221472A520CFC1080070AA3C /* HomePageViewCell.swift */; };
 		221472A820CFD1110070AA3C /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221472A720CFD1110070AA3C /* MenuData.swift */; };
+		2215675420E4DBA100226848 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215675320E4DBA100226848 /* CameraView.swift */; };
+		2215675620E4DFAA00226848 /* CameraProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215675520E4DFAA00226848 /* CameraProtocol.swift */; };
+		2215675820E4DFFA00226848 /* CameraDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215675720E4DFFA00226848 /* CameraDataStore.swift */; };
+		2215675A20E4E01600226848 /* CameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215675920E4E01600226848 /* CameraInteractor.swift */; };
+		2215675C20E4E08900226848 /* CameraPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215675B20E4E08900226848 /* CameraPresenter.swift */; };
+		2215675E20E4E0C300226848 /* CameraWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215675D20E4E0C300226848 /* CameraWireframe.swift */; };
 		2218C35E20E1F0B200685C3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2218C35D20E1F0B200685C3F /* Assets.xcassets */; };
 		2218C36120E1F68B00685C3F /* CallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218C36020E1F68B00685C3F /* CallApi.swift */; };
 		222BA7BA20DA3AFC00E68642 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222BA7B920DA3AFC00E68642 /* MonthYearPickerView.swift */; };
@@ -259,6 +265,12 @@
 		221472A320CF5B630070AA3C /* MKMagneticProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMagneticProgress.swift; sourceTree = "<group>"; };
 		221472A520CFC1080070AA3C /* HomePageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewCell.swift; sourceTree = "<group>"; };
 		221472A720CFD1110070AA3C /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
+		2215675320E4DBA100226848 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		2215675520E4DFAA00226848 /* CameraProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraProtocol.swift; sourceTree = "<group>"; };
+		2215675720E4DFFA00226848 /* CameraDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDataStore.swift; sourceTree = "<group>"; };
+		2215675920E4E01600226848 /* CameraInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraInteractor.swift; sourceTree = "<group>"; };
+		2215675B20E4E08900226848 /* CameraPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPresenter.swift; sourceTree = "<group>"; };
+		2215675D20E4E0C300226848 /* CameraWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraWireframe.swift; sourceTree = "<group>"; };
 		2218C35D20E1F0B200685C3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2218C36020E1F68B00685C3F /* CallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallApi.swift; sourceTree = "<group>"; };
 		222BA7B920DA3AFC00E68642 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
@@ -519,6 +531,7 @@
 		2202185F20CD75B10016EA9E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2215674B20E4DB7400226848 /* Camera */,
 				2238123A20DE3A8C00A91ADF /* ChangePass */,
 				2238122420DE338200A91ADF /* AuthenticOtp */,
 				224A426620DCF95D007FFFBC /* Otp */,
@@ -768,6 +781,75 @@
 				222BA7B920DA3AFC00E68642 /* MonthYearPickerView.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		2215674B20E4DB7400226848 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				2215674D20E4DB8E00226848 /* DataStore */,
+				2215674F20E4DB8E00226848 /* Entity */,
+				2215675220E4DB8F00226848 /* Interactor */,
+				2215675120E4DB8F00226848 /* Presenter */,
+				2215674E20E4DB8E00226848 /* Protocol */,
+				2215675020E4DB8F00226848 /* View */,
+				2215674C20E4DB8E00226848 /* Wireframe */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		2215674C20E4DB8E00226848 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				2215675D20E4E0C300226848 /* CameraWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		2215674D20E4DB8E00226848 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				2215675720E4DFFA00226848 /* CameraDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		2215674E20E4DB8E00226848 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2215675520E4DFAA00226848 /* CameraProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		2215674F20E4DB8E00226848 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2215675020E4DB8F00226848 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2215675320E4DBA100226848 /* CameraView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2215675120E4DB8F00226848 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2215675B20E4E08900226848 /* CameraPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2215675220E4DB8F00226848 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2215675920E4E01600226848 /* CameraInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		2218C35F20E1F65F00685C3F /* API */ = {
@@ -2176,6 +2258,7 @@
 				2238124720DE3B5200A91ADF /* ChangePassEntity.swift in Sources */,
 				225ACFE220CE242D00F9CA34 /* IntroductionEntity.swift in Sources */,
 				224A424720DCDC83007FFFBC /* SettingPresenter.swift in Sources */,
+				2215675E20E4E0C300226848 /* CameraWireframe.swift in Sources */,
 				22BFD8A120D0F7A000CFD201 /* MenuProfileData.swift in Sources */,
 				224A422D20DCB781007FFFBC /* UpdatePaperPresenter.swift in Sources */,
 				2202183620CD751C0016EA9E /* __Score.xcdatamodeld in Sources */,
@@ -2286,6 +2369,7 @@
 				22BFD8B120D1253900CFD201 /* LoanPresenter.swift in Sources */,
 				225AD01D20CE8CD900F9CA34 /* RegisterWireframe.swift in Sources */,
 				224A422B20DCB764007FFFBC /* UpdatePaperInteractor.swift in Sources */,
+				2215675A20E4E01600226848 /* CameraInteractor.swift in Sources */,
 				224A425B20DCF1BB007FFFBC /* ChangePhoneDataStore.swift in Sources */,
 				224A421920DCB0A8007FFFBC /* SocialNetworkDataStore.swift in Sources */,
 				2238123520DE346D00A91ADF /* AuthenticOtpPresenter.swift in Sources */,
@@ -2311,6 +2395,7 @@
 				225ACFEF20CE270800F9CA34 /* MainPresenter.swift in Sources */,
 				224A423120DCD3B6007FFFBC /* PaperData.swift in Sources */,
 				22049AFF20E1F85C00E51635 /* LoginApi.swift in Sources */,
+				2215675620E4DFAA00226848 /* CameraProtocol.swift in Sources */,
 				22BFD89720D0B74D00CFD201 /* ProfileProtocol.swift in Sources */,
 				22692B0A20CED773005C3036 /* MenuEntity.swift in Sources */,
 				224A427920DCFA35007FFFBC /* OtpView.swift in Sources */,
@@ -2328,8 +2413,11 @@
 				22A2ED6120E33C9A009042B2 /* OtpApi.swift in Sources */,
 				22692B0C20CED780005C3036 /* HomePageWireframe.swift in Sources */,
 				22BFD8B520D1256C00CFD201 /* LoanWireframe.swift in Sources */,
+				2215675820E4DFFA00226848 /* CameraDataStore.swift in Sources */,
 				224A421320DCAD32007FFFBC /* UpdateSocialNetworkView.swift in Sources */,
 				2202186C20CD75F40016EA9E /* ExtensionCGFloat.swift in Sources */,
+				2215675C20E4E08900226848 /* CameraPresenter.swift in Sources */,
+				2215675420E4DBA100226848 /* CameraView.swift in Sources */,
 				224A427520DCF9CB007FFFBC /* OtpInteractor.swift in Sources */,
 				226D703620DB603A00848D9A /* UpdateJobInteractor.swift in Sources */,
 				224A41F920DC9DCE007FFFBC /* MemberEntity.swift in Sources */,
