@@ -25,6 +25,16 @@ class CameraView: UIViewController {
     var btCapture:UIButton = UIButton()
     var image:UIImage?
     
+    var topView:UIView = UIView()
+    var bottomView:UIView = UIView()
+    var leftView:UIView = UIView()
+    var rightView:UIView = UIView()
+    
+    var wCamera:CGFloat = 0.0;
+    var hCamera:CGFloat = 0.0;
+    var leftCamera:CGFloat = 0.0;
+    var topCamera:CGFloat = 0.0;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black
@@ -34,6 +44,7 @@ class CameraView: UIViewController {
         setupInputOutput()
         setupPreviewLayer()
         startRunningCaptureSession()
+        drawRect()
         addButtonCapture()
     }
 
@@ -70,7 +81,7 @@ class CameraView: UIViewController {
                 frontCamera = device
             }
         }
-        currentCamera = backCamera
+        currentCamera = frontCamera
     }
     
     func setupInputOutput() {
@@ -97,6 +108,29 @@ class CameraView: UIViewController {
         captureSession.startRunning()
     }
     
+    func drawRect() {
+        wCamera = UIScreen.main.bounds.width
+        hCamera = UIScreen.main.bounds.width
+        topCamera = (UIScreen.main.bounds.height - hCamera)/2// - 50
+        
+        view.addSubview(topView)
+        topView.translatesAutoresizingMaskIntoConstraints = false
+        topView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        topView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        topView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        topView.heightAnchor.constraint(equalToConstant: topCamera).isActive = true
+        topView.bounds.size.height = (UIScreen.main.bounds.height - hCamera)/2
+        topView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        
+        view.addSubview(bottomView)
+        bottomView.translatesAutoresizingMaskIntoConstraints = false
+        bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        bottomView.topAnchor.constraint(equalTo: view.topAnchor, constant: topCamera + hCamera).isActive = true
+        bottomView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+    }
+    
     @objc func actionCapture(sender:UIButton!) {
         let settings = AVCapturePhotoSettings()
         photoOutput?.capturePhoto(with: settings, delegate: self)
@@ -109,8 +143,7 @@ extension CameraView : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         if let imageData = photo.fileDataRepresentation() {
             print(imageData)
-            image = UIImage(data: imageData)
-//            dismiss(animated: true, completion: nil)
+            image = Utils.cropToBounds(image: UIImage(data: imageData)!, rateScene: view.bounds.height/view.bounds.width)
             dismiss(animated: true) {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modalIsDimissed"), object: nil, userInfo: ["image":self.image ?? #imageLiteral(resourceName: "avatar")])
             }

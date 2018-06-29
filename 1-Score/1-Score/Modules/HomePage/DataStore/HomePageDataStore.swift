@@ -11,6 +11,8 @@ import CoreData
 
 class HomePageDataStore : HomePageDataStoreProtocol {
     
+    let _homePageApi = HomePageApi()
+    
     func getUser(completion: @escaping (LoginResultEntity) -> ()) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -46,6 +48,32 @@ class HomePageDataStore : HomePageDataStoreProtocol {
             }
         } catch {
             print("Failed")
+        }
+    }
+    
+    func saveImageToLocal(fineName: String, image: UIImage) {
+        
+    }
+    
+    func saveImageToDB(uploadImageResultEntity: UploadImageResultEntity, imageName: String, username: String, type: String) {
+        
+    }
+    
+    func uploadImage(token: String, uploadImageEntity: UploadImageEntity, completion: @escaping (UploadImageResultEntity) -> ()) {
+        _homePageApi.uploadImage(token: token, uploadImageEntity: uploadImageEntity)  { (json : [String : Any]) in
+            print(json)
+            let dicImage = json["Image"] is NSNull ? nil : (json["Image"] as? Dictionary<String, Any>)!
+            let imageEntity = ImageEntity(
+                imageType:  dicImage!["ImageType"] is NSNull ? "" : (dicImage!["ImageType"] as? String)!,
+                url:        dicImage!["Url"] is NSNull ? "" : (dicImage!["Url"] as? String)!,
+                id:         dicImage!["Id"] is NSNull ? 0 : (dicImage!["Id"] as? Int)!
+            )
+            let uploadImageResultEntity = UploadImageResultEntity(
+                image:      imageEntity,
+                message:    json["Message"] is NSNull ? "" : (json["Message"] as? String)!,
+                statuscode: json["StatusCode"] is NSNull ? 0 : (json["StatusCode"] as? Int)!
+            )
+            completion(uploadImageResultEntity)
         }
     }
     

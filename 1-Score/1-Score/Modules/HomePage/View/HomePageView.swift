@@ -61,6 +61,7 @@ class HomePageView: UIViewController {
         if let userInfo = not.userInfo {
             if let image = userInfo["image"] as? UIImage {
                 ivAvatar.image = image
+//                print(Utils.convertImageToBase64(image: image))
             }
         }
     }
@@ -169,15 +170,17 @@ class HomePageView: UIViewController {
         ivAvatar.widthAnchor.constraint(equalToConstant: progressSize - 40).isActive = true
         ivAvatar.heightAnchor.constraint(equalToConstant: progressSize - 40).isActive = true
         ivAvatar.topAnchor.constraint(equalTo: cirProgress.topAnchor, constant: 20).isActive = true
+        ivAvatar.bounds.size = CGSize(width: progressSize - 40, height: progressSize - 40)
         
         ivAvatar.image = #imageLiteral(resourceName: "avatar")
         ivAvatar.contentMode = .scaleAspectFit
+        ivAvatar.layer.masksToBounds = true
+        ivAvatar.layer.cornerRadius = ivAvatar.bounds.width/2
         
         let recognizer = UITapGestureRecognizer()
         ivAvatar.isUserInteractionEnabled = true
         recognizer.addTarget(self, action: #selector(tapAvatar))
         ivAvatar.addGestureRecognizer(recognizer)
-//        ivAvatar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAvatar)))
         
         //Add current level
         viewBanner.addSubview(lblCurrentLevel)
@@ -333,6 +336,16 @@ extension HomePageView : HomePageViewProtocol {
     
     func initData(loginEntity:LoginResultEntity) {
         lblName.text = loginEntity.Fullname
+    }
+    
+    func saveImageToLocalSuccess(image:UIImage) {
+        ivAvatar.image = image
+    }
+    
+    func saveImageToLocalError(err:String) {
+        let alert = UIAlertController(title: "Thông báo!", message: err, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

@@ -34,6 +34,10 @@ class HomePagePresenter : HomePagePresenterProtocol {
         interactor?.goToCamera()
     }
     
+    func updateImage(type: Int, imageType: Int, image: UIImage) {
+        interactor?.updateImage(type: type, imageType: imageType, image: image)
+    }
+    
 }
 
 extension HomePagePresenter : HomePageInteractorOutputProtocol {
@@ -56,6 +60,14 @@ extension HomePagePresenter : HomePageInteractorOutputProtocol {
     
     func goToCameraOutput() {
         wireframe?.goToCamera(view: view!)
+    }
+    
+    func saveImageToLocalSuccess(image: UIImage) {
+        
+    }
+    
+    func saveImageToLocalError(err: String) {
+        
     }
     
 }

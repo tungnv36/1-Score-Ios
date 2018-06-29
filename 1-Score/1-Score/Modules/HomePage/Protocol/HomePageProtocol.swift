@@ -11,6 +11,9 @@ import UIKit
 //View
 protocol HomePageViewProtocol : class {
     func initData(loginEntity:LoginResultEntity)
+    
+    func saveImageToLocalSuccess(image:UIImage)
+    func saveImageToLocalError(err:String)
 }
 //Presenter
 protocol HomePagePresenterProtocol : class {
@@ -23,6 +26,8 @@ protocol HomePagePresenterProtocol : class {
     func goToLoanRequest()
     func goToSetting()
     func goToCamera()
+    
+    func updateImage(type:Int, imageType:Int, image:UIImage);
 }
 //Interactor
 protocol HomePageInteractorInputProtocol : class {
@@ -34,6 +39,8 @@ protocol HomePageInteractorInputProtocol : class {
     func goToLoanRequest()
     func goToSetting()
     func goToCamera()
+    
+    func updateImage(type:Int, imageType:Int, image:UIImage);
 }
 
 protocol HomePageInteractorOutputProtocol : class {
@@ -43,6 +50,9 @@ protocol HomePageInteractorOutputProtocol : class {
     
     func initDataOutput(loginEntity:LoginResultEntity)
     func goToCameraOutput()
+    
+    func saveImageToLocalSuccess(image:UIImage)
+    func saveImageToLocalError(err:String)
 }
 //Wireframe
 protocol HomePageWireframeProtocol : class {
@@ -55,4 +65,7 @@ protocol HomePageWireframeProtocol : class {
 //DataStore
 protocol HomePageDataStoreProtocol : class {
     func getUser(completion:@escaping (_ loginResultEntity:LoginResultEntity) -> ())
+    func saveImageToLocal(fineName:String, image:UIImage)
+    func saveImageToDB(uploadImageResultEntity:UploadImageResultEntity, imageName:String, username:String, type:String)
+    func uploadImage(token:String, uploadImageEntity:UploadImageEntity, completion:@escaping (_ uploadImageResultEntity: UploadImageResultEntity) -> ())
 }

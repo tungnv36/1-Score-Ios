@@ -177,6 +177,10 @@
 		22A2ED6520E34CAA009042B2 /* ChangePassApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED6420E34CAA009042B2 /* ChangePassApi.swift */; };
 		22A2ED6920E38307009042B2 /* ChangePhoneApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED6820E38307009042B2 /* ChangePhoneApi.swift */; };
 		22A2ED6B20E38415009042B2 /* ChangePhoneResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED6A20E38415009042B2 /* ChangePhoneResultEntity.swift */; };
+		22B250E020E61915003CB9D8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B250DF20E61915003CB9D8 /* Utils.swift */; };
+		22B250E220E63EAC003CB9D8 /* UploadImageResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B250E120E63EAC003CB9D8 /* UploadImageResultEntity.swift */; };
+		22B250E420E63F20003CB9D8 /* UploadImageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B250E320E63F20003CB9D8 /* UploadImageEntity.swift */; };
+		22B250E620E64346003CB9D8 /* HomePageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B250E520E64346003CB9D8 /* HomePageApi.swift */; };
 		22B262B320D7ABA500969422 /* ExtensionSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B262B220D7ABA500969422 /* ExtensionSlider.swift */; };
 		22B262B520D7AD6300969422 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B262B420D7AD6300969422 /* CustomSlider.swift */; };
 		22BFD88320D0B1B700CFD201 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BFD88220D0B1B700CFD201 /* MessageUI.framework */; };
@@ -396,6 +400,10 @@
 		22A2ED6420E34CAA009042B2 /* ChangePassApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassApi.swift; sourceTree = "<group>"; };
 		22A2ED6820E38307009042B2 /* ChangePhoneApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneApi.swift; sourceTree = "<group>"; };
 		22A2ED6A20E38415009042B2 /* ChangePhoneResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneResultEntity.swift; sourceTree = "<group>"; };
+		22B250DF20E61915003CB9D8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		22B250E120E63EAC003CB9D8 /* UploadImageResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageResultEntity.swift; sourceTree = "<group>"; };
+		22B250E320E63F20003CB9D8 /* UploadImageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageEntity.swift; sourceTree = "<group>"; };
+		22B250E520E64346003CB9D8 /* HomePageApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageApi.swift; sourceTree = "<group>"; };
 		22B262B220D7ABA500969422 /* ExtensionSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSlider.swift; sourceTree = "<group>"; };
 		22B262B420D7AD6300969422 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		22BD72D520D7A59000860A78 /* JMMarkSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JMMarkSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -560,6 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				2202186220CD75DB0016EA9E /* Enums.swift */,
+				22B250DF20E61915003CB9D8 /* Utils.swift */,
 			);
 			path = CommonFunc;
 			sourceTree = "<group>";
@@ -1689,6 +1698,8 @@
 			isa = PBXGroup;
 			children = (
 				22692B0920CED773005C3036 /* MenuEntity.swift */,
+				22B250E120E63EAC003CB9D8 /* UploadImageResultEntity.swift */,
+				22B250E320E63F20003CB9D8 /* UploadImageEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1706,6 +1717,7 @@
 			children = (
 				22692B0D20CED78C005C3036 /* HomePageDataStore.swift */,
 				221472A720CFD1110070AA3C /* MenuData.swift */,
+				22B250E520E64346003CB9D8 /* HomePageApi.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -2321,6 +2333,7 @@
 				224A420D20DCACC7007FFFBC /* UpdateSocialNetworkWireframe.swift in Sources */,
 				2238124B20DE3B8C00A91ADF /* ChangePassPresenter.swift in Sources */,
 				2202186E20CD75F40016EA9E /* ExtensionColor.swift in Sources */,
+				22B250E220E63EAC003CB9D8 /* UploadImageResultEntity.swift in Sources */,
 				225AD01520CE8C6600F9CA34 /* RegisterView.swift in Sources */,
 				224A423320DCD58E007FFFBC /* UpdatePaperCell.swift in Sources */,
 				22A2ED6920E38307009042B2 /* ChangePhoneApi.swift in Sources */,
@@ -2336,6 +2349,7 @@
 				2204D04320D768A900B82D31 /* LoanRegistrationWireframe.swift in Sources */,
 				224A422920DCB736007FFFBC /* UpdatePaperWireframe.swift in Sources */,
 				2238124920DE3B6200A91ADF /* ChangePassInteractor.swift in Sources */,
+				22B250E020E61915003CB9D8 /* Utils.swift in Sources */,
 				225ACFFE20CE6FAD00F9CA34 /* LoginView.swift in Sources */,
 				2277310B20D8FF00006BA0F0 /* UpdateProfileView.swift in Sources */,
 				22692B0820CED769005C3036 /* HomePageProtocol.swift in Sources */,
@@ -2361,6 +2375,7 @@
 				226D703220DB602200848D9A /* UpdateJobView.swift in Sources */,
 				224A420B20DCAC8D007FFFBC /* SocialNetworkEntity.swift in Sources */,
 				224A425F20DCF216007FFFBC /* ChangePhoneInteractor.swift in Sources */,
+				22B250E620E64346003CB9D8 /* HomePageApi.swift in Sources */,
 				224A425920DCF17C007FFFBC /* ChangePhoneProtocol.swift in Sources */,
 				225AD00220CE6FC700F9CA34 /* LoginInteractor.swift in Sources */,
 				224A424320DCDC34007FFFBC /* SettingWireframe.swift in Sources */,
@@ -2404,6 +2419,7 @@
 				2277310D20D8FF0D006BA0F0 /* UpdateProfilePresenter.swift in Sources */,
 				22BFD89C20D0D55700CFD201 /* ProfileViewCell.swift in Sources */,
 				224A41EF20DC8B70007FFFBC /* UpdateFamilyInteractor.swift in Sources */,
+				22B250E420E63F20003CB9D8 /* UploadImageEntity.swift in Sources */,
 				225ACFEB20CE256600F9CA34 /* MainProtocol.swift in Sources */,
 				2202188120CD82AE0016EA9E /* IntroductionInteractor.swift in Sources */,
 				224A426120DCF235007FFFBC /* ChangePhonePresenter.swift in Sources */,
