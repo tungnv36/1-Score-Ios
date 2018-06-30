@@ -14,6 +14,10 @@ class ProfilePresenter : ProfilePresenterProtocol {
     var interactor: ProfileInteractorInputProtocol?
     var wireframe: ProfileWireframeProtocol?
     
+    func initAvatar() {
+        interactor?.initAvatar()
+    }
+    
     func goToUpdateProfile() {
         interactor?.goToUpdateProfile()
     }
@@ -37,6 +41,10 @@ class ProfilePresenter : ProfilePresenterProtocol {
 }
 
 extension ProfilePresenter : ProfileInteractorOutputProtocol {
+    
+    func initAvatarOutput(image:UIImage) {
+        view?.initAvatar(image: image)
+    }
     
     func goToUpdateProfileOutput() {
         wireframe?.goToUpdateProfile(view: view!)

@@ -38,6 +38,8 @@ class ProfileView: UIViewController {
         addTableView()
         
         tbMenu?.separatorColor = UIColor.clear
+        
+        profilePresenter?.initAvatar()
     }
     
     func addMainView() {
@@ -132,9 +134,12 @@ class ProfileView: UIViewController {
         ivAvatar.widthAnchor.constraint(equalToConstant: progressSize - 40).isActive = true
         ivAvatar.heightAnchor.constraint(equalToConstant: progressSize - 40).isActive = true
         ivAvatar.topAnchor.constraint(equalTo: cirProgress.topAnchor, constant: 20).isActive = true
+        ivAvatar.bounds.size = CGSize(width: progressSize - 40, height: progressSize - 40)
         
         ivAvatar.image = #imageLiteral(resourceName: "avatar")
         ivAvatar.contentMode = .scaleAspectFit
+        ivAvatar.layer.masksToBounds = true
+        ivAvatar.layer.cornerRadius = ivAvatar.bounds.width / 2
         
         //Add current level
         viewBanner.addSubview(lblCurrentLevel)
@@ -192,6 +197,10 @@ class ProfileView: UIViewController {
 }
 
 extension ProfileView : ProfileViewProtocol {
+    
+    func initAvatar(image:UIImage) {
+        ivAvatar.image = image
+    }
     
 }
 

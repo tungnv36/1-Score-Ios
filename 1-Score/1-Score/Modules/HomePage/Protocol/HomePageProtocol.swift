@@ -12,8 +12,9 @@ import UIKit
 protocol HomePageViewProtocol : class {
     func initData(loginEntity:LoginResultEntity)
     
-    func saveImageToLocalSuccess(image:UIImage)
-    func saveImageToLocalError(err:String)
+    func initAvatar(image:UIImage)
+    func uploadImageError(activityIndicator:UIActivityIndicatorView, err:String)
+    func uploadImageSuccess(activityIndicator:UIActivityIndicatorView, image:UIImage)
 }
 //Presenter
 protocol HomePagePresenterProtocol : class {
@@ -25,9 +26,10 @@ protocol HomePagePresenterProtocol : class {
     func goToProfile()
     func goToLoanRequest()
     func goToSetting()
-    func goToCamera()
+    func goToCamera(typeCamera:Int, imageType:String)
     
-    func updateImage(type:Int, imageType:Int, image:UIImage);
+    func initAvatar()
+    func updateImage(activityIndicator:UIActivityIndicatorView, image:UIImage)
 }
 //Interactor
 protocol HomePageInteractorInputProtocol : class {
@@ -38,9 +40,10 @@ protocol HomePageInteractorInputProtocol : class {
     func goToProfile()
     func goToLoanRequest()
     func goToSetting()
-    func goToCamera()
+    func goToCamera(typeCamera:Int, imageType:String)
     
-    func updateImage(type:Int, imageType:Int, image:UIImage);
+    func initAvatar()
+    func updateImage(activityIndicator:UIActivityIndicatorView, image:UIImage)
 }
 
 protocol HomePageInteractorOutputProtocol : class {
@@ -49,10 +52,11 @@ protocol HomePageInteractorOutputProtocol : class {
     func goToSettingOutput()
     
     func initDataOutput(loginEntity:LoginResultEntity)
-    func goToCameraOutput()
+    func goToCameraOutput(typeCamera:Int, imageType:String)
     
-    func saveImageToLocalSuccess(image:UIImage)
-    func saveImageToLocalError(err:String)
+    func initAvatarOutput(image:UIImage)
+    func uploadImageError(activityIndicator:UIActivityIndicatorView, err:String)
+    func uploadImageSuccess(activityIndicator:UIActivityIndicatorView, image:UIImage)
 }
 //Wireframe
 protocol HomePageWireframeProtocol : class {
@@ -60,12 +64,12 @@ protocol HomePageWireframeProtocol : class {
     func goToProfile(view: HomePageViewProtocol)
     func goToLoanRequest(view: HomePageViewProtocol)
     func goToSetting(view: HomePageViewProtocol)
-    func goToCamera(view: HomePageViewProtocol)
+    func goToCamera(view: HomePageViewProtocol, typeCamera:Int, imageType:String)
 }
 //DataStore
 protocol HomePageDataStoreProtocol : class {
     func getUser(completion:@escaping (_ loginResultEntity:LoginResultEntity) -> ())
-    func saveImageToLocal(fineName:String, image:UIImage)
+    func saveImageToLocal(fileName:String, image:UIImage)
     func saveImageToDB(uploadImageResultEntity:UploadImageResultEntity, imageName:String, username:String, type:String)
     func uploadImage(token:String, uploadImageEntity:UploadImageEntity, completion:@escaping (_ uploadImageResultEntity: UploadImageResultEntity) -> ())
 }

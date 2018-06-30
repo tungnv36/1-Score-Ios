@@ -29,4 +29,11 @@ class UpdateProfileWireframe : UpdateProfileWireframeProtocol {
         return updateProfileView
     }
     
+    func goToCamera(view: UpdateProfileViewProtocol, typeCamera:Int, imageType:String) {
+        let nextViewController = CameraWireframe.getModule(typeCamera: typeCamera, imageType: imageType)
+        if let sourceView = view as? UIViewController {
+            sourceView.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
 }

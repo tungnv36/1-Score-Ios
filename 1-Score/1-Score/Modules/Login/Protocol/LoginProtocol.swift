@@ -57,5 +57,9 @@ protocol LoginWireframeProtocol : class {
 protocol LoginDataStoreProtocol : class {
     func updateUser(loginEntity:LoginResultEntity);
     func getUser(completion:@escaping (_ loginResultEntity:LoginResultEntity) -> ())
+    func getImageID(imageName:String, completion:@escaping (_ id:Int) -> ())
+    func getImageFromDB(imageName:String, completion:@escaping (_ uploadImageResultEntity:UploadImageResultEntity) -> ())
+    func saveImageToLocal(fileName:String, image:UIImage)
+    func saveImageToDB(uploadImageResultEntity:UploadImageResultEntity, imageName:String, username:String, type:String)
     func callLogin(loginEntity: LoginEntity, completion:@escaping (_ loginResultEntity: LoginResultEntity) -> ())
 }

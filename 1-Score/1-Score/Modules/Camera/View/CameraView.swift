@@ -35,6 +35,23 @@ class CameraView: UIViewController {
     var leftCamera:CGFloat = 0.0;
     var topCamera:CGFloat = 0.0;
     
+    var typeCamera:Int?;
+    var imageType:String?
+    
+    convenience init() {
+        self.init(typeCamera: nil, imageType: nil)
+    }
+    
+    init(typeCamera: Int?, imageType: String?) {
+        self.typeCamera = typeCamera
+        self.imageType = imageType
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black
@@ -81,7 +98,11 @@ class CameraView: UIViewController {
                 frontCamera = device
             }
         }
-        currentCamera = frontCamera
+        if(typeCamera == 0) {
+            currentCamera = frontCamera
+        } else {
+            currentCamera = backCamera
+        }
     }
     
     func setupInputOutput() {
@@ -145,7 +166,7 @@ extension CameraView : AVCapturePhotoCaptureDelegate {
             print(imageData)
             image = Utils.cropToBounds(image: UIImage(data: imageData)!, rateScene: view.bounds.height/view.bounds.width)
             dismiss(animated: true) {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modalIsDimissed"), object: nil, userInfo: ["image":self.image ?? #imageLiteral(resourceName: "avatar")])
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: StringEnum.DISMISS_MODAL.rawValue), object: nil, userInfo: ["image":self.image ?? #imageLiteral(resourceName: "avatar"), "imageType":""])
             }
         }
     }

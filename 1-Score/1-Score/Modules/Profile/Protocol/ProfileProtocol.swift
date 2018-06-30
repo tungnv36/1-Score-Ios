@@ -10,6 +10,7 @@ import UIKit
 
 //View
 protocol ProfileViewProtocol : class {
+    func initAvatar(image:UIImage)
 }
 //Presenter
 protocol ProfilePresenterProtocol : class {
@@ -17,6 +18,7 @@ protocol ProfilePresenterProtocol : class {
     var interactor: ProfileInteractorInputProtocol? { get set }
     var wireframe: ProfileWireframeProtocol? { get set }
     
+    func initAvatar()
     func goToUpdateProfile()
     func goToUpdateJob()
     func goToUpdateFamily()
@@ -28,6 +30,7 @@ protocol ProfileInteractorInputProtocol : class {
     var presenter:ProfileInteractorOutputProtocol? { get set }
     var dataStore:ProfileDataStoreProtocol? { get set }
     
+    func initAvatar()
     func goToUpdateProfile()
     func goToUpdateJob()
     func goToUpdateFamily()
@@ -36,6 +39,7 @@ protocol ProfileInteractorInputProtocol : class {
 }
 
 protocol ProfileInteractorOutputProtocol : class {
+    func initAvatarOutput(image:UIImage)
     func goToUpdateProfileOutput()
     func goToUpdateJobOutput()
     func goToUpdateFamilyOutput()
@@ -53,5 +57,5 @@ protocol ProfileWireframeProtocol : class {
 }
 //DataStore
 protocol ProfileDataStoreProtocol : class {
-    
+    func getUser(completion:@escaping (_ loginResultEntity:LoginResultEntity) -> ())
 }

@@ -49,8 +49,8 @@ class HomePageWireframe : HomePageWireframeProtocol {
         }
     }
     
-    func goToCamera(view: HomePageViewProtocol) {
-        let nextViewController = CameraWireframe.getModule()
+    func goToCamera(view: HomePageViewProtocol, typeCamera:Int, imageType:String) {
+        let nextViewController = CameraWireframe.getModule(typeCamera: typeCamera, imageType: imageType)
         if let sourceView = view as? UIViewController {
             sourceView.present(nextViewController, animated:true, completion:nil)
         }

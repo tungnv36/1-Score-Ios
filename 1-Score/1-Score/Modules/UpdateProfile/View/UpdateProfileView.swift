@@ -41,6 +41,8 @@ class UpdateProfileView: UIViewController {
     
     let sizeAdd = (UIScreen.main.bounds.width - 60)/15
     
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -55,6 +57,31 @@ class UpdateProfileView: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(HomePageView.handleModalDismissed(not:)),
+                                               name: NSNotification.Name(rawValue: StringEnum.DISMISS_MODAL.rawValue),
+                                               object: nil)
+    }
+    
+    @objc func handleModalDismissed(not: Notification) {
+        print("CALLBACK")
+        if let userInfo = not.userInfo {
+            if let image = userInfo["image"] as? UIImage, let imageType = userInfo["imageType"] as? String {
+                startLoading()
+                self.updateProfilePresenter?.updateImage(activityIndicator: self.activityIndicator, image: image, imageType: imageType)
+            }
+        }
+    }
+    
+    func startLoading() {
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
     }
 
     override func didReceiveMemoryWarning() {
@@ -593,7 +620,8 @@ class UpdateProfileView: UIViewController {
     }
     
     @objc func tapFrontCMND(_ sender: UITapGestureRecognizer) {
-        print("FRONT")
+        updateProfilePresenter?.goToCamera(typeCamera: 1, imageType: "cmnd_front")
+        //typeCamera = 0: front camera|typeCamera = 1: back camera
     }
     
     @objc func tapBackCMND(_ sender: UITapGestureRecognizer) {
@@ -615,5 +643,17 @@ class UpdateProfileView: UIViewController {
 }
 
 extension UpdateProfileView : UpdateProfileViewProtocol {
+    
+    func initAvatar(image: UIImage) {
+        
+    }
+    
+    func uploadImageError(activityIndicator: UIActivityIndicatorView, err: String) {
+        
+    }
+    
+    func uploadImageSuccess(activityIndicator: UIActivityIndicatorView, image: UIImage) {
+        
+    }
     
 }

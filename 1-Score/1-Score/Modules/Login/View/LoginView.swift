@@ -55,11 +55,6 @@ class LoginView: UIViewController {
         UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
-    func stopLoading() {
-        activityIndicator.stopAnimating()
-        UIApplication.shared.endIgnoringInteractionEvents()
-    }
-    
     @objc func keyboardWillAppear(_ notification: NSNotification) {
         if let userInfo = notification.userInfo,
             let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {

@@ -151,6 +151,7 @@
 		22692B0A20CED773005C3036 /* MenuEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0920CED773005C3036 /* MenuEntity.swift */; };
 		22692B0C20CED780005C3036 /* HomePageWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0B20CED780005C3036 /* HomePageWireframe.swift */; };
 		22692B0E20CED78C005C3036 /* HomePageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22692B0D20CED78C005C3036 /* HomePageDataStore.swift */; };
+		226B446320E72E3D00E6870C /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B446220E72E3D00E6870C /* ExtensionString.swift */; };
 		226D703220DB602200848D9A /* UpdateJobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D703120DB602200848D9A /* UpdateJobView.swift */; };
 		226D703420DB603000848D9A /* UpdateJobPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D703320DB603000848D9A /* UpdateJobPresenter.swift */; };
 		226D703620DB603A00848D9A /* UpdateJobInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D703520DB603A00848D9A /* UpdateJobInteractor.swift */; };
@@ -177,6 +178,7 @@
 		22A2ED6520E34CAA009042B2 /* ChangePassApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED6420E34CAA009042B2 /* ChangePassApi.swift */; };
 		22A2ED6920E38307009042B2 /* ChangePhoneApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED6820E38307009042B2 /* ChangePhoneApi.swift */; };
 		22A2ED6B20E38415009042B2 /* ChangePhoneResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED6A20E38415009042B2 /* ChangePhoneResultEntity.swift */; };
+		22A9CF3520E78CB600A56272 /* UpdateProfileApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9CF3420E78CB500A56272 /* UpdateProfileApi.swift */; };
 		22B250E020E61915003CB9D8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B250DF20E61915003CB9D8 /* Utils.swift */; };
 		22B250E220E63EAC003CB9D8 /* UploadImageResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B250E120E63EAC003CB9D8 /* UploadImageResultEntity.swift */; };
 		22B250E420E63F20003CB9D8 /* UploadImageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B250E320E63F20003CB9D8 /* UploadImageEntity.swift */; };
@@ -374,6 +376,7 @@
 		22692B0920CED773005C3036 /* MenuEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuEntity.swift; sourceTree = "<group>"; };
 		22692B0B20CED780005C3036 /* HomePageWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageWireframe.swift; sourceTree = "<group>"; };
 		22692B0D20CED78C005C3036 /* HomePageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageDataStore.swift; sourceTree = "<group>"; };
+		226B446220E72E3D00E6870C /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
 		226D703120DB602200848D9A /* UpdateJobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJobView.swift; sourceTree = "<group>"; };
 		226D703320DB603000848D9A /* UpdateJobPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJobPresenter.swift; sourceTree = "<group>"; };
 		226D703520DB603A00848D9A /* UpdateJobInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJobInteractor.swift; sourceTree = "<group>"; };
@@ -400,6 +403,7 @@
 		22A2ED6420E34CAA009042B2 /* ChangePassApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassApi.swift; sourceTree = "<group>"; };
 		22A2ED6820E38307009042B2 /* ChangePhoneApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneApi.swift; sourceTree = "<group>"; };
 		22A2ED6A20E38415009042B2 /* ChangePhoneResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneResultEntity.swift; sourceTree = "<group>"; };
+		22A9CF3420E78CB500A56272 /* UpdateProfileApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileApi.swift; sourceTree = "<group>"; };
 		22B250DF20E61915003CB9D8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		22B250E120E63EAC003CB9D8 /* UploadImageResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageResultEntity.swift; sourceTree = "<group>"; };
 		22B250E320E63F20003CB9D8 /* UploadImageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageEntity.swift; sourceTree = "<group>"; };
@@ -584,6 +588,7 @@
 				2202186420CD75F40016EA9E /* ExtensionView.swift */,
 				22BFD8A220D10C0500CFD201 /* ExtensionNSLayoutConstraint.swift */,
 				22B262B220D7ABA500969422 /* ExtensionSlider.swift */,
+				226B446220E72E3D00E6870C /* ExtensionString.swift */,
 			);
 			path = Entensions;
 			sourceTree = "<group>";
@@ -1853,6 +1858,7 @@
 			isa = PBXGroup;
 			children = (
 				2277311420D8FF37006BA0F0 /* UpdateProfileDataStore.swift */,
+				22A9CF3420E78CB500A56272 /* UpdateProfileApi.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -2286,6 +2292,7 @@
 				224A427720DCF9F7007FFFBC /* OtpPresenter.swift in Sources */,
 				225AD01920CE8CAB00F9CA34 /* RegisterInteractor.swift in Sources */,
 				2202188B20CD87E50016EA9E /* Intro1View.swift in Sources */,
+				226B446320E72E3D00E6870C /* ExtensionString.swift in Sources */,
 				22692B0420CED6FA005C3036 /* HomePagePresenter.swift in Sources */,
 				224A41EB20DC8B1F007FFFBC /* UpdateFamilyView.swift in Sources */,
 				225ACFE520CE252900F9CA34 /* MainWireframe.swift in Sources */,
@@ -2391,6 +2398,7 @@
 				2202182E20CD751C0016EA9E /* AppDelegate.swift in Sources */,
 				2238123120DE342D00A91ADF /* AuthenticOtpEntity.swift in Sources */,
 				225AD02120CE8D0100F9CA34 /* RegisterDataStore.swift in Sources */,
+				22A9CF3520E78CB600A56272 /* UpdateProfileApi.swift in Sources */,
 				2202186B20CD75F40016EA9E /* ExtensionTextfield.swift in Sources */,
 				22BFD8A320D10C0500CFD201 /* ExtensionNSLayoutConstraint.swift in Sources */,
 				224A424C20DCE558007FFFBC /* MenuSettingCell.swift in Sources */,

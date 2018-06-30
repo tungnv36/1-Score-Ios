@@ -22,6 +22,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera usage description</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Cho phép lưu ảnh</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Segoe.ttf</string>

@@ -30,12 +30,16 @@ class HomePagePresenter : HomePagePresenterProtocol {
         interactor?.goToSetting()
     }
     
-    func goToCamera() {
-        interactor?.goToCamera()
+    func goToCamera(typeCamera:Int, imageType:String) {
+        interactor?.goToCamera(typeCamera: typeCamera, imageType: imageType)
     }
     
-    func updateImage(type: Int, imageType: Int, image: UIImage) {
-        interactor?.updateImage(type: type, imageType: imageType, image: image)
+    func updateImage(activityIndicator:UIActivityIndicatorView, image: UIImage) {
+        interactor?.updateImage(activityIndicator:activityIndicator, image: image)
+    }
+    
+    func initAvatar() {
+        interactor?.initAvatar()
     }
     
 }
@@ -58,16 +62,20 @@ extension HomePagePresenter : HomePageInteractorOutputProtocol {
         wireframe?.goToSetting(view: view!)
     }
     
-    func goToCameraOutput() {
-        wireframe?.goToCamera(view: view!)
+    func goToCameraOutput(typeCamera:Int, imageType:String) {
+        wireframe?.goToCamera(view: view!, typeCamera: typeCamera, imageType: imageType)
     }
     
-    func saveImageToLocalSuccess(image: UIImage) {
-        
+    func uploadImageSuccess(activityIndicator:UIActivityIndicatorView, image: UIImage) {
+        view?.uploadImageSuccess(activityIndicator:activityIndicator, image: image)
     }
     
-    func saveImageToLocalError(err: String) {
-        
+    func uploadImageError(activityIndicator:UIActivityIndicatorView, err:String) {
+        view?.uploadImageError(activityIndicator:activityIndicator, err: err)
+    }
+    
+    func initAvatarOutput(image: UIImage) {
+        view?.initAvatar(image: image)
     }
     
 }

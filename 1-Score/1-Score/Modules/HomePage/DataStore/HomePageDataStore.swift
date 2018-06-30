@@ -51,12 +51,44 @@ class HomePageDataStore : HomePageDataStoreProtocol {
         }
     }
     
-    func saveImageToLocal(fineName: String, image: UIImage) {
-        
+    func saveImageToLocal(fileName: String, image: UIImage) {
+        let imageData:NSData = UIImageJPEGRepresentation(image, 0.8)! as NSData
+        UserDefaults.standard.set(imageData, forKey: fileName)
     }
     
     func saveImageToDB(uploadImageResultEntity: UploadImageResultEntity, imageName: String, username: String, type: String) {
+        print(uploadImageResultEntity)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
         
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Images")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results
+            {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                let user:String = (managedObjectData.value(forKey: "user") as? String)!
+                let imgType:String = (managedObjectData.value(forKey: "imageType") as? String)!
+                if(user == username && imgType == type) {
+                    managedContext.delete(managedObjectData)
+                }
+            }
+            
+            let imageEntity = NSEntityDescription.entity(forEntityName: "Images", in: managedContext)!
+            let image = NSManagedObject(entity: imageEntity, insertInto: managedContext)
+            image.setValue(uploadImageResultEntity.image?.id, forKeyPath: "id")
+            image.setValue(uploadImageResultEntity.image?.url, forKeyPath: "url")
+            image.setValue(type, forKeyPath: "imageType")
+            image.setValue(imageName, forKeyPath: "imageName")
+            image.setValue(username, forKeyPath: "user")
+            image.setValue(uploadImageResultEntity.image?.imageType, forKeyPath: "format")
+            
+            try managedContext.save()
+        } catch {
+            print("Error")
+        }
     }
     
     func uploadImage(token: String, uploadImageEntity: UploadImageEntity, completion: @escaping (UploadImageResultEntity) -> ()) {
@@ -65,7 +97,7 @@ class HomePageDataStore : HomePageDataStoreProtocol {
             let dicImage = json["Image"] is NSNull ? nil : (json["Image"] as? Dictionary<String, Any>)!
             let imageEntity = ImageEntity(
                 imageType:  dicImage!["ImageType"] is NSNull ? "" : (dicImage!["ImageType"] as? String)!,
-                url:        dicImage!["Url"] is NSNull ? "" : (dicImage!["Url"] as? String)!,
+                url:        dicImage!["ImageUrl"] is NSNull ? "" : (dicImage!["ImageUrl"] as? String)!,
                 id:         dicImage!["Id"] is NSNull ? 0 : (dicImage!["Id"] as? Int)!
             )
             let uploadImageResultEntity = UploadImageResultEntity(

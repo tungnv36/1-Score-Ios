@@ -30,6 +30,7 @@ enum ColorEnum:Int {
     case PROGRESS_COLOR = 0xFDCB48
     case BG_PROGRESS_COLOR = 0x444444
     case BUTTON_GREEN = 0x54D98E
+    
 }
 
 enum StringEnum:String {
@@ -121,4 +122,7 @@ enum StringEnum:String {
     
     case MAIN_FONT = "Segoe"
 
+    case IMAGE_AVATAR = "image_avatar"
+    
+    case DISMISS_MODAL = "modalIsDismissed"
 }

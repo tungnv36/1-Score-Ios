@@ -58,6 +58,56 @@ class LoginDataStore : LoginDataStoreProtocol {
         }
     }
     
+    func getImageID(imageName: String, completion: @escaping (Int) -> ()) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Images")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try managedContext.fetch(request)
+            for data in result as! [NSManagedObject] {
+                let imgName = data.value(forKey: "imageName") as! String
+                if(imageName == imgName) {
+                    completion(data.value(forKey: "id") as! Int)
+                    return
+                }
+            }
+        } catch {
+            completion(0)
+        }
+    }
+    
+    func getImageFromDB(imageName:String, completion:@escaping (_ uploadImageResultEntity:UploadImageResultEntity) -> ()) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Images")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try managedContext.fetch(request)
+            for data in result as! [NSManagedObject] {
+                let imgName = data.value(forKey: "imageName") as! String
+                if(imageName == imgName) {
+                    let imageEntity = ImageEntity(
+                        imageType:  data.value(forKey: "imageType") as? String,
+                        url:        data.value(forKey: "url") as? String,
+                        id:         data.value(forKey: "id") as? Int
+                    )
+                    let uploadImageResultEntity = UploadImageResultEntity(
+                        image:      imageEntity,
+                        message:    "Success",
+                        statuscode: 200
+                    )
+                    completion(uploadImageResultEntity)
+                    return
+                }
+            }
+        } catch {
+            
+        }
+    }
+    
     func getUser(completion: @escaping (LoginResultEntity) -> ()) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -71,6 +121,45 @@ class LoginDataStore : LoginDataStoreProtocol {
             }
         } catch {
             print("Failed")
+        }
+    }
+    
+    func saveImageToLocal(fileName:String, image:UIImage) {
+        let imageData:NSData = UIImageJPEGRepresentation(image, 0.8)! as NSData
+        UserDefaults.standard.set(imageData, forKey: fileName)
+    }
+    
+    func saveImageToDB(uploadImageResultEntity:UploadImageResultEntity, imageName:String, username:String, type:String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Images")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results
+            {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                let user:String = (managedObjectData.value(forKey: "user") as? String)!
+                let imgType:String = (managedObjectData.value(forKey: "imageType") as? String)!
+                if(user == username && imgType == type) {
+                    managedContext.delete(managedObjectData)
+                }
+            }
+            
+            let imageEntity = NSEntityDescription.entity(forEntityName: "Images", in: managedContext)!
+            let image = NSManagedObject(entity: imageEntity, insertInto: managedContext)
+            image.setValue(uploadImageResultEntity.image?.id, forKeyPath: "id")
+            image.setValue(uploadImageResultEntity.image?.url, forKeyPath: "url")
+            image.setValue(type, forKeyPath: "imageType")
+            image.setValue(imageName, forKeyPath: "imageName")
+            image.setValue(username, forKeyPath: "user")
+            image.setValue(uploadImageResultEntity.image?.imageType, forKeyPath: "format")
+            
+            try managedContext.save()
+        } catch {
+            print("Error")
         }
     }
     

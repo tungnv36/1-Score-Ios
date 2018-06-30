@@ -39,6 +39,8 @@ class HomePageView: UIViewController {
     
     var menus: [MenuEntity] = menuData
     
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -52,18 +54,29 @@ class HomePageView: UIViewController {
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(HomePageView.handleModalDismissed(not:)),
-                                               name: NSNotification.Name(rawValue: "modalIsDimissed"),
+                                               name: NSNotification.Name(rawValue: StringEnum.DISMISS_MODAL.rawValue),
                                                object: nil)
+        homePagePresenter?.initAvatar()
     }
     
     @objc func handleModalDismissed(not: Notification) {
         print("CALLBACK")
         if let userInfo = not.userInfo {
             if let image = userInfo["image"] as? UIImage {
-                ivAvatar.image = image
-//                print(Utils.convertImageToBase64(image: image))
+                startLoading()
+                self.homePagePresenter?.updateImage(activityIndicator: self.activityIndicator, image: image)
             }
         }
+    }
+    
+    func startLoading() {
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
     func addMainView() {
@@ -284,7 +297,7 @@ class HomePageView: UIViewController {
     
     @objc func actionCall(sender: UIButton!) {
         showHideMenuSupporter()
-        if let url = URL(string: "TEL://01656226909"), UIApplication.shared.canOpenURL(url) {
+        if let url = URL(string: "TEL://1900633688"), UIApplication.shared.canOpenURL(url) {
             if #available(iOS 10, *) {
                 UIApplication.shared.open(url)
             } else {
@@ -297,14 +310,9 @@ class HomePageView: UIViewController {
         showHideMenuSupporter()
     }
     
-//    @objc func tapAvatar(_ sender: UITapGestureRecognizer) {
-//        print("TAP AVATAR")
-//        homePagePresenter?.goToCamera()
-//    }
-    
     @objc func tapAvatar() {
-        print("image tapped")
-        homePagePresenter?.goToCamera()
+        homePagePresenter?.goToCamera(typeCamera: 0, imageType: "AVATAR")
+        //typeCamera = 0: front camera|typeCamera = 1: back camera
     }
 
     override func didReceiveMemoryWarning() {
@@ -334,18 +342,28 @@ class HomePageView: UIViewController {
 
 extension HomePageView : HomePageViewProtocol {
     
+    func initAvatar(image: UIImage) {
+        ivAvatar.image = image
+    }
+    
     func initData(loginEntity:LoginResultEntity) {
         lblName.text = loginEntity.Fullname
     }
     
-    func saveImageToLocalSuccess(image:UIImage) {
-        ivAvatar.image = image
+    func uploadImageSuccess(activityIndicator:UIActivityIndicatorView, image: UIImage) {
+        DispatchQueue.main.async {
+            self.ivAvatar.image = image
+            activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
     }
     
-    func saveImageToLocalError(err:String) {
+    func uploadImageError(activityIndicator:UIActivityIndicatorView, err:String) {
         let alert = UIAlertController(title: "Thông báo!", message: err, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
     
 }
