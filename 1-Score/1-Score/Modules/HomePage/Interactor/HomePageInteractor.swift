@@ -31,15 +31,17 @@ class HomePageInteractor : HomePageInteractorInputProtocol {
         presenter?.goToSettingOutput()
     }
     
-    func goToCamera(typeCamera:Int, imageType:String) {
-        presenter?.goToCameraOutput(typeCamera: typeCamera, imageType: imageType)
+    func goToCamera(typeCamera:Int, imageType:String, dismissType:String, cropType:Int) {
+        presenter?.goToCameraOutput(typeCamera: typeCamera, imageType: imageType, dismissType: dismissType, cropType: cropType)
     }
     
     func initAvatar() {
         dataStore?.getUser(completion: { (loginResultEntity:LoginResultEntity) in
-            let data = UserDefaults.standard.object(forKey: "\(loginResultEntity.Username!)_avatar") as! NSData
-            let image:UIImage = UIImage(data: data as Data)!
-            self.presenter?.initAvatarOutput(image: image)
+            if(Utils.isKeyPresentInUserDefaults(key: "\(loginResultEntity.Username!)_avatar")) {
+                let data = UserDefaults.standard.object(forKey: "\(loginResultEntity.Username!)_avatar") as! NSData
+                let image:UIImage = UIImage(data: data as Data)!
+                self.presenter?.initAvatarOutput(image: image)
+            }
         })
     }
     
@@ -53,11 +55,13 @@ class HomePageInteractor : HomePageInteractorInputProtocol {
             self.dataStore?.uploadImage(token: loginResultEntity.Token!, uploadImageEntity: uploadImageEntity, completion: { (uploadImageResultEntity:UploadImageResultEntity) in
                 if(uploadImageResultEntity.statuscode == 200) {
                     self.dataStore?.saveImageToLocal(fileName: "\(loginResultEntity.Username!)_avatar", image: image)
-                    self.dataStore?.saveImageToDB(
-                        uploadImageResultEntity: uploadImageResultEntity,
-                        imageName: "\(loginResultEntity.Username!)_avatar",
-                        username: loginResultEntity.Username!,
-                        type: "AVATAR")
+                    DispatchQueue.main.async {
+                        self.dataStore?.saveImageToDB(
+                            uploadImageResultEntity: uploadImageResultEntity,
+                            imageName: "\(loginResultEntity.Username!)_avatar",
+                            username: loginResultEntity.Username!,
+                            type: "AVATAR")
+                    }
                     self.presenter?.uploadImageSuccess(activityIndicator:activityIndicator, image: image)
                 } else {
                     self.presenter?.uploadImageError(activityIndicator:activityIndicator, err: uploadImageResultEntity.message!)

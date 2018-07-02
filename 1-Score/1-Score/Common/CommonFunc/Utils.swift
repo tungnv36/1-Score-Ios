@@ -48,9 +48,45 @@ class Utils {
         return image
     }
     
+    static func cropToBoundsCard(image: UIImage, rateScene: CGFloat) -> UIImage {
+        
+        let cgimage = image.cgImage!
+        let contextImage: UIImage = UIImage(cgImage: cgimage)
+        let contextSize: CGSize = contextImage.size
+        var posX: CGFloat = 0.0
+        var posY: CGFloat = 0.0
+        var cgwidth: CGFloat = 0.0
+        var cgheight: CGFloat = 0.0
+        
+        if contextSize.width > contextSize.height {
+            let newHeight:CGFloat = contextSize.width / rateScene
+            posX = ((contextSize.width - 2 * newHeight / 3) / 2)
+            posY = (contextSize.height - newHeight)/2
+            cgwidth = 2 * newHeight / 3
+            cgheight = newHeight
+        } else {
+            let newWidth:CGFloat = contextSize.height / rateScene
+            posX = (contextSize.width - newWidth)/2
+            posY = ((contextSize.height - 2 * newWidth / 3) / 2)
+            cgwidth = newWidth
+            cgheight = 2 * newWidth / 3
+        }
+        
+        let rect: CGRect = CGRect(x: posX, y: posY, width: cgwidth, height: cgheight)
+        
+        // Create bitmap image from context using the rect
+        let imageRef: CGImage = cgimage.cropping(to: rect)!
+        
+        // Create a new image based on the imageRef and rotate back to the original orientation
+        let image: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+        
+        return image
+    }
+    
     static func convertImageToBase64(image: UIImage) -> String {
-        let imageData = UIImagePNGRepresentation(image)!
-        return "data:image/jpeg;base64,\(imageData.base64EncodedString(options: Data.Base64EncodingOptions.init(rawValue: 0)))"
+//        let imageData = UIImagePNGRepresentation(image)!
+        let imageData = image.jpeg(.medium)
+        return "data:image/jpeg;base64,\(imageData!.base64EncodedString(options: Data.Base64EncodingOptions.init(rawValue: 0)))"
         
 //        var imageData = UIImagePNGRepresentation(image)
 //        return "data:image/jpeg;base64,\(imageData.base64EncodedStringWithOptions(NSData.Base64EncodingOptions.fromRaw(0)!))"
@@ -99,6 +135,10 @@ class Utils {
                 completion(UIImage(data: data as Data)!)
             }
         }
+    }
+    
+    static func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
     }
     
 }

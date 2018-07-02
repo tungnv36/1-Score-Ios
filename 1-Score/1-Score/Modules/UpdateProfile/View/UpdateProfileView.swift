@@ -20,6 +20,7 @@ class UpdateProfileView: UIViewController {
     var ibBack:UIButton = UIButton()
     var lblTitle:UILabel = UILabel()
     
+    let txtName:UITextField = UITextField()
     var txtDateOfBirth:UITextField = UITextField()
     var dateOfBirthPicker:UIDatePicker = UIDatePicker()
     
@@ -27,6 +28,11 @@ class UpdateProfileView: UIViewController {
     var viewDropDownSex:UIView = UIView()
     var lblDropDownSex:UILabel = UILabel()
     
+    let txtIdNumber:UITextField = UITextField()
+    var lblAddress:UILabel = UILabel()
+    var txtAddress:UITextField = UITextField()
+    
+    let txtNumberAcc:UITextField = UITextField()
     let viewBankInfo:UIView = UIView()
     let viewBasicInfo:UIView = UIView()
     let btUpdate:UIButton = UIButton()
@@ -38,6 +44,7 @@ class UpdateProfileView: UIViewController {
     var MYPicker:MonthYearPickerView = MonthYearPickerView()
     
     var arrSex = ["Nam", "Nữ", "Khác"]
+    var sexPos = 0
     
     let sizeAdd = (UIScreen.main.bounds.width - 60)/15
     
@@ -54,13 +61,14 @@ class UpdateProfileView: UIViewController {
         addUpdateButton()
         
         setupDropDown()
+        initData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(HomePageView.handleModalDismissed(not:)),
-                                               name: NSNotification.Name(rawValue: StringEnum.DISMISS_MODAL.rawValue),
+                                               name: NSNotification.Name(rawValue: StringEnum.DISMISS_MODAL_PROFILE.rawValue),
                                                object: nil)
     }
     
@@ -72,6 +80,13 @@ class UpdateProfileView: UIViewController {
                 self.updateProfilePresenter?.updateImage(activityIndicator: self.activityIndicator, image: image, imageType: imageType)
             }
         }
+    }
+    
+    func initData() {
+        updateProfilePresenter?.initFullName()
+        updateProfilePresenter?.initImage(imageType: 0)//front_cmnd
+        updateProfilePresenter?.initImage(imageType: 1)//back_cmnd
+        updateProfilePresenter?.initImage(imageType: 2)//atm_card
     }
     
     func startLoading() {
@@ -95,6 +110,7 @@ class UpdateProfileView: UIViewController {
         
         dropdownSex.selectionAction = { [unowned self] (index: Int, item: String) in
             self.lblDropDownSex.text = item
+            self.sexPos = index + 1
         }
     }
     
@@ -216,7 +232,6 @@ class UpdateProfileView: UIViewController {
         lblTitleName.font = UIFont.systemFont(ofSize: 14)
         lblTitleName.textColor = UIColor.rgb(fromHex: ColorEnum.TEXT_LIGHT.rawValue)
         
-        let txtName:UITextField = UITextField()
         viewBasicInfo.addSubview(txtName)
         txtName.translatesAutoresizingMaskIntoConstraints = false
         txtName.leadingAnchor.constraint(equalTo: lblTitleName.leadingAnchor).isActive = true
@@ -226,6 +241,7 @@ class UpdateProfileView: UIViewController {
         txtName.bounds.size.height = 30
         txtName.setBottomBorder()
         txtName.autocorrectionType = .no
+        txtName.isUserInteractionEnabled = false
         
         //add input date of birth
         let lblTitleDateOfBirth:UILabel = UILabel()
@@ -297,7 +313,6 @@ class UpdateProfileView: UIViewController {
         lblTitleCMND.font = UIFont.systemFont(ofSize: 14)
         lblTitleCMND.textColor = UIColor.rgb(fromHex: ColorEnum.TEXT_LIGHT.rawValue)
         
-        let txtIdNumber:UITextField = UITextField()
         viewBasicInfo.addSubview(txtIdNumber)
         txtIdNumber.translatesAutoresizingMaskIntoConstraints = false
         txtIdNumber.leadingAnchor.constraint(equalTo: lblTitleCMND.leadingAnchor).isActive = true
@@ -309,12 +324,31 @@ class UpdateProfileView: UIViewController {
         txtIdNumber.keyboardType = .numberPad
         txtIdNumber.autocorrectionType = .no
         
+        //Add address
+        viewBasicInfo.addSubview(lblAddress)
+        lblAddress.translatesAutoresizingMaskIntoConstraints = false
+        lblAddress.leadingAnchor.constraint(equalTo: viewBasicInfo.leadingAnchor, constant: 10).isActive = true
+        lblAddress.topAnchor.constraint(equalTo: txtIdNumber.bottomAnchor, constant: 10).isActive = true
+        lblAddress.text = StringEnum.LBL_ADDRESS.rawValue
+        lblAddress.font = UIFont.systemFont(ofSize: 14)
+        lblAddress.textColor = UIColor.rgb(fromHex: ColorEnum.TEXT_LIGHT.rawValue)
+        
+        viewBasicInfo.addSubview(txtAddress)
+        txtAddress.translatesAutoresizingMaskIntoConstraints = false
+        txtAddress.leadingAnchor.constraint(equalTo: viewBasicInfo.leadingAnchor, constant: 10).isActive = true
+        txtAddress.trailingAnchor.constraint(equalTo: viewBasicInfo.trailingAnchor, constant: -10).isActive = true
+        txtAddress.topAnchor.constraint(equalTo: lblAddress.bottomAnchor, constant: 5).isActive = true
+        txtAddress.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        txtAddress.bounds.size.height = 30
+        txtAddress.setBottomBorder()
+        txtAddress.autocorrectionType = .no
+        
         //add front cmnd
         let viewFrontCMND:UIView = UIView()
         viewBasicInfo.addSubview(viewFrontCMND)
         viewFrontCMND.translatesAutoresizingMaskIntoConstraints = false
         viewFrontCMND.leadingAnchor.constraint(equalTo: viewBasicInfo.leadingAnchor, constant: 10).isActive = true
-        viewFrontCMND.topAnchor.constraint(equalTo: txtIdNumber.bottomAnchor, constant: 10).isActive = true
+        viewFrontCMND.topAnchor.constraint(equalTo: txtAddress.bottomAnchor, constant: 10).isActive = true
         viewFrontCMND.widthAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width - 70)/2).isActive = true
         viewFrontCMND.heightAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width - 70)/3).isActive = true
         viewFrontCMND.bounds.size = CGSize(width: (UIScreen.main.bounds.width - 70)/2, height: (UIScreen.main.bounds.width - 60)/3)
@@ -353,7 +387,7 @@ class UpdateProfileView: UIViewController {
         viewBasicInfo.addSubview(viewBackCMND)
         viewBackCMND.translatesAutoresizingMaskIntoConstraints = false
         viewBackCMND.trailingAnchor.constraint(equalTo: viewBasicInfo.trailingAnchor, constant: -10).isActive = true
-        viewBackCMND.topAnchor.constraint(equalTo: txtIdNumber.bottomAnchor, constant: 10).isActive = true
+        viewBackCMND.topAnchor.constraint(equalTo: txtAddress.bottomAnchor, constant: 10).isActive = true
         viewBackCMND.widthAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width - 70)/2).isActive = true
         viewBackCMND.heightAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width - 70)/3).isActive = true
         viewBackCMND.bounds.size = CGSize(width: (UIScreen.main.bounds.width - 70)/2, height: (UIScreen.main.bounds.width - 60)/3)
@@ -453,7 +487,6 @@ class UpdateProfileView: UIViewController {
         lblTitleNumberAcc.font = UIFont.systemFont(ofSize: 14)
         lblTitleNumberAcc.textColor = UIColor.rgb(fromHex: ColorEnum.TEXT_LIGHT.rawValue)
         
-        let txtNumberAcc:UITextField = UITextField()
         viewBankInfo.addSubview(txtNumberAcc)
         txtNumberAcc.translatesAutoresizingMaskIntoConstraints = false
         txtNumberAcc.leadingAnchor.constraint(equalTo: lblTitleNumberAcc.leadingAnchor).isActive = true
@@ -620,16 +653,21 @@ class UpdateProfileView: UIViewController {
     }
     
     @objc func tapFrontCMND(_ sender: UITapGestureRecognizer) {
-        updateProfilePresenter?.goToCamera(typeCamera: 1, imageType: "cmnd_front")
+        updateProfilePresenter?.goToCamera(typeCamera: 1, imageType: "cmnd_front", dismissType: StringEnum.DISMISS_MODAL_PROFILE.rawValue, cropType: 1)
         //typeCamera = 0: front camera|typeCamera = 1: back camera
+        //cropType = 0: avatar = 1: card, = 2: paper
     }
     
     @objc func tapBackCMND(_ sender: UITapGestureRecognizer) {
-        print("BACK")
+        updateProfilePresenter?.goToCamera(typeCamera: 1, imageType: "cmnd_back", dismissType: StringEnum.DISMISS_MODAL_PROFILE.rawValue, cropType: 1)
+        //typeCamera = 0: front camera|typeCamera = 1: back camera
+        //cropType = 0: avatar = 1: card, = 2: paper
     }
     
     @objc func tapCard(_ sender: UITapGestureRecognizer) {
-        print("CARD")
+        updateProfilePresenter?.goToCamera(typeCamera: 1, imageType: "atm_card", dismissType: StringEnum.DISMISS_MODAL_PROFILE.rawValue, cropType: 1)
+        //typeCamera = 0: front camera|typeCamera = 1: back camera
+        //cropType = 0: avatar = 1: card, = 2: paper
     }
 
     @objc func back() {
@@ -637,23 +675,71 @@ class UpdateProfileView: UIViewController {
     }
     
     @objc func actionUpdate(sender:UIButton!) {
-        print("UPDATE")
+        updateProfilePresenter?.updateProfile(activityIndicator: activityIndicator, name: txtName.text!, birthDay: txtDateOfBirth.text!, numberCard: txtIdNumber.text!, address: txtAddress.text!, numberAccout: txtNumberAcc.text!, cardTerm: txtCardTerm.text!, sex: sexPos)
     }
     
 }
 
 extension UpdateProfileView : UpdateProfileViewProtocol {
     
-    func initAvatar(image: UIImage) {
-        
+    func initFullName(fullName:String) {
+        txtName.text = fullName
+    }
+    
+    func initImage(image: UIImage, imageType: Int) {
+        switch imageType {
+        case 0:
+            ivFrontCMND.image = image
+            break
+        case 1:
+            ivBackCMND.image = image
+            break
+        case 2:
+            ivCard.image = image
+            break
+        default:
+            break
+        }
     }
     
     func uploadImageError(activityIndicator: UIActivityIndicatorView, err: String) {
-        
+        let alert = UIAlertController(title: "Thông báo!", message: err, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
     
-    func uploadImageSuccess(activityIndicator: UIActivityIndicatorView, image: UIImage) {
-        
+    func uploadImageSuccess(activityIndicator: UIActivityIndicatorView, image: UIImage, imageType: String) {
+        DispatchQueue.main.async {
+            if(imageType == "cmnd_front") {
+                self.ivFrontCMND.image = image
+            } else if(imageType == "cmnd_back") {
+                self.ivBackCMND.image = image
+            } else {
+                self.ivCard.image = image
+            }
+            activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
+    }
+    
+    func updateProfileSuccess(activityIndicator: UIActivityIndicatorView, msg: String) {
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
+        let alert = UIAlertController(title: "Thông báo!", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func updateProfileFail(activityIndicator: UIActivityIndicatorView, err: String) {
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
+        let alert = UIAlertController(title: "Thông báo!", message: err, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

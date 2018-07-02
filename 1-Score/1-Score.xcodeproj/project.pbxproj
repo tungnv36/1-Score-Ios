@@ -55,6 +55,8 @@
 		2218C35E20E1F0B200685C3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2218C35D20E1F0B200685C3F /* Assets.xcassets */; };
 		2218C36120E1F68B00685C3F /* CallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218C36020E1F68B00685C3F /* CallApi.swift */; };
 		222BA7BA20DA3AFC00E68642 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222BA7B920DA3AFC00E68642 /* MonthYearPickerView.swift */; };
+		2234ADC620E9E4A700251AA0 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234ADC520E9E4A700251AA0 /* ExtensionUIImage.swift */; };
+		2234ADC820EA261600251AA0 /* UpdateProfileResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234ADC720EA261600251AA0 /* UpdateProfileResultEntity.swift */; };
 		2238122D20DE33C500A91ADF /* AuthenticOtpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238122C20DE33C500A91ADF /* AuthenticOtpProtocol.swift */; };
 		2238122F20DE340E00A91ADF /* AuthenticOtpDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238122E20DE340E00A91ADF /* AuthenticOtpDataStore.swift */; };
 		2238123120DE342D00A91ADF /* AuthenticOtpEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238123020DE342D00A91ADF /* AuthenticOtpEntity.swift */; };
@@ -280,6 +282,8 @@
 		2218C35D20E1F0B200685C3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2218C36020E1F68B00685C3F /* CallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallApi.swift; sourceTree = "<group>"; };
 		222BA7B920DA3AFC00E68642 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
+		2234ADC520E9E4A700251AA0 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
+		2234ADC720EA261600251AA0 /* UpdateProfileResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileResultEntity.swift; sourceTree = "<group>"; };
 		2238122C20DE33C500A91ADF /* AuthenticOtpProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpProtocol.swift; sourceTree = "<group>"; };
 		2238122E20DE340E00A91ADF /* AuthenticOtpDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpDataStore.swift; sourceTree = "<group>"; };
 		2238123020DE342D00A91ADF /* AuthenticOtpEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpEntity.swift; sourceTree = "<group>"; };
@@ -589,6 +593,7 @@
 				22BFD8A220D10C0500CFD201 /* ExtensionNSLayoutConstraint.swift */,
 				22B262B220D7ABA500969422 /* ExtensionSlider.swift */,
 				226B446220E72E3D00E6870C /* ExtensionString.swift */,
+				2234ADC520E9E4A700251AA0 /* ExtensionUIImage.swift */,
 			);
 			path = Entensions;
 			sourceTree = "<group>";
@@ -1850,6 +1855,7 @@
 			isa = PBXGroup;
 			children = (
 				2277311220D8FF2E006BA0F0 /* UpdateProfileEntity.swift */,
+				2234ADC720EA261600251AA0 /* UpdateProfileResultEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -2334,6 +2340,7 @@
 				226D704320DBA8C000848D9A /* ColleagueCell.swift in Sources */,
 				224A427B20DCFA70007FFFBC /* OtpWireframe.swift in Sources */,
 				225AD00020CE6FBB00F9CA34 /* LoginPresenter.swift in Sources */,
+				2234ADC620E9E4A700251AA0 /* ExtensionUIImage.swift in Sources */,
 				22E5C8E920D4ABFF0056023C /* LoanRequestData.swift in Sources */,
 				22A2ED5F20E33C4B009042B2 /* OtpResultEntity.swift in Sources */,
 				2238122F20DE340E00A91ADF /* AuthenticOtpDataStore.swift in Sources */,
@@ -2354,6 +2361,7 @@
 				22BFD88D20D0B50600CFD201 /* ProfileView.swift in Sources */,
 				2202187D20CD80140016EA9E /* IntroductionWireframe.swift in Sources */,
 				2204D04320D768A900B82D31 /* LoanRegistrationWireframe.swift in Sources */,
+				2234ADC820EA261600251AA0 /* UpdateProfileResultEntity.swift in Sources */,
 				224A422920DCB736007FFFBC /* UpdatePaperWireframe.swift in Sources */,
 				2238124920DE3B6200A91ADF /* ChangePassInteractor.swift in Sources */,
 				22B250E020E61915003CB9D8 /* Utils.swift in Sources */,

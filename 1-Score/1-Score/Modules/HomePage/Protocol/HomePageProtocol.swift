@@ -26,7 +26,7 @@ protocol HomePagePresenterProtocol : class {
     func goToProfile()
     func goToLoanRequest()
     func goToSetting()
-    func goToCamera(typeCamera:Int, imageType:String)
+    func goToCamera(typeCamera:Int, imageType:String, dismissType:String, cropType:Int)
     
     func initAvatar()
     func updateImage(activityIndicator:UIActivityIndicatorView, image:UIImage)
@@ -40,7 +40,7 @@ protocol HomePageInteractorInputProtocol : class {
     func goToProfile()
     func goToLoanRequest()
     func goToSetting()
-    func goToCamera(typeCamera:Int, imageType:String)
+    func goToCamera(typeCamera:Int, imageType:String, dismissType:String, cropType:Int)
     
     func initAvatar()
     func updateImage(activityIndicator:UIActivityIndicatorView, image:UIImage)
@@ -52,7 +52,7 @@ protocol HomePageInteractorOutputProtocol : class {
     func goToSettingOutput()
     
     func initDataOutput(loginEntity:LoginResultEntity)
-    func goToCameraOutput(typeCamera:Int, imageType:String)
+    func goToCameraOutput(typeCamera:Int, imageType:String, dismissType:String, cropType:Int)
     
     func initAvatarOutput(image:UIImage)
     func uploadImageError(activityIndicator:UIActivityIndicatorView, err:String)
@@ -64,7 +64,7 @@ protocol HomePageWireframeProtocol : class {
     func goToProfile(view: HomePageViewProtocol)
     func goToLoanRequest(view: HomePageViewProtocol)
     func goToSetting(view: HomePageViewProtocol)
-    func goToCamera(view: HomePageViewProtocol, typeCamera:Int, imageType:String)
+    func goToCamera(view: HomePageViewProtocol, typeCamera:Int, imageType:String, dismissType:String, cropType:Int)
 }
 //DataStore
 protocol HomePageDataStoreProtocol : class {

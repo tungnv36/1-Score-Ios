@@ -14,10 +14,10 @@ class HomePageApi {
     
     func uploadImage(token:String, uploadImageEntity:UploadImageEntity, completion:@escaping (_ json: [String: Any]) -> ()) {
         let parameters = [
-            "username": uploadImageEntity.username,
-            "type": uploadImageEntity.type,
-            "base64_image": uploadImageEntity.base64_image
-        ] as! Dictionary<String, String>
+            "username": uploadImageEntity.username ?? "",
+            "type": uploadImageEntity.type ?? "",
+            "base64_image": uploadImageEntity.base64_image ?? ""
+        ]
         
         let url = URL(string: StringEnum.API_BASE_URL.rawValue + "images/upload")!
         print(url)
@@ -43,7 +43,6 @@ class HomePageApi {
                 return
             }
             do {
-                print(data)
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     completion(json)
                 }

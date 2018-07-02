@@ -31,7 +31,7 @@ protocol CameraInteractorOutputProtocol : class {
 }
 //Wireframe
 protocol CameraWireframeProtocol : class {
-    static func getModule(typeCamera:Int, imageType:String) -> UIViewController
+    static func getModule(typeCamera:Int, imageType:String, dismissType:String, cropType:Int) -> UIViewController
 }
 //DataStore
 protocol CameraDataStoreProtocol : class {

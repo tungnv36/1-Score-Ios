@@ -13,6 +13,26 @@ import CoreData
 class UpdateProfileDataStore : UpdateProfileDataStoreProtocol {
     
     let _homePageApi = HomePageApi()
+    let _updateProfileApi = UpdateProfileApi()
+    
+    func getImage(imageName:String) -> Int {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Images")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try managedContext.fetch(request)
+            for data in result as! [NSManagedObject] {
+                if((data.value(forKey: "imageName") as? String)! == imageName) {
+                    return (data.value(forKey: "id") as? Int)!
+                }
+            }
+        } catch {
+            print("Failed")
+        }
+        return 0
+    }
     
     func getUser(completion: @escaping (LoginResultEntity) -> ()) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -58,7 +78,6 @@ class UpdateProfileDataStore : UpdateProfileDataStoreProtocol {
     }
     
     func saveImageToDB(uploadImageResultEntity: UploadImageResultEntity, imageName: String, username: String, imageType: String) {
-        print(uploadImageResultEntity)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         
@@ -79,12 +98,12 @@ class UpdateProfileDataStore : UpdateProfileDataStoreProtocol {
             
             let imageEntity = NSEntityDescription.entity(forEntityName: "Images", in: managedContext)!
             let image = NSManagedObject(entity: imageEntity, insertInto: managedContext)
-            image.setValue(uploadImageResultEntity.image?.id, forKeyPath: "id")
-            image.setValue(uploadImageResultEntity.image?.url, forKeyPath: "url")
+            image.setValue(uploadImageResultEntity.image?.id ?? 0, forKeyPath: "id")
+            image.setValue(uploadImageResultEntity.image?.url ?? "", forKeyPath: "url")
             image.setValue(imageType, forKeyPath: "imageType")
             image.setValue(imageName, forKeyPath: "imageName")
             image.setValue(username, forKeyPath: "user")
-            image.setValue(uploadImageResultEntity.image?.imageType, forKeyPath: "format")
+            image.setValue(uploadImageResultEntity.image?.imageType ?? "", forKeyPath: "format")
             
             try managedContext.save()
         } catch {
@@ -107,6 +126,72 @@ class UpdateProfileDataStore : UpdateProfileDataStoreProtocol {
                 statuscode: json["StatusCode"] is NSNull ? 0 : (json["StatusCode"] as? Int)!
             )
             completion(uploadImageResultEntity)
+        }
+    }
+    
+    func updateProfileToDB(updateProfileResultEntity: UpdateProfileResultEntity) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results
+            {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                let user:String = (managedObjectData.value(forKey: "username") as? String)!
+                if(user == updateProfileResultEntity.Profile?.Username) {
+                    managedContext.delete(managedObjectData)
+                }
+            }
+            
+            let profileEntity = NSEntityDescription.entity(forEntityName: "Profile", in: managedContext)!
+            let profile = NSManagedObject(entity: profileEntity, insertInto: managedContext)
+            profile.setValue(updateProfileResultEntity.StatusCode ?? 0, forKeyPath: "statusCode")
+            profile.setValue(updateProfileResultEntity.Message ?? "", forKeyPath: "message")
+            profile.setValue(updateProfileResultEntity.Profile?.UpdatedDate ?? 0, forKeyPath: "updatedDate")
+            profile.setValue(updateProfileResultEntity.Profile?.CreatedDate ?? 0, forKeyPath: "createdDate")
+            profile.setValue(updateProfileResultEntity.Profile?.CardTerm ?? "", forKeyPath: "cardTerm")
+            profile.setValue(updateProfileResultEntity.Profile?.BankAccNumber ?? "", forKeyPath: "bankAccNumber")
+            profile.setValue(updateProfileResultEntity.Profile?.IdImage1 ?? "", forKeyPath: "idImage1")
+            profile.setValue(updateProfileResultEntity.Profile?.IdNumber ?? "", forKeyPath: "idNumber")
+            profile.setValue(updateProfileResultEntity.Profile?.DateOfBirth ?? "", forKeyPath: "dateOfBirth")
+            profile.setValue(updateProfileResultEntity.Profile?.Fullname ?? "", forKeyPath: "fullname")
+            profile.setValue(updateProfileResultEntity.Profile?.Fullname ?? "", forKeyPath: "fullname")
+            profile.setValue(updateProfileResultEntity.Profile?.Username ?? "", forKeyPath: "username")
+            profile.setValue(updateProfileResultEntity.Profile?.Id ?? 0, forKeyPath: "id")
+            
+            try managedContext.save()
+        } catch {
+            print("Error")
+        }
+    }
+    
+    func updateProfile(token: String, updateProfileEntity: UpdateProfileEntity, completion: @escaping (UpdateProfileResultEntity) -> ()) {
+        _updateProfileApi.updateProfile(token: token, updateProfileEntity: updateProfileEntity) { (json : [String : Any]) in
+            print(json)
+            let dicProfile = json["Profile"] is NSNull ? nil : (json["Profile"] as? Dictionary<String, Any>)!
+            let profileEntity = ProfileEntity(
+                UpdatedDate:    dicProfile!["UpdatedDate"] is NSNull ? 0 : (dicProfile!["UpdatedDate"] as? Int)!,
+                CreatedDate:    dicProfile!["CreatedDate"] is NSNull ? 0 : (dicProfile!["CreatedDate"] as? Int)!,
+                CardTerm:       dicProfile!["CardTerm"] is NSNull ? "" : (dicProfile!["CardTerm"] as? String)!,
+                BankAccNumber:  dicProfile!["BankAccNumber"] is NSNull ? "" : (dicProfile!["BankAccNumber"] as? String)!,
+                IdImage1:       dicProfile!["IdImage1"] is NSNull ? "" : (dicProfile!["IdImage1"] as? String)!,
+                Address:        dicProfile!["Address"] is NSNull ? "" : (dicProfile!["Address"] as? String)!,
+                IdNumber:       dicProfile!["IdNumber"] is NSNull ? "" : (dicProfile!["IdNumber"] as? String)!,
+                DateOfBirth:    dicProfile!["DateOfBirth"] is NSNull ? "" : (dicProfile!["DateOfBirth"] as? String)!,
+                Fullname:       dicProfile!["Fullname"] is NSNull ? "" : (dicProfile!["Fullname"] as? String)!,
+                Username:       dicProfile!["Username"] is NSNull ? "" : (dicProfile!["Username"] as? String)!,
+                Id:             dicProfile!["Id"] is NSNull ? 0 : (dicProfile!["Id"] as? Int)!
+            )
+            let updateProfileResultEntity = UpdateProfileResultEntity(
+                Profile:    profileEntity,
+                Message:    json["Message"] is NSNull ? "" : (json["Message"] as? String)!,
+                StatusCode: json["StatusCode"] is NSNull ? 0 : (json["StatusCode"] as? Int)!
+            )
+            completion(updateProfileResultEntity)
         }
     }
     

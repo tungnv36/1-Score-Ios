@@ -37,14 +37,18 @@ class CameraView: UIViewController {
     
     var typeCamera:Int?;
     var imageType:String?
+    var dismissType:String?
+    var cropType:Int?
     
     convenience init() {
-        self.init(typeCamera: nil, imageType: nil)
+        self.init(typeCamera: nil, imageType: nil, dismissType: nil, cropType: nil)
     }
     
-    init(typeCamera: Int?, imageType: String?) {
+    init(typeCamera: Int?, imageType: String?, dismissType:String?, cropType:Int?) {
         self.typeCamera = typeCamera
         self.imageType = imageType
+        self.dismissType = dismissType
+        self.cropType = cropType
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -130,9 +134,15 @@ class CameraView: UIViewController {
     }
     
     func drawRect() {
-        wCamera = UIScreen.main.bounds.width
-        hCamera = UIScreen.main.bounds.width
-        topCamera = (UIScreen.main.bounds.height - hCamera)/2// - 50
+        if(cropType == 0) {//vẽ khung vuông
+            wCamera = UIScreen.main.bounds.width
+            hCamera = UIScreen.main.bounds.width
+            topCamera = (UIScreen.main.bounds.height - hCamera)/2// - 50
+        } else if(cropType == 1) {//vẽ khung ảnh thẻ
+            wCamera = UIScreen.main.bounds.width
+            hCamera = 2 * UIScreen.main.bounds.width / 3
+            topCamera = (UIScreen.main.bounds.height - hCamera)/2// - 50
+        }
         
         view.addSubview(topView)
         topView.translatesAutoresizingMaskIntoConstraints = false
@@ -164,9 +174,15 @@ extension CameraView : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         if let imageData = photo.fileDataRepresentation() {
             print(imageData)
-            image = Utils.cropToBounds(image: UIImage(data: imageData)!, rateScene: view.bounds.height/view.bounds.width)
+            if(cropType == 0) {//avatar
+                image = Utils.cropToBounds(image: UIImage(data: imageData)!, rateScene: view.bounds.height/view.bounds.width)
+            } else if(cropType == 1) {//card
+                image = Utils.cropToBoundsCard(image: UIImage(data: imageData)!, rateScene: view.bounds.height/view.bounds.width)
+            } else {
+                image = UIImage(data: imageData)!
+            }
             dismiss(animated: true) {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: StringEnum.DISMISS_MODAL.rawValue), object: nil, userInfo: ["image":self.image ?? #imageLiteral(resourceName: "avatar"), "imageType":""])
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: self.dismissType!), object: nil, userInfo: ["image":self.image ?? #imageLiteral(resourceName: "avatar"), "imageType":self.imageType ?? ""])
             }
         }
     }

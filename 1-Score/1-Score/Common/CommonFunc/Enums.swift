@@ -87,6 +87,9 @@ enum StringEnum:String {
     case MSG_PASS_EMPTY = "Bạn chưa nhập mật khẩu"
     case MSG_REPASS_EMPTY = "Bạn chưa nhập lại mật khẩu"
     case MSG_FULLNAME_EMPTY = "Bạn chưa nhập họ tên"
+    case MSG_BIRTHDAY_EMPTY = "Bạn chưa nhập ngày sinh"
+    case MSG_CMND_EMPTY = "Bạn chưa nhập CMND"
+    case MSG_ADDRESS_EMPTY = "Bạn chưa nhập địa chỉ"
     case MSG_CHECK_REPASS = "Mật khẩu không chính xác"
     case MSG_NEW_PHONE_EMPTY = "Bạn chưa nhập số điện thoại mới"
     case MSG_SERVER_ERROR = "Lỗi server"
@@ -124,5 +127,6 @@ enum StringEnum:String {
 
     case IMAGE_AVATAR = "image_avatar"
     
-    case DISMISS_MODAL = "modalIsDismissed"
+    case DISMISS_MODAL_AVATAR = "avatarModalIsDismissed"
+    case DISMISS_MODAL_PROFILE = "profileModalIsDismissed"
 }

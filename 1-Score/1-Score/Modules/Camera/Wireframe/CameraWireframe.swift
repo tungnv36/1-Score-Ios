@@ -11,8 +11,8 @@ import UIKit
 
 class CameraWireframe : CameraWireframeProtocol {
     
-    static func getModule(typeCamera:Int, imageType:String) -> UIViewController {
-        let cameraView = CameraView(typeCamera: typeCamera, imageType: imageType)
+    static func getModule(typeCamera:Int, imageType:String, dismissType:String, cropType:Int) -> UIViewController {
+        let cameraView = CameraView(typeCamera: typeCamera, imageType: imageType, dismissType: dismissType, cropType: cropType)
         let presenter:CameraPresenterProtocol&CameraInteractorOutputProtocol = CameraPresenter()
         let interactor:CameraInteractorInputProtocol = CameraInteractor()
         let dataStore:CameraDataStoreProtocol = CameraDataStore()

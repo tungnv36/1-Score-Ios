@@ -54,7 +54,7 @@ class HomePageView: UIViewController {
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(HomePageView.handleModalDismissed(not:)),
-                                               name: NSNotification.Name(rawValue: StringEnum.DISMISS_MODAL.rawValue),
+                                               name: NSNotification.Name(rawValue: StringEnum.DISMISS_MODAL_AVATAR.rawValue),
                                                object: nil)
         homePagePresenter?.initAvatar()
     }
@@ -311,8 +311,9 @@ class HomePageView: UIViewController {
     }
     
     @objc func tapAvatar() {
-        homePagePresenter?.goToCamera(typeCamera: 0, imageType: "AVATAR")
+        homePagePresenter?.goToCamera(typeCamera: 0, imageType: "AVATAR", dismissType: StringEnum.DISMISS_MODAL_AVATAR.rawValue, cropType: 0)
         //typeCamera = 0: front camera|typeCamera = 1: back camera
+        //cropType = 0: avatar = 1: card, = 2: paper
     }
 
     override func didReceiveMemoryWarning() {

@@ -30,8 +30,8 @@ class HomePagePresenter : HomePagePresenterProtocol {
         interactor?.goToSetting()
     }
     
-    func goToCamera(typeCamera:Int, imageType:String) {
-        interactor?.goToCamera(typeCamera: typeCamera, imageType: imageType)
+    func goToCamera(typeCamera:Int, imageType:String, dismissType:String, cropType:Int) {
+        interactor?.goToCamera(typeCamera: typeCamera, imageType: imageType, dismissType: dismissType, cropType: cropType)
     }
     
     func updateImage(activityIndicator:UIActivityIndicatorView, image: UIImage) {
@@ -62,8 +62,8 @@ extension HomePagePresenter : HomePageInteractorOutputProtocol {
         wireframe?.goToSetting(view: view!)
     }
     
-    func goToCameraOutput(typeCamera:Int, imageType:String) {
-        wireframe?.goToCamera(view: view!, typeCamera: typeCamera, imageType: imageType)
+    func goToCameraOutput(typeCamera:Int, imageType:String, dismissType:String, cropType:Int) {
+        wireframe?.goToCamera(view: view!, typeCamera: typeCamera, imageType: imageType, dismissType: dismissType, cropType: cropType)
     }
     
     func uploadImageSuccess(activityIndicator:UIActivityIndicatorView, image: UIImage) {
