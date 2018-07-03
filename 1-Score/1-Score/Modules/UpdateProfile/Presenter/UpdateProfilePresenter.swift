@@ -23,6 +23,10 @@ class UpdateProfilePresenter : UpdateProfilePresenterProtocol {
         interactor?.initImage(imageType: imageType)
     }
     
+    func initProfile() {
+        interactor?.initProfile()
+    }
+    
     func goToCamera(typeCamera:Int, imageType:String, dismissType:String, cropType:Int) {
         interactor?.goToCamera(typeCamera: typeCamera, imageType: imageType, dismissType: dismissType, cropType: cropType)
     }
@@ -45,6 +49,10 @@ extension UpdateProfilePresenter : UpdateProfileInteractorOutputProtocol {
     
     func initImageOutput(image: UIImage, imageType: Int) {
         view?.initImage(image: image, imageType: imageType)
+    }
+    
+    func initProfileOutput(updateProfileResult: UpdateProfileResultEntity) {
+        view?.initProfile(updateProfileResult: updateProfileResult)
     }
     
     func goToCameraOutput(typeCamera:Int, imageType:String, dismissType:String, cropType:Int) {

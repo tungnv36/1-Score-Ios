@@ -83,6 +83,7 @@ class UpdateProfileView: UIViewController {
     }
     
     func initData() {
+        updateProfilePresenter?.initProfile()
         updateProfilePresenter?.initFullName()
         updateProfilePresenter?.initImage(imageType: 0)//front_cmnd
         updateProfilePresenter?.initImage(imageType: 1)//back_cmnd
@@ -681,6 +682,16 @@ class UpdateProfileView: UIViewController {
 }
 
 extension UpdateProfileView : UpdateProfileViewProtocol {
+    
+    func initProfile(updateProfileResult: UpdateProfileResultEntity) {
+        txtName.text = updateProfileResult.Profile?.Fullname ?? ""
+        txtDateOfBirth.text = updateProfileResult.Profile?.DateOfBirth ?? ""
+        txtIdNumber.text = updateProfileResult.Profile?.IdNumber ?? ""
+        txtAddress.text = updateProfileResult.Profile?.Address ?? ""
+        txtNumberAcc.text = updateProfileResult.Profile?.BankAccNumber ?? ""
+        txtCardTerm.text = updateProfileResult.Profile?.CardTerm ?? ""
+//        updateProfileResult.Profile?
+    }
     
     func initFullName(fullName:String) {
         txtName.text = fullName

@@ -45,6 +45,12 @@ class UpdateProfileInteractor : UpdateProfileInteractorInputProtocol {
         })
     }
     
+    func initProfile() {
+        dataStore?.getProfile(completion: { (updateProfileResultEntity:UpdateProfileResultEntity) in
+            self.presenter?.initProfileOutput(updateProfileResult: updateProfileResultEntity)
+        })
+    }
+    
     func goToCamera(typeCamera:Int, imageType:String, dismissType: String, cropType:Int) {
         presenter?.goToCameraOutput(typeCamera: typeCamera, imageType: imageType, dismissType: dismissType, cropType: cropType)
     }
@@ -116,7 +122,7 @@ class UpdateProfileInteractor : UpdateProfileInteractorInputProtocol {
             self.dataStore?.updateProfile(token: loginResultEntity.Token!, updateProfileEntity: updateProfileEntity, completion: { (updateProfileResultEntity:UpdateProfileResultEntity) in
                 if(updateProfileResultEntity.StatusCode == 200) {
                     DispatchQueue.main.async {
-                        self.dataStore?.updateProfileToDB(updateProfileResultEntity: updateProfileResultEntity)
+                        self.dataStore?.updateProfileToDB(updateProfileEntity: updateProfileEntity)
                         self.presenter?.updateProfileSuccess(activityIndicator: activityIndicator, msg: updateProfileResultEntity.Message!)
                     }
                 } else {

@@ -72,6 +72,40 @@ class UpdateProfileDataStore : UpdateProfileDataStoreProtocol {
         }
     }
     
+    func getProfile(completion: @escaping (UpdateProfileResultEntity) -> ()) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try managedContext.fetch(request)
+            for data in result as! [NSManagedObject] {
+                let profileEntity = ProfileEntity(
+                    UpdatedDate:    data.value(forKey: "updatedDate") as? Int,
+                    CreatedDate:    data.value(forKey: "createdDate") as? Int,
+                    CardTerm:       data.value(forKey: "cardTerm") as? String,
+                    BankAccNumber:  data.value(forKey: "bankAccNumber") as? String,
+                    IdImage1:       data.value(forKey: "idImage1") as? String,
+                    Address:        data.value(forKey: "address") as? String,
+                    IdNumber:       data.value(forKey: "idNumber") as? String,
+                    DateOfBirth:    data.value(forKey: "dateOfBirth") as? String,
+                    Fullname:       data.value(forKey: "fullname") as? String,
+                    Username:       data.value(forKey: "username") as? String,
+                    Id:             data.value(forKey: "id") as? Int
+                )
+                let updateProfileResultEntity = UpdateProfileResultEntity(
+                    Profile: profileEntity,
+                    Message:        data.value(forKey: "message") as? String,
+                    StatusCode:     data.value(forKey: "statusCode") as? Int
+                )
+                completion(updateProfileResultEntity)
+            }
+        } catch {
+            print("Failed")
+        }
+    }
+    
     func saveImageToLocal(fileName: String, image: UIImage) {
         let imageData:NSData = UIImageJPEGRepresentation(image, 0.8)! as NSData
         UserDefaults.standard.set(imageData, forKey: fileName)
@@ -129,7 +163,7 @@ class UpdateProfileDataStore : UpdateProfileDataStoreProtocol {
         }
     }
     
-    func updateProfileToDB(updateProfileResultEntity: UpdateProfileResultEntity) {
+    func updateProfileToDB(updateProfileEntity: UpdateProfileEntity) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         
@@ -142,26 +176,24 @@ class UpdateProfileDataStore : UpdateProfileDataStoreProtocol {
             {
                 let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
                 let user:String = (managedObjectData.value(forKey: "username") as? String)!
-                if(user == updateProfileResultEntity.Profile?.Username) {
+                if(user == updateProfileEntity.username) {
                     managedContext.delete(managedObjectData)
                 }
             }
             
             let profileEntity = NSEntityDescription.entity(forEntityName: "Profile", in: managedContext)!
             let profile = NSManagedObject(entity: profileEntity, insertInto: managedContext)
-            profile.setValue(updateProfileResultEntity.StatusCode ?? 0, forKeyPath: "statusCode")
-            profile.setValue(updateProfileResultEntity.Message ?? "", forKeyPath: "message")
-            profile.setValue(updateProfileResultEntity.Profile?.UpdatedDate ?? 0, forKeyPath: "updatedDate")
-            profile.setValue(updateProfileResultEntity.Profile?.CreatedDate ?? 0, forKeyPath: "createdDate")
-            profile.setValue(updateProfileResultEntity.Profile?.CardTerm ?? "", forKeyPath: "cardTerm")
-            profile.setValue(updateProfileResultEntity.Profile?.BankAccNumber ?? "", forKeyPath: "bankAccNumber")
-            profile.setValue(updateProfileResultEntity.Profile?.IdImage1 ?? "", forKeyPath: "idImage1")
-            profile.setValue(updateProfileResultEntity.Profile?.IdNumber ?? "", forKeyPath: "idNumber")
-            profile.setValue(updateProfileResultEntity.Profile?.DateOfBirth ?? "", forKeyPath: "dateOfBirth")
-            profile.setValue(updateProfileResultEntity.Profile?.Fullname ?? "", forKeyPath: "fullname")
-            profile.setValue(updateProfileResultEntity.Profile?.Fullname ?? "", forKeyPath: "fullname")
-            profile.setValue(updateProfileResultEntity.Profile?.Username ?? "", forKeyPath: "username")
-            profile.setValue(updateProfileResultEntity.Profile?.Id ?? 0, forKeyPath: "id")
+            profile.setValue(updateProfileEntity.address ?? "", forKey: "address")
+            profile.setValue(updateProfileEntity.bank_acc_number ?? "", forKey: "bankAccNumber")
+            profile.setValue(updateProfileEntity.card_term ?? "", forKey: "cardTerm")
+            profile.setValue(updateProfileEntity.date_of_birth ?? "", forKey: "dateOfBirth")
+            profile.setValue(updateProfileEntity.fullname ?? "", forKey: "fullname")
+            profile.setValue(updateProfileEntity.id_card_image ?? 0, forKey: "idCardImage")
+            profile.setValue(updateProfileEntity.id_image_1 ?? 0, forKey: "idImage1")
+            profile.setValue(updateProfileEntity.id_image_2 ?? 0, forKey: "idImage2")
+            profile.setValue(updateProfileEntity.id_number ?? "", forKey: "idNumber")
+            profile.setValue(updateProfileEntity.sex ?? 0, forKey: "sex")
+            profile.setValue(updateProfileEntity.username ?? "", forKey: "username")
             
             try managedContext.save()
         } catch {

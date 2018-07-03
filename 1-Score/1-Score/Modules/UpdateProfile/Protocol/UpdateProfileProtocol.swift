@@ -12,6 +12,7 @@ import UIKit
 protocol UpdateProfileViewProtocol : class {
     func initFullName(fullName:String)
     func initImage(image:UIImage, imageType: Int)
+    func initProfile(updateProfileResult:UpdateProfileResultEntity)
     func uploadImageError(activityIndicator:UIActivityIndicatorView, err:String)
     func uploadImageSuccess(activityIndicator:UIActivityIndicatorView, image:UIImage, imageType: String)
     func updateProfileSuccess(activityIndicator:UIActivityIndicatorView, msg:String)
@@ -24,6 +25,7 @@ protocol UpdateProfilePresenterProtocol : class {
     var wireframe: UpdateProfileWireframeProtocol? { get set }
     
     func initFullName()
+    func initProfile()
     func initImage(imageType: Int)
     func goToCamera(typeCamera:Int, imageType:String, dismissType:String, cropType:Int)
     func updateImage(activityIndicator:UIActivityIndicatorView, image:UIImage, imageType:String)
@@ -35,6 +37,7 @@ protocol UpdateProfileInteractorInputProtocol : class {
     var dataStore:UpdateProfileDataStoreProtocol? { get set }
     
     func initFullName()
+    func initProfile()
     func initImage(imageType: Int)
     func goToCamera(typeCamera:Int, imageType:String, dismissType:String, cropType:Int)
     func updateImage(activityIndicator:UIActivityIndicatorView, image:UIImage, imageType:String)
@@ -44,6 +47,7 @@ protocol UpdateProfileInteractorInputProtocol : class {
 protocol UpdateProfileInteractorOutputProtocol : class {
     func initFullNameOutput(fullName:String)
     func initImageOutput(image:UIImage, imageType: Int)
+    func initProfileOutput(updateProfileResult:UpdateProfileResultEntity)
     func goToCameraOutput(typeCamera:Int, imageType:String, dismissType:String, cropType:Int)
     func uploadImageError(activityIndicator:UIActivityIndicatorView, err:String)
     func uploadImageSuccess(activityIndicator:UIActivityIndicatorView, image:UIImage, imageType: String)
@@ -58,10 +62,11 @@ protocol UpdateProfileWireframeProtocol : class {
 //DataStore
 protocol UpdateProfileDataStoreProtocol : class {
     func getUser(completion:@escaping (_ loginResultEntity:LoginResultEntity) -> ())
+    func getProfile(completion:@escaping (_ updateProfileResultEntity:UpdateProfileResultEntity) -> ())
     func getImage(imageName:String) -> Int
     func saveImageToLocal(fileName:String, image:UIImage)
     func saveImageToDB(uploadImageResultEntity:UploadImageResultEntity, imageName:String, username:String, imageType:String)
     func uploadImage(token:String, uploadImageEntity:UploadImageEntity, completion:@escaping (_ uploadImageResultEntity: UploadImageResultEntity) -> ())
-    func updateProfileToDB(updateProfileResultEntity: UpdateProfileResultEntity)
+    func updateProfileToDB(updateProfileEntity: UpdateProfileEntity)
     func updateProfile(token:String, updateProfileEntity:UpdateProfileEntity, completion:@escaping (_ updateProfileResultEntity: UpdateProfileResultEntity) -> ())
 }
