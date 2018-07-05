@@ -68,6 +68,7 @@ class AuthenticOtpView: UIViewController {
         btBack.bounds.size = CGSize(width: 30, height: 30)
         btBack.setImage(#imageLiteral(resourceName: "ios_back_gray"), for: .normal)
         btBack.addTarget(self, action: #selector(back), for: .touchUpInside)
+        btBack.imageContentMode = 1
         
         mainView.addSubview(txtOtp1)
         txtOtp1.translatesAutoresizingMaskIntoConstraints = false
@@ -217,10 +218,10 @@ class AuthenticOtpView: UIViewController {
     @objc func actionConfirm(sender:UIButton!) {
         if(type == 1) {// change pass
             let otpCode = txtOtp1.text! + txtOtp2.text! + txtOtp3.text! + txtOtp4.text! + txtOtp5.text! + txtOtp6.text!
-            authenticOtpPresenter?.changePass(phoneNumber: phoneNumber!, otpCode: otpCode, type: type!)
+            authenticOtpPresenter?.changePass(phoneNumber: phoneNumber!, otpCode: otpCode, action: StringEnum.ACTION_FORGOT_PASSWORD.rawValue, type: type!)
         } else {// register
             let otpCode = txtOtp1.text! + txtOtp2.text! + txtOtp3.text! + txtOtp4.text! + txtOtp5.text! + txtOtp6.text!
-            authenticOtpPresenter?.compareOtp(phoneNumber: phoneNumber!, otpCode: otpCode, type: type!)
+            authenticOtpPresenter?.compareOtp(phoneNumber: phoneNumber!, otpCode: otpCode, action: StringEnum.ACTION_CONFIRM_USER.rawValue, type: type!)
         }
     }
     

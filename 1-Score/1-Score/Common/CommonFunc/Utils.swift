@@ -141,4 +141,39 @@ class Utils {
         return UserDefaults.standard.object(forKey: key) != nil
     }
     
+    static func checkKeyExist(dic: [String : Any], key: String) -> Int {
+        if(dic.keys.contains(key)) {
+            return 1
+        }
+        return 0
+    }
+    
+    static func getStringValueInDic(dic: [String : Any], key: String) -> String {
+        if(dic.keys.contains(key)) {
+            return dic[key]! is NSNull ? "" : (dic[key]! as? String)!
+        }
+        return ""
+    }
+    
+    static func getIntValueInDic(dic: [String : Any], key: String) -> Int {
+        if(dic.keys.contains(key)) {
+            return dic[key]! is NSNull ? 0 : (dic[key]! as? Int)!
+        }
+        return 0
+    }
+    
+    static func getBoolValueInDic(dic: [String : Any], key: String) -> Bool {
+        if(dic.keys.contains(key)) {
+            return dic[key]! is NSNull ? false : (dic[key]! as? Bool)!
+        }
+        return false
+    }
+    
+    static func getNumberValueInDic(dic: [String : Any], key: String) -> NSNumber {
+        if(dic.keys.contains(key)) {
+            return dic[key]! is NSNull ? 0 : (dic[key]! as? NSNumber)!
+        }
+        return 0
+    }
+ 
 }

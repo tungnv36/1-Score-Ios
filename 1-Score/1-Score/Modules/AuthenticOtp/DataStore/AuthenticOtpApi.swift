@@ -15,10 +15,11 @@ class AuthenticOtpApi {
     func compateOtp(authenticOtpEntity:AuthenticOtpEntity, completion:@escaping (_ json: [String: Any]) -> ()) {
         let parameters = [
             "phone_number": authenticOtpEntity.phone_number,
-            "otp_code": authenticOtpEntity.otp_code
+            "otp_code": authenticOtpEntity.otp_code,
+            "action": authenticOtpEntity.action
             ] as! Dictionary<String, String>
         
-        let url = URL(string: StringEnum.API_BASE_URL.rawValue + "otp/compare-otp")!
+        let url = URL(string: StringEnum.API_BASE_URL.rawValue + "otp/confirm")!
         print(url)
         let session = URLSession.shared
         var request = URLRequest(url: url)

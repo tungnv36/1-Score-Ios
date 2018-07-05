@@ -17,16 +17,15 @@ struct LoginResultEntity {
     var CardTerm:String?
     var DateOfBirth:String?
     var Fullname:String?
-    var IdAvatar:Int?
-    var IdCardImage:Int?
-    var IdImage1:String?
-    var IdImage2:String?
+    var UrlAvatar:String?
+    var UrlCardImage:String?
+    var UrlImage1:String?
+    var UrlImage2:String?
     var IdNumber:String?
     var Level:Int?
-    var Phone:String?
     var Progress:Int?
     var Scored:NSNumber?
-    var Sex:String?
-    var UserId:Int?
+    var Sex:Int?
+    var UserId:String?
     var Username:String?
 }

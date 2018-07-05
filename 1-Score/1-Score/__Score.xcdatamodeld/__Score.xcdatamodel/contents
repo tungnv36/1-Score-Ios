@@ -30,26 +30,25 @@
         <attribute name="cardTerm" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateOfBirth" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullname" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="idAvatar" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="idCardImage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="idImage1" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="idImage2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="level" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="progress" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="scored" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="statusCode" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="urlAvatar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlCardImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlImage1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlImage2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Config" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="Images" positionX="-63" positionY="135" width="128" height="135"/>
         <element name="Profile" positionX="-63" positionY="135" width="128" height="210"/>
-        <element name="User" positionX="-63" positionY="-9" width="128" height="345"/>
+        <element name="User" positionX="-63" positionY="-9" width="128" height="330"/>
     </elements>
 </model>

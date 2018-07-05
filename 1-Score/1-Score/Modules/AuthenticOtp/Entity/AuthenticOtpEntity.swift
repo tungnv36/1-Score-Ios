@@ -12,4 +12,5 @@ import UIKit
 struct AuthenticOtpEntity {
     var phone_number:String?
     var otp_code:String?
+    var action:String?
 }

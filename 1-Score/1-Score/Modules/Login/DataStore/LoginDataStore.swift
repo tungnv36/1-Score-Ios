@@ -39,13 +39,12 @@ class LoginDataStore : LoginDataStoreProtocol {
             user.setValue(loginEntity.CardTerm, forKeyPath: "cardTerm")
             user.setValue(loginEntity.DateOfBirth, forKeyPath: "dateOfBirth")
             user.setValue(loginEntity.Fullname, forKeyPath: "fullname")
-            user.setValue(loginEntity.IdAvatar, forKeyPath: "idAvatar")
-            user.setValue(loginEntity.IdCardImage, forKeyPath: "idCardImage")
-            user.setValue(loginEntity.IdImage1, forKeyPath: "idImage1")
-            user.setValue(loginEntity.IdImage2, forKeyPath: "idImage2")
+            user.setValue(loginEntity.UrlAvatar, forKeyPath: "urlAvatar")
+            user.setValue(loginEntity.UrlCardImage, forKeyPath: "urlCardImage")
+            user.setValue(loginEntity.UrlImage1, forKeyPath: "urlImage1")
+            user.setValue(loginEntity.UrlImage2, forKeyPath: "urlImage2")
             user.setValue(loginEntity.IdNumber, forKeyPath: "idNumber")
             user.setValue(loginEntity.Level, forKeyPath: "level")
-            user.setValue(loginEntity.Phone, forKeyPath: "phone")
             user.setValue(loginEntity.Progress, forKeyPath: "progress")
             user.setValue(loginEntity.Scored, forKeyPath: "scored")
             user.setValue(loginEntity.Sex, forKeyPath: "sex")
@@ -176,26 +175,25 @@ class LoginDataStore : LoginDataStoreProtocol {
                     completion(loginResultEntity)
                 } else {
                     let loginResultEntity = LoginResultEntity(
-                        StatusCode:     json["StatusCode"] is NSNull ? 0 : (json["StatusCode"] as? Int)!,
-                        Message:        json["Message"] is NSNull ? "" : (json["Message"] as? String)!,
-                        Token:          json["Token"] is NSNull ? "" : (json["Token"] as? String)!,
-                        Address:        dic["Address"] is NSNull ? "" : (dic["Address"] as? String)!,
-                        BankAccNumber:  dic["BankAccNumber"] is NSNull ? "" : (dic["BankAccNumber"] as? String)!,
-                        CardTerm:       dic["CardTerm"] is NSNull ? "" : (dic["CardTerm"] as? String)!,
-                        DateOfBirth:    dic["DateOfBirth"] is NSNull ? "" : (dic["DateOfBirth"] as? String)!,
-                        Fullname:       dic["Fullname"] is NSNull ? "" : (dic["Fullname"] as? String)!,
-                        IdAvatar:       dic["IdAvatar"] is NSNull ? 0 : (dic["IdAvatar"] as? Int)!,
-                        IdCardImage:    dic["IdCardImage"] is NSNull ? 0 : (dic["IdCardImage"] as? Int)!,
-                        IdImage1:       dic["IdImage1"] is NSNull ? "" : (dic["IdImage1"] as? String)!,
-                        IdImage2:       dic["IdImage2"] is NSNull ? "" : (dic["IdImage2"] as? String)!,
-                        IdNumber:       dic["IdNumber"] is NSNull ? "" : (dic["IdNumber"] as? String)!,
-                        Level:          dic["Level"] is NSNull ? 0  : (dic["Level"] as? Int)!,
-                        Phone:          dic["Phone"] is NSNull ? "" : (dic["Phone"] as? String)!,
-                        Progress:       dic["Progress"] is NSNull ? 0  : (dic["Progress"] as? Int)!,
-                        Scored:         dic["Scored"] is NSNull ? 0  : (dic["Scored"] as? NSNumber)!,
-                        Sex:            dic["Sex"] is NSNull ? "0"  : (dic["Sex"] as? String)!,
-                        UserId:         dic["UserId"] is NSNull ? 0  : (dic["UserId"] as? Int)!,
-                        Username:       dic["Username"] is NSNull ? "" : (dic["Username"] as? String)!
+                        StatusCode:     Utils.getIntValueInDic(dic: json, key: "StatusCode"),
+                        Message:        Utils.getStringValueInDic(dic: json, key: "Message"),
+                        Token:          Utils.getStringValueInDic(dic: json, key: "Token"),
+                        Address:        Utils.getStringValueInDic(dic: dic, key: "Address"),
+                        BankAccNumber:  Utils.getStringValueInDic(dic: dic, key: "BankAccNumber"),
+                        CardTerm:       Utils.getStringValueInDic(dic: dic, key: "CardTerm"),
+                        DateOfBirth:    Utils.getStringValueInDic(dic: dic, key: "DateOfBirth"),
+                        Fullname:       Utils.getStringValueInDic(dic: dic, key: "Fullname"),
+                        UrlAvatar:       Utils.getStringValueInDic(dic: dic, key: "UrlAvatar"),
+                        UrlCardImage:    Utils.getStringValueInDic(dic: dic, key: "UrlCardImage"),
+                        UrlImage1:       Utils.getStringValueInDic(dic: dic, key: "UrlImage1"),
+                        UrlImage2:       Utils.getStringValueInDic(dic: dic, key: "UrlImage2"),
+                        IdNumber:       Utils.getStringValueInDic(dic: dic, key: "IdNumber"),
+                        Level:          Utils.getIntValueInDic(dic: dic, key: "Level"),
+                        Progress:       Utils.getIntValueInDic(dic: dic, key: "Progress"),
+                        Scored:         Utils.getNumberValueInDic(dic: dic, key: "Scored"),
+                        Sex:            Utils.getIntValueInDic(dic: dic, key: "Sex"),
+                        UserId:         Utils.getStringValueInDic(dic: dic, key: "UserId"),
+                        Username:       Utils.getStringValueInDic(dic: dic, key: "Username")
                     )
                     completion(loginResultEntity)
                 }

@@ -14,11 +14,11 @@ class AuthenticOtpInteractor : AuthenticOtpInteractorInputProtocol {
     var presenter: AuthenticOtpInteractorOutputProtocol?
     var dataStore: AuthenticOtpDataStoreProtocol?
     
-    func compareOtp(phoneNumber: String, otpCode: String, type: Int) {
+    func compareOtp(phoneNumber: String, otpCode: String, action: String, type: Int) {
         if(otpCode.count != 6) {
             self.presenter?.compareOtpFailed(err: "Mã OTP phải gồm 6 số")
         } else {
-            let authenticOtpEntity = AuthenticOtpEntity(phone_number: phoneNumber, otp_code: otpCode)
+            let authenticOtpEntity = AuthenticOtpEntity(phone_number: phoneNumber, otp_code: otpCode, action: action)
             dataStore?.compareOtp(authenticOtpEntity: authenticOtpEntity) { (authenticOtpResultEntity:AuthenticOtpResultEntity) in
                 if(authenticOtpResultEntity.StatusCode == 200) {
                     self.presenter?.compareOtpSuccess(type: type)
@@ -29,11 +29,11 @@ class AuthenticOtpInteractor : AuthenticOtpInteractorInputProtocol {
         }
     }
     
-    func changePass(phoneNumber:String, otpCode:String, type:Int) {
+    func changePass(phoneNumber:String, otpCode:String, action: String, type:Int) {
         if(otpCode.count != 6) {
             self.presenter?.compareOtpFailed(err: "Mã OTP phải gồm 6 số")
         } else {
-            let authenticOtpEntity = AuthenticOtpEntity(phone_number: phoneNumber, otp_code: otpCode)
+            let authenticOtpEntity = AuthenticOtpEntity(phone_number: phoneNumber, otp_code: otpCode, action: action)
             dataStore?.compareOtp(authenticOtpEntity: authenticOtpEntity) { (authenticOtpResultEntity:AuthenticOtpResultEntity) in
                 if(authenticOtpResultEntity.StatusCode == 200) {
                     self.presenter?.changePassSuccess(phoneNumber: phoneNumber, token: authenticOtpResultEntity.Token!)

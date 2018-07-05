@@ -17,9 +17,9 @@ class AuthenticOtpDataStore : AuthenticOtpDataStoreProtocol {
         _authenticOtpApi.compateOtp(authenticOtpEntity: authenticOtpEntity) { (json : [String : Any]) in
             print(json)
             let authenticOtpResultEntity = AuthenticOtpResultEntity(
-                StatusCode: json["StatusCode"] is NSNull ? 0 : (json["StatusCode"] as? Int)!,
-                Message:    json["Message"] is NSNull ? "" : (json["Message"] as? String)!,
-                Token:      json["Token"] is NSNull ? "" : (json["Token"] as? String)!
+                StatusCode: Utils.getIntValueInDic(dic: json, key: "StatusCode"),
+                Message:    Utils.getStringValueInDic(dic: json, key: "Message"),
+                Token:      Utils.getStringValueInDic(dic: json, key: "Token")
             )
             completion(authenticOtpResultEntity)
         }

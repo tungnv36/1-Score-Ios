@@ -15,12 +15,12 @@ class AuthenticOtpPresenter : AuthenticOtpPresenterProtocol {
     var interactor: AuthenticOtpInteractorInputProtocol?
     var wireframe: AuthenticOtpWireframeProtocol?
    
-    func compareOtp(phoneNumber: String, otpCode: String, type: Int) {
-        interactor?.compareOtp(phoneNumber: phoneNumber, otpCode: otpCode, type: type)
+    func compareOtp(phoneNumber: String, otpCode: String, action: String, type: Int) {
+        interactor?.compareOtp(phoneNumber: phoneNumber, otpCode: otpCode, action: action, type: type)
     }
     
-    func changePass(phoneNumber: String, otpCode: String, type: Int) {
-        interactor?.changePass(phoneNumber: phoneNumber, otpCode: otpCode, type: type)
+    func changePass(phoneNumber: String, otpCode: String, action: String, type: Int) {
+        interactor?.changePass(phoneNumber: phoneNumber, otpCode: otpCode, action: action, type: type)
     }
     
 }

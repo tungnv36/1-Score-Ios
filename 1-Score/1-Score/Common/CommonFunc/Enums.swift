@@ -129,4 +129,8 @@ enum StringEnum:String {
     
     case DISMISS_MODAL_AVATAR = "avatarModalIsDismissed"
     case DISMISS_MODAL_PROFILE = "profileModalIsDismissed"
+    
+    case ACTION_CONFIRM_USER = "CONFIRM_USER";
+    case ACTION_FORGOT_PASSWORD = "FORGOT_PASSWORD";
+    case ACTION_CHANGE_PHONE_NUMBER = "CHANGE_PHONE_NUMBER";
 }

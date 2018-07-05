@@ -20,7 +20,7 @@ class RegisterApi {
             "fullname": registerEntity.fullname
         ] as! Dictionary<String, String>
         
-        let url = URL(string: StringEnum.API_BASE_URL.rawValue + "users/register")!
+        let url = URL(string: StringEnum.API_BASE_URL.rawValue + "user/register")!
         print(url)
         let session = URLSession.shared
         var request = URLRequest(url: url)

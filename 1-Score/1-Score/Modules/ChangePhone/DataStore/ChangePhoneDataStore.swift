@@ -43,17 +43,16 @@ class ChangePhoneDataStore : ChangePhoneDataStoreProtocol {
                     CardTerm:       data.value(forKey: "cardTerm") as? String,
                     DateOfBirth:    data.value(forKey: "dateOfBirth") as? String,
                     Fullname:       data.value(forKey: "fullname") as? String,
-                    IdAvatar:       data.value(forKey: "idAvatar") as? Int,
-                    IdCardImage:    data.value(forKey: "idCardImage") as? Int,
-                    IdImage1:       data.value(forKey: "idImage1") as? String,
-                    IdImage2:       data.value(forKey: "idImage2") as? String,
+                    UrlAvatar:       data.value(forKey: "urlAvatar") as? String,
+                    UrlCardImage:    data.value(forKey: "urlCardImage") as? String,
+                    UrlImage1:       data.value(forKey: "urlImage1") as? String,
+                    UrlImage2:       data.value(forKey: "urlImage2") as? String,
                     IdNumber:       data.value(forKey: "idNumber") as? String,
                     Level:          data.value(forKey: "level") as? Int,
-                    Phone:          data.value(forKey: "phone") as? String,
                     Progress:       data.value(forKey: "progress") as? Int,
                     Scored:         data.value(forKey: "scored") as? NSNumber,
-                    Sex:            data.value(forKey: "sex") as? String,
-                    UserId:         data.value(forKey: "userId") as? Int,
+                    Sex:            data.value(forKey: "sex") as? Int,
+                    UserId:         data.value(forKey: "userId") as? String,
                     Username:       data.value(forKey: "username") as? String
                 )
                 completion(loginResultEntity)

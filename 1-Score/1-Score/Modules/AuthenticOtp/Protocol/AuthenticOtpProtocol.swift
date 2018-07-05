@@ -18,16 +18,16 @@ protocol AuthenticOtpPresenterProtocol : class {
     var interactor: AuthenticOtpInteractorInputProtocol? { get set }
     var wireframe: AuthenticOtpWireframeProtocol? { get set }
     
-    func compareOtp(phoneNumber:String, otpCode:String, type:Int)
-    func changePass(phoneNumber:String, otpCode:String, type:Int)
+    func compareOtp(phoneNumber:String, otpCode:String, action: String, type:Int)
+    func changePass(phoneNumber:String, otpCode:String, action: String, type:Int)
 }
 //Interactor
 protocol AuthenticOtpInteractorInputProtocol : class {
     var presenter:AuthenticOtpInteractorOutputProtocol? { get set }
     var dataStore:AuthenticOtpDataStoreProtocol? { get set }
     
-    func compareOtp(phoneNumber:String, otpCode:String, type:Int)
-    func changePass(phoneNumber:String, otpCode:String, type:Int)
+    func compareOtp(phoneNumber:String, otpCode:String, action: String, type:Int)
+    func changePass(phoneNumber:String, otpCode:String, action: String, type:Int)
 }
 
 protocol AuthenticOtpInteractorOutputProtocol : class {

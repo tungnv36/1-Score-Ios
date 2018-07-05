@@ -172,6 +172,7 @@
 		2277311320D8FF2E006BA0F0 /* UpdateProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277311220D8FF2E006BA0F0 /* UpdateProfileEntity.swift */; };
 		2277311520D8FF37006BA0F0 /* UpdateProfileDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277311420D8FF37006BA0F0 /* UpdateProfileDataStore.swift */; };
 		2277311720D8FF41006BA0F0 /* UpdateProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277311620D8FF41006BA0F0 /* UpdateProfileProtocol.swift */; };
+		22841BDE20EE23850014221E /* ExtensionDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22841BDD20EE23850014221E /* ExtensionDictionary.swift */; };
 		22A2ED5B20E3247E009042B2 /* AuthenticOtpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED5A20E3247E009042B2 /* AuthenticOtpApi.swift */; };
 		22A2ED5D20E3250E009042B2 /* AuthenticOtpResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED5C20E3250E009042B2 /* AuthenticOtpResultEntity.swift */; };
 		22A2ED5F20E33C4B009042B2 /* OtpResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2ED5E20E33C4B009042B2 /* OtpResultEntity.swift */; };
@@ -399,6 +400,7 @@
 		2277311220D8FF2E006BA0F0 /* UpdateProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileEntity.swift; sourceTree = "<group>"; };
 		2277311420D8FF37006BA0F0 /* UpdateProfileDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileDataStore.swift; sourceTree = "<group>"; };
 		2277311620D8FF41006BA0F0 /* UpdateProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileProtocol.swift; sourceTree = "<group>"; };
+		22841BDD20EE23850014221E /* ExtensionDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDictionary.swift; sourceTree = "<group>"; };
 		22A2ED5A20E3247E009042B2 /* AuthenticOtpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpApi.swift; sourceTree = "<group>"; };
 		22A2ED5C20E3250E009042B2 /* AuthenticOtpResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticOtpResultEntity.swift; sourceTree = "<group>"; };
 		22A2ED5E20E33C4B009042B2 /* OtpResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpResultEntity.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 				22B262B220D7ABA500969422 /* ExtensionSlider.swift */,
 				226B446220E72E3D00E6870C /* ExtensionString.swift */,
 				2234ADC520E9E4A700251AA0 /* ExtensionUIImage.swift */,
+				22841BDD20EE23850014221E /* ExtensionDictionary.swift */,
 			);
 			path = Entensions;
 			sourceTree = "<group>";
@@ -2346,6 +2349,7 @@
 				2238122F20DE340E00A91ADF /* AuthenticOtpDataStore.swift in Sources */,
 				224A420D20DCACC7007FFFBC /* UpdateSocialNetworkWireframe.swift in Sources */,
 				2238124B20DE3B8C00A91ADF /* ChangePassPresenter.swift in Sources */,
+				22841BDE20EE23850014221E /* ExtensionDictionary.swift in Sources */,
 				2202186E20CD75F40016EA9E /* ExtensionColor.swift in Sources */,
 				22B250E220E63EAC003CB9D8 /* UploadImageResultEntity.swift in Sources */,
 				225AD01520CE8C6600F9CA34 /* RegisterView.swift in Sources */,

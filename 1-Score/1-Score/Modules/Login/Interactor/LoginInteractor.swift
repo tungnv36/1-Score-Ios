@@ -30,19 +30,19 @@ class LoginInteractor : LoginInteractorInputProtocol {
                 } else {
                     DispatchQueue.main.async {
                         self.dataStore?.getImageFromDB(imageName: "\(username)_avatar", completion: { (uploadImageResultEntity:UploadImageResultEntity) in
-                            if(uploadImageResultEntity.image?.id != loginResultEntity.IdAvatar) {
-                                let id:Int? = loginResultEntity.IdAvatar
-                                let url = "\(StringEnum.API_BASE_URL.rawValue)images/\(id ?? 0)"
-                                Utils.loadImageUrl(sUrl: url, completion: { (image:UIImage) in
-                                    self.dataStore?.saveImageToLocal(fileName: "\(username)_avatar", image: image)
-                                    self.dataStore?.saveImageToDB(
-                                        uploadImageResultEntity: uploadImageResultEntity,
-                                        imageName: "\(username)_avatar",
-                                        username: username,
-                                        type: "AVATAR"
-                                    )
-                                })
-                            }
+//                            if(uploadImageResultEntity.image?.id != loginResultEntity.IdAvatar) {
+//                                let id:Int? = loginResultEntity.IdAvatar
+//                                let url = "\(StringEnum.API_BASE_URL.rawValue)images/\(id ?? 0)"
+//                                Utils.loadImageUrl(sUrl: url, completion: { (image:UIImage) in
+//                                    self.dataStore?.saveImageToLocal(fileName: "\(username)_avatar", image: image)
+//                                    self.dataStore?.saveImageToDB(
+//                                        uploadImageResultEntity: uploadImageResultEntity,
+//                                        imageName: "\(username)_avatar",
+//                                        username: username,
+//                                        type: "AVATAR"
+//                                    )
+//                                })
+//                            }
                         })
                         self.dataStore?.updateUser(loginEntity: loginResultEntity)
                     }
